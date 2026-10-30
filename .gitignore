@@ -3,7 +3,9 @@
 .runtime/
 server.log
 etsy_tokens.json
+etsy_tokens_*.json
 etsy_auth_state.json
+etsy_auth_state_*.json
 
 # Environment variables
 .env

@@ -1,0 +1,25 @@
+{
+  "active_shop_id": "logessa-murals",
+  "shops": [
+    {
+      "id": "logessa-murals",
+      "shop_id": "48921849",
+      "shop_name": "Logessa Wall Murals",
+      "niche": "Luxury Chinoiserie & Panoramic Murals",
+      "currency": "USD",
+      "default_price": 345.0,
+      "client_id": "",
+      "redirect_uri": ""
+    },
+    {
+      "id": "qoop-patterns",
+      "shop_id": "51048392",
+      "shop_name": "Qoop Studio Patterns",
+      "niche": "Minimalist Japandi & Seamless Tiles",
+      "currency": "USD",
+      "default_price": 195.0,
+      "client_id": "",
+      "redirect_uri": ""
+    }
+  ]
+}

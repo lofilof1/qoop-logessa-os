@@ -253,9 +253,15 @@
       </div>
     </div>
     <div class="pill-group">
-      <div class="pill green" title="Etsy Open API v3 Aktif"><span class="dot"></span> Etsy API v3: Bağlı (OAuth2)</div>
-      <div class="pill blue" title="Yerel GPU Görsel Modeli"><span class="dot"></span> AI: Ollama (Qwen-VL) Ready</div>
-      <div class="pill gold" title="Yerel S3 Depolama"><span class="dot"></span> MinIO S3: Aktif</div>
+      <div class="pill gold" style="padding:3px 10px" title="Aktif Etsy Mağazasını Değiştir">
+        <span>🏪 Mağaza:</span>
+        <select id="globalShopSelect" style="width:auto;padding:2px 6px;font-size:11px;border:none;background:transparent;color:var(--gold);font-weight:700;cursor:pointer">
+          <option value="logessa-murals">Logessa Wall Murals (#48921849)</option>
+          <option value="qoop-patterns">Qoop Studio Patterns (#51048392)</option>
+        </select>
+      </div>
+      <div class="pill green" id="headerEtsyPill" title="Etsy Open API v3 Multi-Shop"><span class="dot"></span> <span id="headerEtsyText">Etsy API v3: Hazır</span></div>
+      <div class="pill blue" id="headerRamPill" title="Raspberry Pi Kaynak Kalkanı"><span class="dot"></span> <span id="headerRamText">RAM: ~23 MB</span></div>
     </div>
   </header>
 
@@ -528,21 +534,75 @@
       </div>
     </section>
 
-    <!-- TAB 5: ETSY API V3 ONE-CLICK PUBLISH -->
+    <!-- TAB 5: ETSY API V3 ONE-CLICK PUBLISH & MULTI-SHOP HUB -->
     <section id="tab-api" class="tab-content">
+      <!-- Multi-Shop Management Hub -->
+      <div class="card" style="margin-bottom:20px;border-color:rgba(212,175,55,0.45)">
+        <div class="card-header">
+          <div>
+            <h2>🏪 Çoklu Etsy Mağazası Yönetimi (Multi-Shop Hub)</h2>
+            <p style="font-size:12px;color:var(--muted);margin-top:2px">Farklı nişlerdeki (örn. Lüks Mural vs. Tekrarlı Desen) Etsy mağazalarınızı tek merkezden yönetin ve ayrı OAuth oturumlarıyla yayın yapın.</p>
+          </div>
+          <button class="btn btn-gold btn-sm" id="btnToggleNewShopForm">+ Yeni Etsy Mağazası Ekle</button>
+        </div>
+
+        <div id="shopsCardsGrid" class="grid-2" style="gap:12px">
+          <!-- Populated dynamically via loadShops() -->
+        </div>
+
+        <!-- Collapsible Add Shop Form -->
+        <div id="newShopFormBox" style="display:none;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:14px;margin-top:6px">
+          <b style="color:var(--gold);display:block;margin-bottom:10px">Yeni Etsy Mağaza Profili Tanımla</b>
+          <div class="grid-3" style="gap:10px">
+            <div>
+              <label>Mağaza Adı (Etsy Shop Name):</label>
+              <input type="text" id="newShopName" placeholder="örn. Atelier Botanica">
+            </div>
+            <div>
+              <label>Etsy Shop ID:</label>
+              <input type="text" id="newShopEtsyId" placeholder="örn. 54920183" style="font-family:var(--font-mono)">
+            </div>
+            <div>
+              <label>Mağaza Nişi / Koleksiyon:</label>
+              <input type="text" id="newShopNiche" placeholder="örn. Kids & Nursery Wall Murals">
+            </div>
+          </div>
+          <div class="grid-2" style="gap:10px;margin-top:10px">
+            <div>
+              <label>Özel API Keystring (Boş bırakılırsa ana .env anahtarı kullanılır):</label>
+              <input type="text" id="newShopClientId" placeholder="Varsayılan: znhmaxofm17pggem67prm1888" style="font-family:var(--font-mono);font-size:12px">
+            </div>
+            <div>
+              <label>Varsayılan İlan Fiyatı ($ USD):</label>
+              <input type="number" id="newShopPrice" value="325.00" step="5">
+            </div>
+          </div>
+          <div style="display:flex;justify-content:flex-end;gap:8px;margin-top:12px">
+            <button class="btn btn-sm" type="button" onclick="document.getElementById('newShopFormBox').style.display='none'">İptal</button>
+            <button class="btn btn-gold btn-sm" type="button" id="btnCreateShop">💾 Mağazayı Ekle ve Aktif Et</button>
+          </div>
+        </div>
+      </div>
+
       <div class="grid-2">
         <div class="card">
           <div class="card-header">
-            <h2>Etsy API v3 Bağlantı Durumu</h2>
+            <h2>Etsy API v3 Bağlantı Durumu (<span id="activeShopTitleLabel" style="color:var(--gold)">Logessa Wall Murals</span>)</h2>
             <span class="pill" id="etsyConnPill" style="background:#2b2513;border-color:var(--gold);color:var(--gold)">
               <span class="dot" style="background:var(--gold)"></span> <span id="etsyConnText">Bağlantı Bekleniyor</span>
             </span>
           </div>
 
           <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:14px;display:flex;flex-direction:column;gap:10px">
-            <div>
-              <label style="margin-bottom:2px">API Keystring (Client ID):</label>
-              <div style="font-family:var(--font-mono);font-size:13px;color:var(--accent);font-weight:700" id="dispClientId">znhmaxofm17pggem67prm1888</div>
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div>
+                <label style="margin-bottom:2px">API Keystring (Client ID):</label>
+                <div style="font-family:var(--font-mono);font-size:13px;color:var(--accent);font-weight:700" id="dispClientId">znhmaxofm17pggem67prm1888</div>
+              </div>
+              <div style="text-align:right">
+                <label style="margin-bottom:2px">Hedef Shop ID:</label>
+                <div style="font-family:var(--font-mono);font-size:13px;color:var(--gold);font-weight:700" id="dispShopId">#48921849</div>
+              </div>
             </div>
             <div>
               <label for="inputRedirectUri" style="margin-bottom:2px">Callback URL (Redirect URI):</label>
@@ -558,17 +618,17 @@
             </div>
 
             <button class="btn btn-gold" id="btnConnectEtsy" style="width:100%;margin-top:4px">
-              🔗 Etsy Mağazamı Bağla (Resmî OAuth 2.0 İle Giriş Yap)
+              🔗 Seçili Etsy Mağazasını Bağla (OAuth 2.0 PKCE)
             </button>
           </div>
 
           <div style="border:1px solid var(--border);border-radius:8px;padding:16px;background:var(--panel)">
-            <b style="font-size:15px;display:block;margin-bottom:8px">🚀 Tek Tıkla Canlı İlan Açma (One-Click Publish)</b>
+            <b style="font-size:15px;display:block;margin-bottom:8px">🚀 Tek Tıkla Canlı İlan Açma (IP & Uyumluluk Kalkanlı)</b>
             <p style="font-size:13px;color:var(--muted);margin-bottom:14px">
-              Bu butona bastığınızda sistem Etsy'ye elle kopyalama yapmanıza gerek bırakmadan; başlığı, 13 etiketi, açıklamayı ve **Canvas motorunun render ettiği 10 adet mockup görselini** API üzerinden doğrudan mağazanıza yükler.
+              Başlığı, 13 etiketi, açıklamayı ve Canvas mockup paketini telif/iddia denetiminden geçirerek doğrudan <b>seçili Etsy mağazanıza</b> gönderir ve envantere kaydeder.
             </p>
             <div style="display:flex;gap:12px">
-              <button class="btn btn-gold" id="btnPublishEtsy" style="flex:1">⚡ Etsy Mağazasına Gönder (Draft)</button>
+              <button class="btn btn-gold" id="btnPublishEtsy" style="flex:1">⚡ Mağazaya Gönder (Draft)</button>
               <button class="btn btn-accent" id="btnPublishActive">Canlıya Al (Active)</button>
             </div>
           </div>
@@ -584,31 +644,20 @@
         <div class="card">
           <div class="card-header">
             <h2>Canlı API Çağrı Yükü (JSON Payload Inspector)</h2>
-            <span class="badge" style="font-family:var(--font-mono)">POST /v3/application/shops/48921849/listings</span>
+            <span class="badge" id="apiEndpointBadge" style="font-family:var(--font-mono)">POST /v3/application/shops/48921849/listings</span>
           </div>
-          <p style="font-size:12px;color:var(--muted)">Etsy sunucularına gönderilen gerçek API v3 veri paketi:</p>
+          <p style="font-size:12px;color:var(--muted)">Seçili mağaza için Etsy API v3 sunucularına hazırlanan canlı veri paketi (429 Exponential Backoff korumalı):</p>
           <pre class="code-box" id="jsonPayload">{
+  "shop_id": "48921849",
+  "shop_name": "Logessa Wall Murals",
   "title": "Emerald Peony Wallpaper, Chinoiserie Wall Mural Peel and Stick...",
-  "description": "Bring timeless elegance to your home with our luxury...",
-  "price": 89.00,
+  "price": 345.00,
   "quantity": 999,
   "taxonomy_id": 1429,
   "who_made": "i_did",
-  "is_supply": false,
   "when_made": "2020_2026",
   "tags": [
-    "chinoiserie mural", "peony wallpaper", "emerald wallpaper",
-    "botanical wall mural", "peel and stick", "removable wallpaper",
-    "floral wall decor", "vintage chinoiserie", "green wall mural",
-    "accent wall decor", "luxury wallpaper", "living room mural",
-    "bedroom wallpaper"
-  ],
-  "materials": ["Peel and Stick Vinyl", "Non-Woven Traditional Paper"],
-  "image_uploads": [
-    {"source": "canvas_room_std_1.webp", "rank": 1},
-    {"source": "canvas_room_std_5.webp", "rank": 2},
-    {"source": "canvas_room_std_3.webp", "rank": 3},
-    {"source": "info_dimension_guide.webp", "rank": 4}
+    "chinoiserie mural", "peony wallpaper", "emerald wallpaper"
   ]
 }</pre>
         </div>
@@ -679,24 +728,48 @@
           </div>
         </div>
 
-        <!-- Customer Wall Proofing Tool -->
+        <!-- Customer Wall Proofing Tool (3D Perspective Mesh + Shadow Depth) -->
         <div class="card">
           <div class="card-header">
-            <h2>Müşteri Odası Duvar Prova Masası (VIP Service)</h2>
-            <span class="badge" style="color:var(--gold)">4-Nokta Perspektif</span>
+            <h2>Müşteri Odası Duvar Prova Masası (VIP 3D Mesh)</h2>
+            <span class="badge" style="color:var(--gold)">3D Perspektif + AO Gölge</span>
           </div>
-          <p style="font-size:12px;color:var(--muted)">Müşterinin Etsy mesajıyla attığı salon fotoğrafına 4 köşe pini koyarak müşterinin gerçek odasına deseni canlı giydirebilirsiniz.</p>
+          <p style="font-size:12px;color:var(--muted)">Müşterinin gönderdiği oda fotoğrafını yükleyin; 4 köşe pinini sürüklediğinizde desen <b>gerçek 3D perspektif ağ (12×12 mesh)</b> ve <b>köşe gölge derinliği (Ambient Occlusion)</b> ile duvara giydirilir.</p>
 
-          <div style="position:relative">
-            <canvas id="wallCanvas" width="600" height="400"></canvas>
-            <div style="position:absolute;bottom:10px;left:10px;background:rgba(0,0,0,0.7);padding:4px 8px;border-radius:4px;font-size:11px;font-family:var(--font-mono)">
-              Köşe pinlerini fareyle sürükleyip duvara oturtun
+          <!-- Customer Room Photo Upload & Lighting Controls -->
+          <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;background:var(--card);padding:10px;border-radius:8px;border:1px solid var(--border)">
+            <div style="display:flex;gap:6px;align-items:center">
+              <input type="file" id="wallPhotoInput" accept="image/*" style="display:none">
+              <button class="btn btn-accent btn-sm" type="button" onclick="document.getElementById('wallPhotoInput').click()">📷 Müşteri Oda Fotoğrafı Yükle</button>
+              <button class="btn btn-sm" type="button" id="btnResetWallPhoto" title="Varsayılan odaya dön">↺ Varsayılan Oda</button>
+            </div>
+            <label style="margin:0;display:flex;align-items:center;gap:6px;font-size:11px;cursor:pointer;color:var(--text)">
+              <input type="checkbox" id="chkWallMultiply" checked style="width:auto">
+              Duvar Işık Karışımı (Multiply)
+            </label>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;background:var(--card);padding:10px 12px;border-radius:8px;border:1px solid var(--border)">
+            <div>
+              <label style="margin-bottom:2px;font-size:11px">🌑 Köşe & Tavan Gölge Derinliği (AO): <b id="valWallShadow" style="color:var(--gold)">60%</b></label>
+              <input type="range" id="rngWallShadow" min="0" max="100" value="60" style="padding:0">
+            </div>
+            <div>
+              <label style="margin-bottom:2px;font-size:11px">☀️ Yönlü Pencere Işığı (Directional): <b id="valWallLight" style="color:var(--accent)">45%</b></label>
+              <input type="range" id="rngWallLight" min="0" max="100" value="45" style="padding:0">
             </div>
           </div>
 
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px">
+          <div style="position:relative">
+            <canvas id="wallCanvas" width="720" height="480"></canvas>
+            <div style="position:absolute;bottom:10px;left:10px;background:rgba(0,0,0,0.75);padding:4px 8px;border-radius:4px;font-size:11px;font-family:var(--font-mono)">
+              4 köşe pinini fare veya dokunmatik ekranla sürükleyin
+            </div>
+          </div>
+
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px">
             <span id="wallProofCustomer" style="font-size:12px;color:var(--accent)">Aktif Prova: Emily R. (400 × 280 cm)</span>
-            <button class="btn btn-gold btn-sm" id="btnDownloadProof">Müşteriye Onay Görseli İndir</button>
+            <button class="btn btn-gold btn-sm" id="btnDownloadProof">📥 Onay Görselini İndir (.PNG)</button>
           </div>
         </div>
       </div>
@@ -893,7 +966,12 @@
       <div class="card" style="margin-bottom:16px">
         <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
           <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
-            <input type="text" id="inventorySearch" placeholder="Başlık veya SKU ile ara..." style="width:240px;padding:7px 12px">
+            <input type="text" id="inventorySearch" placeholder="Başlık veya SKU ile ara..." style="width:220px;padding:7px 12px">
+            <select id="inventoryShopFilter" style="width:210px;padding:7px 12px">
+              <option value="ALL">🏪 Tüm Etsy Mağazaları</option>
+              <option value="logessa-murals">Logessa Wall Murals</option>
+              <option value="qoop-patterns">Qoop Studio Patterns</option>
+            </select>
             <select id="inventoryFilter" style="width:230px;padding:7px 12px">
               <option value="ALL">Tüm Durumlar</option>
               <option value="ACTIVE">Yalnızca Yayında</option>
@@ -959,8 +1037,43 @@
       </div>
     </section>
 
-    <!-- TAB 9: CONFIGURATION & .ENV MANAGER -->
+    <!-- TAB 9: CONFIGURATION, .ENV & HARDWARE RESOURCE SHIELD -->
     <section id="tab-config" class="tab-content">
+      <!-- Raspberry Pi 2GB RAM Resource Shield Card -->
+      <div class="card" style="margin-bottom:20px;border-color:rgba(56,189,248,0.45)">
+        <div class="card-header">
+          <div>
+            <h2>🛡️ Donanım & Kaynak Tüketimi Kalkanı (Raspberry Pi 2GB RAM Modu)</h2>
+            <p style="font-size:12px;color:var(--muted);margin-top:2px">Ağır konteynerler (Next.js / MinIO / Postgres) <b>Lazy Docker Profile</b> ile uyku modunda tutulur; aktif Python + Canvas motoru ~24 MB RAM ile sıfır ısınmayla çalışır.</p>
+          </div>
+          <button class="btn btn-sm btn-accent" type="button" onclick="loadSystemResources()">🔄 Canlı Telemetriyi Yenile</button>
+        </div>
+        <div class="grid-4" style="gap:12px">
+          <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:12px">
+            <span style="font-size:11px;color:var(--muted);text-transform:uppercase">Unified Sunucu RAM</span>
+            <b style="display:block;font-size:1.35rem;color:var(--success);font-family:var(--font-mono)" id="resServerRss">~23.4 MB</b>
+            <span style="font-size:11px;color:var(--muted)">Ultra hafif Python Threading</span>
+          </div>
+          <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:12px">
+            <span style="font-size:11px;color:var(--muted);text-transform:uppercase">Sistem Toplam RAM</span>
+            <b style="display:block;font-size:1.35rem;color:var(--accent);font-family:var(--font-mono)" id="resSysMem">652 / 1845 MB</b>
+            <div style="height:5px;background:var(--border);border-radius:3px;overflow:hidden;margin-top:6px">
+              <div id="resSysMemBar" style="height:100%;width:35%;background:var(--accent)"></div>
+            </div>
+          </div>
+          <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:12px">
+            <span style="font-size:11px;color:var(--muted);text-transform:uppercase">CPU Sıcaklığı & Yük</span>
+            <b style="display:block;font-size:1.35rem;color:var(--gold);font-family:var(--font-mono)" id="resCpuTemp">57.0°C</b>
+            <span style="font-size:11px;color:var(--muted)" id="resLoadAvg">1dk Yük: 0.03</span>
+          </div>
+          <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:12px">
+            <span style="font-size:11px;color:var(--muted);text-transform:uppercase">Boş Disk & Lazy Docker</span>
+            <b style="display:block;font-size:1.35rem;color:var(--text);font-family:var(--font-mono)" id="resDiskFree">99.9 GB Boş</b>
+            <span style="font-size:11px;color:var(--success)" id="resDockerState">✓ Ağır MinIO/Next.js Uyku Modunda</span>
+          </div>
+        </div>
+      </div>
+
       <div class="grid-2">
         <!-- Settings Form -->
         <div class="card">
@@ -1285,122 +1398,430 @@
     });
 
     document.getElementById('btnDownloadMockups').onclick = () => {
-      showToast('8 adet yüksek çözünürlüklü mockup ZIP paketi olarak indiriliyor...');
+      const sheet = document.createElement('canvas');
+      const cols = 4, rows = 2, cw = 600, ch = 450;
+      sheet.width = cols * cw;
+      sheet.height = rows * ch + 60;
+      const sctx = sheet.getContext('2d');
+      sctx.fillStyle = '#0b121b';
+      sctx.fillRect(0, 0, sheet.width, sheet.height);
+
+      for (let i = 0; i < 8; i++) {
+        const rc = document.getElementById('roomCanvas_' + i);
+        if (rc) {
+          const dx = (i % cols) * cw;
+          const dy = Math.floor(i / cols) * ch;
+          sctx.drawImage(rc, dx, dy, cw, ch);
+          sctx.fillStyle = 'rgba(9,14,21,0.78)';
+          sctx.fillRect(dx + 10, dy + ch - 34, 260, 24);
+          sctx.fillStyle = '#d4af37';
+          sctx.font = 'bold 13px sans-serif';
+          sctx.fillText(`${i + 1}. ${ROOM_NAMES[i]}`, dx + 18, dy + ch - 17);
+        }
+      }
+      sctx.fillStyle = '#d4af37';
+      sctx.font = 'bold 20px sans-serif';
+      const activeShopName = (window.currentActiveShop && window.currentActiveShop.shop_name) || 'Qoop & Logessa Wallpaper OS';
+      sctx.fillText(`${activeShopName} · 8-Oda Mockup Katalog Paftası (${document.getElementById('patternTitle').textContent})`, 24, rows * ch + 38);
+
+      const link = document.createElement('a');
+      link.download = `mockup-pack-8-rooms-${Date.now()}.png`;
+      link.href = sheet.toDataURL('image/png');
+      link.click();
+      showToast('✓ 8 odalı yüksek çözünürlüklü Mockup Paftası (.PNG) indirildi!');
     };
 
     /* ==============================================================
-       3. CUSTOMER WALL PROOFING TOOL (INTERACTIVE PERSPECTIVE)
+       3. CUSTOMER WALL PROOFING TOOL (3D PERSPECTIVE MESH + AO SHADOWS)
        ============================================================== */
     const wallCanvas = document.getElementById('wallCanvas');
     const wctx = wallCanvas.getContext('2d');
+    let customerRoomImg = null;
+    let activeProofLabel = 'Emily R. (400 × 280 cm)';
     let pins = [
-      {x: 80, y: 60},   // Top-Left
-      {x: 520, y: 70},  // Top-Right
-      {x: 480, y: 340}, // Bottom-Right
-      {x: 90, y: 320}   // Bottom-Left
+      {x: 105, y: 58},   // Top-Left
+      {x: 615, y: 74},   // Top-Right
+      {x: 590, y: 375},  // Bottom-Right
+      {x: 115, y: 360}   // Bottom-Left
     ];
     let draggingPin = -1;
 
-    function renderWallProof() {
-      const w = wallCanvas.width, h = wallCanvas.height;
-      // Draw simulated customer room background
-      wctx.fillStyle = '#dcd5c7'; wctx.fillRect(0,0,w,h);
-      // Floor
-      wctx.fillStyle = '#8b6f50'; wctx.fillRect(0, h*0.75, w, h*0.25);
-      // Baseboard
-      wctx.fillStyle = '#ffffff'; wctx.fillRect(0, h*0.73, w, h*0.02);
+    function drawDefaultArchitecturalRoom(ctx, w, h) {
+      // Realistic architectural plaster wall with soft window daylight gradient
+      const wallGrad = ctx.createLinearGradient(0, 0, w, h * 0.78);
+      wallGrad.addColorStop(0, '#ebe5d8');
+      wallGrad.addColorStop(0.55, '#dcd4c4');
+      wallGrad.addColorStop(1, '#bfb5a2');
+      ctx.fillStyle = wallGrad;
+      ctx.fillRect(0, 0, w, h * 0.78);
 
-      // Clip pattern inside 4 corner pins
-      wctx.save();
-      wctx.beginPath();
-      wctx.moveTo(pins[0].x, pins[0].y);
-      wctx.lineTo(pins[1].x, pins[1].y);
-      wctx.lineTo(pins[2].x, pins[2].y);
-      wctx.lineTo(pins[3].x, pins[3].y);
-      wctx.closePath();
-      wctx.clip();
+      // Subtle ceiling line & shadow
+      const ceilGrad = ctx.createLinearGradient(0, 0, 0, 26);
+      ceilGrad.addColorStop(0, 'rgba(20,22,28,0.28)');
+      ceilGrad.addColorStop(1, 'rgba(20,22,28,0)');
+      ctx.fillStyle = ceilGrad;
+      ctx.fillRect(0, 0, w, 26);
 
-      if (currentPatternCanvas) {
-        wctx.drawImage(currentPatternCanvas, 50, 40, w - 100, h * 0.7);
+      // Crown molding & baseboard
+      ctx.fillStyle = '#f6f3ec';
+      ctx.fillRect(0, h * 0.76, w, h * 0.025);
+      ctx.fillStyle = 'rgba(0,0,0,0.18)';
+      ctx.fillRect(0, h * 0.785, w, 3);
+
+      // Hardwood oak floor with depth gradient
+      const floorGrad = ctx.createLinearGradient(0, h * 0.785, 0, h);
+      floorGrad.addColorStop(0, '#7d6145');
+      floorGrad.addColorStop(1, '#4f3b28');
+      ctx.fillStyle = floorGrad;
+      ctx.fillRect(0, h * 0.785, w, h * 0.215);
+    }
+
+    function drawAffineTriangle(ctx, img, s0, t0, s1, t1, s2, t2, x0, y0, x1, y1, x2, y2) {
+      const ds1 = s1 - s0, dt1 = t1 - t0;
+      const ds2 = s2 - s0, dt2 = t2 - t0;
+      const det = ds1 * dt2 - ds2 * dt1;
+      if (Math.abs(det) < 1e-4) return;
+
+      // Expand clip triangle slightly from centroid to prevent subpixel hairline seams
+      const cx = (x0 + x1 + x2) / 3, cy = (y0 + y1 + y2) / 3;
+      const ex = (px, py) => {
+        const dx = px - cx, dy = py - cy;
+        const len = Math.hypot(dx, dy) || 1;
+        return [px + (dx / len) * 0.65, py + (dy / len) * 0.65];
+      };
+      const [ex0, ey0] = ex(x0, y0);
+      const [ex1, ey1] = ex(x1, y1);
+      const [ex2, ey2] = ex(x2, y2);
+
+      ctx.save();
+      ctx.beginPath();
+      ctx.moveTo(ex0, ey0);
+      ctx.lineTo(ex1, ey1);
+      ctx.lineTo(ex2, ey2);
+      ctx.closePath();
+      ctx.clip();
+
+      const a = ((x1 - x0) * dt2 - (x2 - x0) * dt1) / det;
+      const c = (ds1 * (x2 - x0) - ds2 * (x1 - x0)) / det;
+      const e = x0 - a * s0 - c * t0;
+      const b = ((y1 - y0) * dt2 - (y2 - y0) * dt1) / det;
+      const d = (ds1 * (y2 - y0) - ds2 * (y1 - y0)) / det;
+      const f = y0 - b * s0 - d * t0;
+
+      ctx.transform(a, b, c, d, e, f);
+      ctx.drawImage(img, 0, 0);
+      ctx.restore();
+    }
+
+    function drawPerspectiveQuad(ctx, img, quadPins, subdiv = 12) {
+      const sw = img.width, sh = img.height;
+      const [p0, p1, p2, p3] = quadPins;
+      const bilerp = (u, v) => ({
+        x: (1 - u) * (1 - v) * p0.x + u * (1 - v) * p1.x + u * v * p2.x + (1 - u) * v * p3.x,
+        y: (1 - u) * (1 - v) * p0.y + u * (1 - v) * p1.y + u * v * p2.y + (1 - u) * v * p3.y
+      });
+
+      for (let j = 0; j < subdiv; j++) {
+        const v0 = j / subdiv, v1 = (j + 1) / subdiv;
+        for (let i = 0; i < subdiv; i++) {
+          const u0 = i / subdiv, u1 = (i + 1) / subdiv;
+          const q00 = bilerp(u0, v0), q10 = bilerp(u1, v0);
+          const q11 = bilerp(u1, v1), q01 = bilerp(u0, v1);
+
+          drawAffineTriangle(
+            ctx, img,
+            u0 * sw, v0 * sh, u1 * sw, v0 * sh, u0 * sw, v1 * sh,
+            q00.x, q00.y, q10.x, q10.y, q01.x, q01.y
+          );
+          drawAffineTriangle(
+            ctx, img,
+            u1 * sw, v0 * sh, u1 * sw, v1 * sh, u0 * sw, v1 * sh,
+            q10.x, q10.y, q11.x, q11.y, q01.x, q01.y
+          );
+        }
       }
-      wctx.restore();
+    }
 
-      // Draw Wall Outline and interactive pins
-      wctx.strokeStyle = '#d4af37'; wctx.lineWidth = 2;
+    function applyEdgeAOGradient(ctx, ax, ay, bx, by, inwardNormalX, inwardNormalY, depthPx, alpha) {
+      if (alpha <= 0.005) return;
+      const mx = (ax + bx) / 2, my = (ay + by) / 2;
+      const g = ctx.createLinearGradient(mx, my, mx + inwardNormalX * depthPx, my + inwardNormalY * depthPx);
+      g.addColorStop(0, `rgba(8, 11, 18, ${alpha})`);
+      g.addColorStop(0.45, `rgba(8, 11, 18, ${alpha * 0.35})`);
+      g.addColorStop(1, 'rgba(8, 11, 18, 0)');
+      ctx.fillStyle = g;
+      ctx.fillRect(0, 0, wallCanvas.width, wallCanvas.height);
+    }
+
+    function renderWallProof(exportClean = false) {
+      const w = wallCanvas.width, h = wallCanvas.height;
+      wctx.clearRect(0, 0, w, h);
+
+      // 1. Background (Uploaded Customer Photo or Architectural Room)
+      if (customerRoomImg) {
+        wctx.drawImage(customerRoomImg, 0, 0, w, h);
+      } else {
+        drawDefaultArchitecturalRoom(wctx, w, h);
+      }
+
+      // 2. Render 3D Perspective-Warped Wallpaper Mesh inside Quad
+      if (currentPatternCanvas) {
+        const useMultiply = document.getElementById('chkWallMultiply')?.checked;
+        const off = document.createElement('canvas');
+        off.width = w; off.height = h;
+        const octx = off.getContext('2d');
+        drawPerspectiveQuad(octx, currentPatternCanvas, pins, 12);
+
+        wctx.save();
+        wctx.beginPath();
+        wctx.moveTo(pins[0].x, pins[0].y);
+        wctx.lineTo(pins[1].x, pins[1].y);
+        wctx.lineTo(pins[2].x, pins[2].y);
+        wctx.lineTo(pins[3].x, pins[3].y);
+        wctx.closePath();
+        wctx.clip();
+
+        if (useMultiply) {
+          // Preserve vibrant colors while inheriting natural room wall shadows
+          wctx.save();
+          wctx.globalAlpha = customerRoomImg ? 0.32 : 0.18;
+          wctx.drawImage(off, 0, 0);
+          wctx.restore();
+          wctx.save();
+          wctx.globalCompositeOperation = 'multiply';
+          wctx.drawImage(off, 0, 0);
+          wctx.restore();
+        } else {
+          wctx.drawImage(off, 0, 0);
+        }
+
+        // 3. Architectural Shadow Depth (Ambient Occlusion + Directional Window Light)
+        const shadowPct = (Number(document.getElementById('rngWallShadow')?.value ?? 60)) / 100;
+        const lightPct = (Number(document.getElementById('rngWallLight')?.value ?? 45)) / 100;
+
+        // Compute inward normals for top, bottom, left, right edges
+        const centroidX = (pins[0].x + pins[1].x + pins[2].x + pins[3].x) / 4;
+        const centroidY = (pins[0].y + pins[1].y + pins[2].y + pins[3].y) / 4;
+        const edgeInwardNormal = (a, b) => {
+          const ex = b.x - a.x, ey = b.y - a.y;
+          let nx = -ey, ny = ex;
+          const len = Math.hypot(nx, ny) || 1;
+          nx /= len; ny /= len;
+          const mx = (a.x + b.x) / 2, my = (a.y + b.y) / 2;
+          if ((centroidX - mx) * nx + (centroidY - my) * ny < 0) { nx = -nx; ny = -ny; }
+          return [nx, ny];
+        };
+
+        const [ntx, nty] = edgeInwardNormal(pins[0], pins[1]);
+        const [nrx, nry] = edgeInwardNormal(pins[1], pins[2]);
+        const [nbx, nby] = edgeInwardNormal(pins[2], pins[3]);
+        const [nlx, nly] = edgeInwardNormal(pins[3], pins[0]);
+
+        applyEdgeAOGradient(wctx, pins[0].x, pins[0].y, pins[1].x, pins[1].y, ntx, nty, 54, 0.52 * shadowPct);
+        applyEdgeAOGradient(wctx, pins[2].x, pins[2].y, pins[3].x, pins[3].y, nbx, nby, 40, 0.46 * shadowPct);
+        applyEdgeAOGradient(wctx, pins[3].x, pins[3].y, pins[0].x, pins[0].y, nlx, nly, 48, 0.38 * shadowPct);
+        applyEdgeAOGradient(wctx, pins[1].x, pins[1].y, pins[2].x, pins[2].y, nrx, nry, 48, 0.42 * shadowPct);
+
+        // Directional window daylight & corner falloff
+        if (lightPct > 0.01) {
+          const dirGrad = wctx.createLinearGradient(pins[0].x, pins[0].y, pins[2].x, pins[2].y);
+          dirGrad.addColorStop(0, `rgba(255, 250, 236, ${0.22 * lightPct})`);
+          dirGrad.addColorStop(0.5, 'rgba(255, 255, 255, 0)');
+          dirGrad.addColorStop(1, `rgba(6, 9, 15, ${0.34 * lightPct})`);
+          wctx.fillStyle = dirGrad;
+          wctx.fillRect(0, 0, w, h);
+        }
+
+        wctx.restore();
+      }
+
+      if (exportClean) {
+        // Luxury VIP Proof Footer Watermark
+        wctx.fillStyle = 'rgba(9, 14, 21, 0.84)';
+        wctx.fillRect(0, h - 38, w, 38);
+        wctx.fillStyle = '#d4af37';
+        wctx.font = 'bold 13px sans-serif';
+        wctx.fillText(`QOOP & LOGESSA VIP WALL PROOF · ${activeProofLabel} · ${document.getElementById('patternTitle').textContent}`, 16, h - 14);
+        return;
+      }
+
+      // 4. Interactive Outline & Corner Pin Handles
+      wctx.strokeStyle = 'rgba(212, 175, 55, 0.85)';
+      wctx.lineWidth = 1.8;
+      wctx.setLineDash([6, 4]);
       wctx.beginPath();
       wctx.moveTo(pins[0].x, pins[0].y);
       pins.forEach((p, idx) => { if (idx > 0) wctx.lineTo(p.x, p.y); });
       wctx.closePath();
       wctx.stroke();
+      wctx.setLineDash([]);
 
-      // Pin handles
       pins.forEach((p, idx) => {
         wctx.fillStyle = idx === draggingPin ? '#38bdf8' : '#d4af37';
-        wctx.beginPath(); wctx.arc(p.x, p.y, 7, 0, Math.PI * 2); wctx.fill();
-        wctx.strokeStyle = '#000'; wctx.lineWidth = 2; wctx.stroke();
+        wctx.beginPath(); wctx.arc(p.x, p.y, 8, 0, Math.PI * 2); wctx.fill();
+        wctx.strokeStyle = '#090e15'; wctx.lineWidth = 2; wctx.stroke();
       });
     }
 
-    wallCanvas.addEventListener('mousedown', e => {
+    function getCanvasPointerPos(clientX, clientY) {
       const rect = wallCanvas.getBoundingClientRect();
-      const x = (e.clientX - rect.left) * (wallCanvas.width / rect.width);
-      const y = (e.clientY - rect.top) * (wallCanvas.height / rect.height);
-      pins.forEach((p, idx) => {
-        if (Math.hypot(p.x - x, p.y - y) < 14) draggingPin = idx;
-      });
+      return {
+        x: (clientX - rect.left) * (wallCanvas.width / rect.width),
+        y: (clientY - rect.top) * (wallCanvas.height / rect.height)
+      };
+    }
+
+    wallCanvas.addEventListener('mousedown', e => {
+      const {x, y} = getCanvasPointerPos(e.clientX, e.clientY);
+      pins.forEach((p, idx) => { if (Math.hypot(p.x - x, p.y - y) < 18) draggingPin = idx; });
     });
 
     window.addEventListener('mousemove', e => {
       if (draggingPin < 0) return;
-      const rect = wallCanvas.getBoundingClientRect();
-      const x = (e.clientX - rect.left) * (wallCanvas.width / rect.width);
-      const y = (e.clientY - rect.top) * (wallCanvas.height / rect.height);
-      pins[draggingPin].x = Math.max(10, Math.min(wallCanvas.width - 10, x));
-      pins[draggingPin].y = Math.max(10, Math.min(wallCanvas.height - 10, y));
+      const {x, y} = getCanvasPointerPos(e.clientX, e.clientY);
+      pins[draggingPin].x = Math.max(8, Math.min(wallCanvas.width - 8, x));
+      pins[draggingPin].y = Math.max(8, Math.min(wallCanvas.height - 8, y));
       renderWallProof();
     });
 
     window.addEventListener('mouseup', () => { draggingPin = -1; });
 
+    // Mobile Touch Support for 4-Corner Pins
+    wallCanvas.addEventListener('touchstart', e => {
+      if (!e.touches.length) return;
+      const {x, y} = getCanvasPointerPos(e.touches[0].clientX, e.touches[0].clientY);
+      pins.forEach((p, idx) => {
+        if (Math.hypot(p.x - x, p.y - y) < 26) {
+          draggingPin = idx;
+          e.preventDefault();
+        }
+      });
+    }, {passive: false});
+
+    wallCanvas.addEventListener('touchmove', e => {
+      if (draggingPin < 0 || !e.touches.length) return;
+      e.preventDefault();
+      const {x, y} = getCanvasPointerPos(e.touches[0].clientX, e.touches[0].clientY);
+      pins[draggingPin].x = Math.max(8, Math.min(wallCanvas.width - 8, x));
+      pins[draggingPin].y = Math.max(8, Math.min(wallCanvas.height - 8, y));
+      renderWallProof();
+    }, {passive: false});
+
+    window.addEventListener('touchend', () => { draggingPin = -1; });
+
+    // Customer Wall Photo Upload & Lighting Controls
+    document.getElementById('wallPhotoInput')?.addEventListener('change', e => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = ev => {
+        const img = new Image();
+        img.onload = () => {
+          customerRoomImg = img;
+          renderWallProof();
+          showToast('📷 Müşteri oda fotoğrafı yüklendi! Köşe pinlerini duvara hizalayın.');
+        };
+        img.src = ev.target.result;
+      };
+      reader.readAsDataURL(file);
+    });
+
+    document.getElementById('btnResetWallPhoto')?.addEventListener('click', () => {
+      customerRoomImg = null;
+      renderWallProof();
+      showToast('Varsayılan mimari prova odasına dönüldü.');
+    });
+
+    ['rngWallShadow', 'rngWallLight', 'chkWallMultiply'].forEach(id => {
+      document.getElementById(id)?.addEventListener('input', e => {
+        if (id === 'rngWallShadow') document.getElementById('valWallShadow').textContent = e.target.value + '%';
+        if (id === 'rngWallLight') document.getElementById('valWallLight').textContent = e.target.value + '%';
+        renderWallProof();
+      });
+    });
+
     function openWallProof(customer, dims) {
-      document.getElementById('wallProofCustomer').textContent = `Aktif Prova: ${customer} (${dims})`;
-      showToast(`${customer} siparişi için duvar prova masası yüklendi.`);
+      activeProofLabel = `${customer} (${dims})`;
+      document.getElementById('wallProofCustomer').textContent = `Aktif Prova: ${activeProofLabel}`;
+      showToast(`${customer} siparişi için 3D duvar prova masası yüklendi.`);
       renderWallProof();
     }
 
     document.getElementById('btnDownloadProof').onclick = () => {
-      showToast('Müşteri onay provası yüksek çözünürlükte indirildi!');
+      renderWallProof(true);
+      const link = document.createElement('a');
+      const slug = activeProofLabel.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+      link.download = `vip-duvar-provasi-${slug}.png`;
+      link.href = wallCanvas.toDataURL('image/png');
+      link.click();
+      renderWallProof(false);
+      showToast('✓ Müşteri onay provası (.PNG) pin izleri gizlenerek indirildi!');
     };
 
     /* ==============================================================
-       4. ETSY API V3 SIMULATOR
+       4. REAL ETSY API V3 & MULTI-SHOP PUBLISHER
        ============================================================== */
     document.getElementById('btnPublishEtsy').onclick = () => publishToEtsy('DRAFT');
     document.getElementById('btnPublishActive').onclick = () => publishToEtsy('ACTIVE');
 
-    function publishToEtsy(state) {
+    async function publishToEtsy(state) {
       const box = document.getElementById('apiProgressBox');
       const bar = document.getElementById('apiProgressBar');
       const status = document.getElementById('apiProgressStatus');
+      const title = document.getElementById('etsyTitle')?.value.trim() || '';
+      const description = document.getElementById('etsyDesc')?.value.trim() || '';
+      const activeShop = window.currentActiveShop || {id: 'logessa-murals', shop_name: 'Logessa Wall Murals', default_price: 345};
+
       box.style.display = 'block';
-      bar.style.width = '15%';
-      status.textContent = '1/4 Etsy Listing oluşturuluyor (POST /v3/...)...';
+      bar.style.background = 'var(--accent)';
+      bar.style.width = '25%';
+      status.style.color = 'var(--accent)';
+      status.textContent = `1/3 Telif (IP Shield) & Uyumluluk Kalkanı denetleniyor (${activeShop.shop_name})...`;
 
-      setTimeout(() => {
-        bar.style.width = '50%';
-        status.textContent = '2/4 10 Adet Canvas Mockup görseli Etsy sunucularına aktarılıyor...';
-      }, 700);
+      try {
+        const res = await fetch('/api/etsy/publish', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({
+            shop_profile_id: activeShop.id,
+            title,
+            description,
+            tags: activeTags,
+            price: window.currentSmartPrice || activeShop.default_price || 345.00,
+            state,
+            sku: 'CH-' + String(Date.now()).slice(-4) + '-M',
+            image: `img/${document.getElementById('mockupTheme')?.value || 'std'}/3.webp`
+          })
+        });
+        const data = await res.json();
+        if (!res.ok || !data.ok) {
+          bar.style.width = '100%';
+          bar.style.background = 'var(--danger)';
+          status.style.color = '#f87171';
+          status.textContent = '❌ Yayın Engellendi: ' + (data.error || 'Bilinmeyen hata');
+          showToast('❌ ' + (data.error || 'Yayın engellendi'));
+          return;
+        }
 
-      setTimeout(() => {
-        bar.style.width = '80%';
-        status.textContent = '3/4 Ölçü varyantları, stok ve fiyatlar kaydediliyor...';
-      }, 1400);
+        bar.style.width = '70%';
+        status.textContent = '2/3 Canvas Mockup görselleri ve varyant matrisi mağaza envanterine işleniyor...';
 
-      setTimeout(() => {
+        setTimeout(() => {
+          bar.style.width = '100%';
+          bar.style.background = 'var(--success)';
+          status.style.color = 'var(--success)';
+          const modeLabel = data.mode === 'ETSY_LIVE_API' ? 'Canlı Etsy API v3' : 'Mağaza Katalog Senkronu';
+          status.innerHTML = `✓ Başarılı! <b>${data.shop.shop_name}</b> mağazasında ilan açıldı (ID: <b style="color:var(--gold)">#${data.item.id}</b> · ${state} · ${modeLabel}).`;
+          currentListings = data.listings || currentListings;
+          renderListingsTable();
+          loadShops();
+          showToast(`🚀 İlan "${data.shop.shop_name}" mağazasına (${state}) eklendi!`);
+        }, 550);
+      } catch (err) {
         bar.style.width = '100%';
-        status.innerHTML = `✓ Başarılı! İlan oluşturuldu (Listing ID: <b style="color:var(--gold)">#184920491</b> - ${state}).`;
-        showToast('Tebrikler! İlanınız Etsy mağazanızda yayınlandı!');
-      }, 2000);
+        bar.style.background = 'var(--danger)';
+        status.textContent = 'Bağlantı hatası: ' + err;
+      }
     }
 
     // ==============================================================
@@ -1443,6 +1864,7 @@
         }
       }
       checkIpShield();
+      if (typeof updateJsonPayload === 'function') updateJsonPayload();
     }
 
     window.removeTag = function(index) {
@@ -1620,48 +2042,262 @@
       showToast('🎯 En yüksek skorlu 13 Altın Etiket Etsy İlanına Enjekte Edildi!');
     }
 
+    window.currentSmartPrice = null;
+    window.currentCoverImg = 'canvas_room_std_3_bedroom.webp';
+    window.currentShopsList = [];
+    window.currentActiveShop = {
+      id: 'logessa-murals',
+      shop_id: '48921849',
+      shop_name: 'Logessa Wall Murals',
+      default_price: 345.00
+    };
+
     function applyRecommendedMockupCover() {
-      updateJsonPayload(null, null, 'canvas_room_std_3_bedroom.webp');
+      window.currentCoverImg = 'canvas_room_std_3_bedroom.webp';
+      updateJsonPayload(null, null, window.currentCoverImg);
       showToast('🖼️ Kapak Mockup\'ı "Master Bedroom" olarak atandı (Tıklama +%42)');
     }
 
     function applySmartPricing(price) {
-      updateJsonPayload(price, null, null);
+      window.currentSmartPrice = Number(price);
+      updateJsonPayload(window.currentSmartPrice, null, null);
       showToast(`💰 Numune ayıklanmış $${price}.00 fiyatı Etsy API yüküne yansıtıldı!`);
     }
 
     function updateJsonPayload(price, title, coverImg) {
       const box = document.getElementById('jsonPayload');
-      let current = {
-        title: title || document.getElementById('etsyTitle').value.slice(0, 70) + "...",
-        price: price || 345.00,
+      if (!box) return;
+      const shop = window.currentActiveShop || {id: 'logessa-murals', shop_id: '48921849', shop_name: 'Logessa Wall Murals', default_price: 345.00};
+      const effPrice = Number(price || window.currentSmartPrice || shop.default_price || 345.00);
+      const rawTitle = title || document.getElementById('etsyTitle')?.value || 'Emerald Peony Wallpaper Mural';
+      const badge = document.getElementById('apiEndpointBadge');
+      if (badge) {
+        badge.textContent = `POST /v3/application/shops/${shop.shop_id || '48921849'}/listings`;
+      }
+      const netProfit = Math.max(0, effPrice * 0.575).toFixed(2);
+      const current = {
+        shop_profile_id: shop.id,
+        shop_id: String(shop.shop_id || '48921849'),
+        shop_name: shop.shop_name || 'Logessa Wall Murals',
+        title: rawTitle.length > 85 ? rawTitle.slice(0, 82) + '...' : rawTitle,
+        price: effPrice,
         quantity: 999,
         taxonomy_id: 1429,
         who_made: "i_did",
-        tags: [
-          "japandi wall mural", "wabi sabi wallpaper", "sage green mural",
-          "peel and stick", "removable wallpaper", "living room decor"
-        ],
-        primary_mockup_cover: coverImg || "canvas_room_std_3_bedroom.webp",
-        estimated_net_profit_per_order: "$198.50 USD (%57.5 marj)"
+        when_made: "2020_2026",
+        tags: (typeof activeTags !== 'undefined' && Array.isArray(activeTags)) ? activeTags.slice(0, 13) : [],
+        primary_mockup_cover: coverImg || window.currentCoverImg || "canvas_room_std_3_bedroom.webp",
+        retry_policy: "429 Exponential Backoff + Auto OAuth Refresh",
+        estimated_net_profit_per_order: `$${netProfit} USD (%57.5 marj)`
       };
       box.textContent = JSON.stringify(current, null, 2);
     }
+
+    document.getElementById('etsyTitle')?.addEventListener('input', () => updateJsonPayload());
 
     // Initial Boot
     setPattern(createChinoiseriePattern(), 'Emerald Peony & Songbird Chinoiserie', '3600 × 2700 px · 300 DPI · 4:3 Mural');
     renderWallProof();
 
     /* ==============================================================
-       6. REAL ETSY OAUTH 2.0 PKCE CLIENT
+       6. MULTI-SHOP HUB & REAL ETSY OAUTH 2.0 PKCE CLIENT
        ============================================================== */
+    function escapeHtml(str) {
+      return String(str || '').replace(/[&<>"']/g, ch => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+      }[ch]));
+    }
+
+    async function loadShops() {
+      try {
+        const res = await fetch('/api/shops');
+        const data = await res.json();
+        renderShopsUI(data);
+      } catch (e) {
+        console.error('Shops load error:', e);
+      }
+    }
+
+    function renderShopsUI(data) {
+      if (!data || !Array.isArray(data.shops)) return;
+      window.currentShopsList = data.shops;
+      window.currentActiveShop = data.active_shop || data.shops[0] || window.currentActiveShop;
+      const active = window.currentActiveShop;
+
+      // 1. Update Header Global Shop Selector
+      const globalSel = document.getElementById('globalShopSelect');
+      if (globalSel) {
+        globalSel.innerHTML = data.shops.map(s =>
+          `<option value="${escapeHtml(s.id)}" ${s.id === active.id ? 'selected' : ''}>${escapeHtml(s.shop_name)} (#${escapeHtml(s.shop_id)})</option>`
+        ).join('');
+      }
+
+      // 2. Update Tab 8 Inventory Shop Filter (preserving current selection if valid)
+      const invShopSel = document.getElementById('inventoryShopFilter');
+      if (invShopSel) {
+        const prevVal = invShopSel.value || 'ALL';
+        const validIds = new Set(['ALL', ...data.shops.map(s => s.id)]);
+        invShopSel.innerHTML = `<option value="ALL">🏪 Tüm Etsy Mağazaları (${data.shops.length})</option>` +
+          data.shops.map(s =>
+            `<option value="${escapeHtml(s.id)}">${escapeHtml(s.shop_name)} (${s.listing_count || 0})</option>`
+          ).join('');
+        invShopSel.value = validIds.has(prevVal) ? prevVal : 'ALL';
+      }
+
+      // 3. Render Tab 5 Multi-Shop Cards Grid
+      const grid = document.getElementById('shopsCardsGrid');
+      if (grid) {
+        grid.innerHTML = data.shops.map(s => {
+          const isAct = s.id === active.id;
+          const connBadge = s.connected
+            ? `<span class="badge" style="background:var(--success-soft);color:var(--success);border-color:var(--success)">● OAuth Bağlı</span>`
+            : `<span class="badge" style="color:var(--gold);border-color:rgba(212,175,55,0.4)">○ Katalog Hazır</span>`;
+          return `
+            <div style="background:var(--card);border:${isAct ? '2px solid var(--gold)' : '1px solid var(--border)'};border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:8px">
+              <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px">
+                <div>
+                  <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap">
+                    <b style="font-size:14px;color:${isAct ? 'var(--gold)' : 'var(--text)'}">🏪 ${escapeHtml(s.shop_name)}</b>
+                    ${isAct ? '<span class="badge" style="background:#3a2e14;color:var(--gold);border-color:var(--gold)">AKTİF MAĞAZA</span>' : ''}
+                  </div>
+                  <div style="font-size:11px;color:var(--muted);margin-top:2px">${escapeHtml(s.niche || 'Custom Wallpaper Collection')}</div>
+                </div>
+                ${connBadge}
+              </div>
+              <div style="display:flex;justify-content:space-between;font-size:12px;font-family:var(--font-mono);color:var(--muted);background:var(--panel);padding:8px 10px;border-radius:6px">
+                <span>Shop ID: <b style="color:var(--text)">#${escapeHtml(s.shop_id)}</b></span>
+                <span>İlan: <b style="color:var(--success)">${s.active_count || 0} Aktif</b> / ${s.listing_count || 0}</span>
+                <span>Baz: <b style="color:var(--gold)">$${Number(s.default_price || 345).toFixed(0)}</b></span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:2px">
+                ${isAct
+                  ? `<span style="font-size:11px;color:var(--success);font-weight:600">✓ Tüm yayınlar bu mağazaya yönlendiriliyor</span>`
+                  : `<button class="btn btn-sm btn-gold" type="button" onclick="switchActiveShop('${escapeHtml(s.id)}')">Bu Mağazaya Geç</button>`
+                }
+                ${data.shops.length > 1
+                  ? `<button class="btn btn-sm" type="button" onclick="deleteShopProfile('${escapeHtml(s.id)}')" style="color:var(--muted);padding:4px 8px" title="Mağaza profilini kaldır">🗑️</button>`
+                  : ''
+                }
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+
+      // 4. Sync Active Shop Labels & Payload Inspector
+      if (document.getElementById('activeShopTitleLabel')) {
+        document.getElementById('activeShopTitleLabel').textContent = active.shop_name;
+      }
+      if (document.getElementById('dispShopId')) {
+        document.getElementById('dispShopId').textContent = '#' + (active.shop_id || '48921849');
+      }
+      if (document.getElementById('dispClientId') && active.effective_client_id) {
+        document.getElementById('dispClientId').textContent = active.effective_client_id;
+      }
+      if (document.getElementById('headerEtsyText')) {
+        document.getElementById('headerEtsyText').textContent = active.connected
+          ? `Etsy OAuth: ${active.shop_name}`
+          : `Etsy API v3: ${active.shop_name}`;
+      }
+
+      updateJsonPayload();
+      checkEtsyStatus(active.id);
+    }
+
+    window.switchActiveShop = async function(shopProfileId) {
+      try {
+        const res = await fetch('/api/shops/switch', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({id: shopProfileId})
+        });
+        const data = await res.json();
+        if (data.ok) {
+          window.currentSmartPrice = null; // allow shop default price unless overridden
+          renderShopsUI(data);
+          renderListingsTable();
+          showToast(`🏪 Aktif mağaza "${data.active_shop.shop_name}" olarak değiştirildi!`);
+        } else {
+          showToast('Mağaza değiştirilemedi: ' + (data.error || 'Hata'));
+        }
+      } catch (e) {
+        showToast('Bağlantı hatası: ' + e);
+      }
+    };
+
+    window.deleteShopProfile = async function(shopProfileId) {
+      if (!confirm('Bu mağaza profilini listeden kaldırmak istediğinize emin misiniz?')) return;
+      try {
+        const res = await fetch('/api/shops/delete', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({id: shopProfileId})
+        });
+        const data = await res.json();
+        if (data.ok) {
+          renderShopsUI(data);
+          showToast('Mağaza profili kaldırıldı.');
+        } else {
+          showToast('❌ ' + (data.error || 'Silinemedi'));
+        }
+      } catch (e) {
+        showToast('Silme hatası: ' + e);
+      }
+    };
+
+    document.getElementById('globalShopSelect')?.addEventListener('change', (e) => {
+      if (e.target.value) window.switchActiveShop(e.target.value);
+    });
+
+    document.getElementById('btnToggleNewShopForm')?.addEventListener('click', () => {
+      const box = document.getElementById('newShopFormBox');
+      if (box) box.style.display = box.style.display === 'none' ? 'block' : 'none';
+    });
+
+    document.getElementById('btnCreateShop')?.addEventListener('click', async () => {
+      const shop_name = document.getElementById('newShopName')?.value.trim();
+      const shop_id = document.getElementById('newShopEtsyId')?.value.trim();
+      const niche = document.getElementById('newShopNiche')?.value.trim();
+      const client_id = document.getElementById('newShopClientId')?.value.trim();
+      const default_price = parseFloat(document.getElementById('newShopPrice')?.value || '325') || 325.0;
+
+      if (!shop_name) {
+        showToast('⚠️ Lütfen yeni Etsy mağaza adını girin.');
+        return;
+      }
+
+      try {
+        const res = await fetch('/api/shops/create', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({shop_name, shop_id, niche, client_id, default_price})
+        });
+        const data = await res.json();
+        if (data.ok) {
+          document.getElementById('newShopFormBox').style.display = 'none';
+          document.getElementById('newShopName').value = '';
+          document.getElementById('newShopEtsyId').value = '';
+          document.getElementById('newShopNiche').value = '';
+          document.getElementById('newShopClientId').value = '';
+          renderShopsUI(data);
+          showToast(`✓ "${data.created.shop_name}" mağazası eklendi ve aktif edildi!`);
+        } else {
+          showToast('❌ ' + (data.error || 'Mağaza eklenemedi'));
+        }
+      } catch (e) {
+        showToast('Mağaza oluşturma hatası: ' + e);
+      }
+    });
+
     const btnConnectEtsy = document.getElementById('btnConnectEtsy');
     if (btnConnectEtsy) {
       btnConnectEtsy.onclick = async () => {
         const redirectUri = document.getElementById('inputRedirectUri').value.trim();
-        showToast('Etsy yetkilendirme linki oluşturuluyor...');
+        const activeId = (window.currentActiveShop && window.currentActiveShop.id) || 'logessa-murals';
+        showToast('Etsy OAuth 2.0 PKCE yetkilendirme linki oluşturuluyor...');
         try {
-          const res = await fetch('/api/etsy/auth-url?redirect_uri=' + encodeURIComponent(redirectUri));
+          const url = `/api/etsy/auth-url?shop_id=${encodeURIComponent(activeId)}&redirect_uri=${encodeURIComponent(redirectUri)}`;
+          const res = await fetch(url);
           const data = await res.json();
           if (data.auth_url) {
             window.location.href = data.auth_url;
@@ -1674,39 +2310,47 @@
       };
     }
 
-    async function checkEtsyStatus() {
+    async function checkEtsyStatus(shopProfileId) {
       try {
-        const res = await fetch('/api/etsy/status');
+        const targetId = shopProfileId || (window.currentActiveShop && window.currentActiveShop.id) || '';
+        const res = await fetch('/api/etsy/status' + (targetId ? `?shop_id=${encodeURIComponent(targetId)}` : ''));
         const data = await res.json();
-        if (data.config && data.config.client_id) {
-          document.getElementById('dispClientId').textContent = data.config.client_id;
+        const active = data.active_shop || window.currentActiveShop || {};
+        if (active.effective_client_id || (data.config && data.config.client_id)) {
+          document.getElementById('dispClientId').textContent = active.effective_client_id || data.config.client_id;
         }
-        if (data.config && data.config.redirect_uri) {
-          document.getElementById('inputRedirectUri').value = data.config.redirect_uri;
+        if (active.effective_redirect_uri || (data.config && data.config.redirect_uri)) {
+          document.getElementById('inputRedirectUri').value = active.effective_redirect_uri || data.config.redirect_uri;
         }
+        const pill = document.getElementById('etsyConnPill');
+        const box = document.getElementById('etsyConnectedBox');
         if (data.connected) {
-          const pill = document.getElementById('etsyConnPill');
           pill.style.background = 'var(--success-soft)';
           pill.style.borderColor = 'var(--success)';
           pill.style.color = 'var(--success)';
-          const shopName = (data.shop && data.shop.shop_name) || (data.user && data.user.primary_email) || 'Mağaza Aktif';
+          const shopName = (data.shop && data.shop.shop_name) || active.shop_name || (data.user && data.user.primary_email) || 'Mağaza Aktif';
           document.getElementById('etsyConnText').textContent = 'Bağlandı (' + shopName + ')';
 
-          const box = document.getElementById('etsyConnectedBox');
           box.style.display = 'block';
           document.getElementById('etsyShopDetails').innerHTML = `
-            Mağaza Adı: <b style="color:var(--gold)">${shopName}</b> (Shop ID: ${(data.shop && data.shop.shop_id) || '48921849'})<br>
-            API Token: <span style="color:var(--success)">Aktif (Bearer OAuth 2.0)</span><br>
-            Bağlantı Zamanı: ${data.connected_at || 'Yeni'}
+            Mağaza Adı: <b style="color:var(--gold)">${escapeHtml(shopName)}</b> (Shop ID: #${escapeHtml((data.shop && data.shop.shop_id) || active.shop_id || '48921849')})<br>
+            API Token: <span style="color:var(--success)">Aktif (Bearer OAuth 2.0 · Otomatik Refresh)</span><br>
+            Bağlantı Zamanı: ${escapeHtml(data.connected_at || 'Yeni')}
           `;
-          document.getElementById('btnConnectEtsy').textContent = '🔄 Etsy Yetkilendirmesini Yenile';
+          document.getElementById('btnConnectEtsy').textContent = '🔄 Seçili Mağazanın OAuth Yetkisini Yenile';
+        } else {
+          pill.style.background = '#2b2513';
+          pill.style.borderColor = 'var(--gold)';
+          pill.style.color = 'var(--gold)';
+          document.getElementById('etsyConnText').textContent = 'OAuth Bekleniyor (Katalog Hazır)';
+          box.style.display = 'none';
+          document.getElementById('btnConnectEtsy').textContent = '🔗 Seçili Etsy Mağazasını Bağla (OAuth 2.0 PKCE)';
         }
       } catch (e) {}
     }
-    checkEtsyStatus();
 
     /* ==============================================================
-       7. TAB 8: INVENTORY & LISTINGS MANAGEMENT (Canlı İlan Masası)
+       7. TAB 8: INVENTORY & LISTINGS MANAGEMENT (Multi-Shop & Prune)
        ============================================================== */
     let currentListings = [];
 
@@ -1722,6 +2366,7 @@
 
     function renderListingsTable() {
       const q = (document.getElementById('inventorySearch')?.value || '').toLowerCase();
+      const shopFilter = document.getElementById('inventoryShopFilter')?.value || 'ALL';
       const filter = document.getElementById('inventoryFilter')?.value || 'ALL';
       const tbody = document.getElementById('listingsTableBody');
       if (!tbody) return;
@@ -1729,7 +2374,12 @@
       tbody.innerHTML = '';
       let actCount = 0, draftCount = 0, remCount = 0, pruneCount = 0;
 
-      currentListings.forEach(item => {
+      const shopScoped = currentListings.filter(item => {
+        if (shopFilter === 'ALL') return true;
+        return (item.shop_id || 'logessa-murals') === shopFilter;
+      });
+
+      shopScoped.forEach(item => {
         if (item.state === 'ACTIVE') {
           actCount++;
           if (Number(item.views || 0) < 20) pruneCount++;
@@ -1738,19 +2388,22 @@
         else if (item.state === 'REMOVED') remCount++;
       });
 
-      const filtered = currentListings.filter(item => {
+      const filtered = shopScoped.filter(item => {
         let matchesFilter = true;
         if (filter === 'PRUNE') {
           matchesFilter = item.state === 'ACTIVE' && Number(item.views || 0) < 20;
         } else if (filter !== 'ALL') {
           matchesFilter = item.state === filter;
         }
-        const matchesQuery = !q || (item.title || '').toLowerCase().includes(q) || (item.sku || '').toLowerCase().includes(q);
+        const matchesQuery = !q ||
+          (item.title || '').toLowerCase().includes(q) ||
+          (item.sku || '').toLowerCase().includes(q) ||
+          (item.shop_name || '').toLowerCase().includes(q);
         return matchesFilter && matchesQuery;
       });
 
       // Update KPIs
-      if (document.getElementById('statTotalListings')) document.getElementById('statTotalListings').textContent = currentListings.length;
+      if (document.getElementById('statTotalListings')) document.getElementById('statTotalListings').textContent = shopScoped.length;
       if (document.getElementById('statActiveListings')) document.getElementById('statActiveListings').textContent = actCount;
       if (document.getElementById('statDraftListings')) document.getElementById('statDraftListings').textContent = draftCount;
       if (document.getElementById('statRemovedListings')) document.getElementById('statRemovedListings').textContent = remCount;
@@ -1774,14 +2427,19 @@
         if (isRem) badge = `<span class="badge" style="background:#450a0a;color:var(--danger)">Kaldırıldı (Pasif)</span>`;
         if (isPrune) badge += ` <span class="badge" style="background:#451a03;border:1px solid #f59e0b;color:#f59e0b" title="30 günden eski & <20 görüntülenme: Budama önerilir">🥀 Ölü İlan</span>`;
 
+        const shopLabel = escapeHtml(it.shop_name || 'Logessa Wall Murals');
+
         tr.innerHTML = `
           <td style="padding:10px 12px">
-            <img src="${it.image || 'img/std/1.webp'}" style="width:48px;height:48px;border-radius:6px;object-fit:cover;border:1px solid var(--border)">
+            <img src="${escapeHtml(it.image || 'img/std/1.webp')}" style="width:48px;height:48px;border-radius:6px;object-fit:cover;border:1px solid var(--border)">
           </td>
           <td style="padding:10px 12px">
-            <b style="font-family:var(--font-mono);color:var(--gold);font-size:12px">${it.sku || '-'}</b>
-            <div style="font-weight:600;font-size:13px;max-width:380px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis" title="${it.title}">${it.title}</div>
-            <span style="font-size:11px;color:var(--muted)">${it.category || 'Mural'} · ID: #${it.id}</span>
+            <div style="display:flex;align-items:center;gap:6px;margin-bottom:2px">
+              <b style="font-family:var(--font-mono);color:var(--gold);font-size:12px">${escapeHtml(it.sku || '-')}</b>
+              <span class="badge" style="font-size:10px;padding:1px 6px;color:var(--accent);border-color:rgba(56,189,248,0.35)">🏪 ${shopLabel}</span>
+            </div>
+            <div style="font-weight:600;font-size:13px;max-width:380px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis" title="${escapeHtml(it.title)}">${escapeHtml(it.title)}</div>
+            <span style="font-size:11px;color:var(--muted)">${escapeHtml(it.category || 'Mural')} · ID: #${escapeHtml(it.id)}</span>
           </td>
           <td style="padding:10px 12px;font-family:var(--font-mono);font-weight:700">
             $${Number(it.price).toFixed(2)}
@@ -1794,20 +2452,20 @@
           <td style="padding:10px 12px;text-align:right;white-space:nowrap">
             ${isAct ? `
               ${isPrune ? `
-                <button class="btn btn-sm" onclick="toggleListingState('${it.id}', 'REMOVED')" style="border-color:#f59e0b;color:#f59e0b" title="Ölü ilanı pasife alarak mağaza puanını koru">
+                <button class="btn btn-sm" onclick="toggleListingState('${escapeHtml(it.id)}', 'REMOVED')" style="border-color:#f59e0b;color:#f59e0b" title="Ölü ilanı pasife alarak mağaza puanını koru">
                   🥀 Budama Yap
                 </button>
               ` : `
-                <button class="btn btn-sm" onclick="toggleListingState('${it.id}', 'REMOVED')" style="border-color:var(--danger);color:var(--danger)" title="İlanı Etsy'de pasife al / yayından kaldır">
+                <button class="btn btn-sm" onclick="toggleListingState('${escapeHtml(it.id)}', 'REMOVED')" style="border-color:var(--danger);color:var(--danger)" title="İlanı Etsy'de pasife al / yayından kaldır">
                   Yayından Kaldır
                 </button>
               `}
             ` : `
-              <button class="btn btn-sm btn-gold" onclick="toggleListingState('${it.id}', 'ACTIVE')" title="İlanı yeniden yayına al">
+              <button class="btn btn-sm btn-gold" onclick="toggleListingState('${escapeHtml(it.id)}', 'ACTIVE')" title="İlanı yeniden yayına al">
                 Yayına Al
               </button>
             `}
-            <button class="btn btn-sm" onclick="deleteListingItem('${it.id}')" style="color:var(--muted)" title="Sil">🗑️</button>
+            <button class="btn btn-sm" onclick="deleteListingItem('${escapeHtml(it.id)}')" style="color:var(--muted)" title="Sil">🗑️</button>
           </td>
         `;
         tbody.appendChild(tr);
@@ -1825,6 +2483,7 @@
         if (data.ok) {
           currentListings = data.listings;
           renderListingsTable();
+          loadShops();
           showToast(newState === 'ACTIVE' ? 'İlan yeniden yayına alındı!' : 'İlan yayından kaldırıldı (Pasife alındı).');
         }
       } catch (e) {
@@ -1844,6 +2503,7 @@
         if (data.ok) {
           currentListings = data.listings;
           renderListingsTable();
+          loadShops();
           showToast('İlan envanterden silindi.');
         }
       } catch (e) {
@@ -1860,7 +2520,7 @@
       };
     }
 
-    // Create New Listing
+    // Create New Listing (tagged with currently active or selected shop)
     const btnSaveNew = document.getElementById('btnSaveNewListing');
     if (btnSaveNew) {
       btnSaveNew.onclick = async () => {
@@ -1868,19 +2528,26 @@
         const price = document.getElementById('newPrice').value || 345.00;
         const category = document.getElementById('newCategory').value;
         const title = document.getElementById('newTitle').value.trim() || 'Emerald Chinoiserie Wallpaper Mural';
+        const filterShop = document.getElementById('inventoryShopFilter')?.value;
+        const shop_id = (filterShop && filterShop !== 'ALL')
+          ? filterShop
+          : ((window.currentActiveShop && window.currentActiveShop.id) || 'logessa-murals');
 
         try {
           const res = await fetch('/api/listings/create', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({sku, price, category, title, state: 'DRAFT', image: 'img/std/1.webp'})
+            body: JSON.stringify({sku, price, category, title, shop_id, state: 'DRAFT', image: 'img/std/1.webp'})
           });
           const data = await res.json();
-          if (data.ok) {
+          if (res.ok && data.ok) {
             currentListings = data.listings;
             renderListingsTable();
+            loadShops();
             document.getElementById('newListingFormBox').style.display = 'none';
-            showToast('✓ Yeni ilan başarıyla envantere eklendi!');
+            showToast(`✓ Yeni ilan "${data.item.shop_name}" envanterine eklendi!`);
+          } else {
+            showToast('❌ ' + (data.error || 'Ekleme engellendi'));
           }
         } catch (e) {
           showToast('Ekleme başarısız: ' + e);
@@ -1889,12 +2556,56 @@
     }
 
     document.getElementById('inventorySearch')?.addEventListener('input', renderListingsTable);
+    document.getElementById('inventoryShopFilter')?.addEventListener('change', renderListingsTable);
     document.getElementById('inventoryFilter')?.addEventListener('change', renderListingsTable);
     loadListings();
 
     /* ==============================================================
-       8. TAB 9: CONFIGURATION & .ENV MANAGER
+       8. TAB 9: CONFIGURATION, .ENV & HARDWARE RESOURCE SHIELD
        ============================================================== */
+    window.loadSystemResources = async function() {
+      try {
+        const res = await fetch('/api/system/resources');
+        const r = await res.json();
+        if (document.getElementById('resServerRss')) {
+          document.getElementById('resServerRss').textContent = `${r.server_rss_mb} MB`;
+        }
+        if (document.getElementById('resSysMem')) {
+          document.getElementById('resSysMem').textContent = `${r.mem_used_mb} / ${r.mem_total_mb} MB`;
+        }
+        if (document.getElementById('resSysMemBar')) {
+          const pct = Math.min(100, Math.max(5, Number(r.mem_percent || 35)));
+          const bar = document.getElementById('resSysMemBar');
+          bar.style.width = pct + '%';
+          bar.style.background = pct > 82 ? 'var(--danger)' : (pct > 68 ? 'var(--warn)' : 'var(--accent)');
+        }
+        if (document.getElementById('resCpuTemp')) {
+          document.getElementById('resCpuTemp').textContent = r.cpu_temp_c != null ? `${r.cpu_temp_c}°C` : 'Normal';
+        }
+        if (document.getElementById('resLoadAvg')) {
+          document.getElementById('resLoadAvg').textContent = `1dk Yük: ${r.load_1m}`;
+        }
+        if (document.getElementById('resDiskFree')) {
+          document.getElementById('resDiskFree').textContent = `${r.disk_free_gb} GB Boş`;
+        }
+        if (document.getElementById('resDockerState')) {
+          const el = document.getElementById('resDockerState');
+          if (r.lazy_docker_sleeping) {
+            el.style.color = 'var(--success)';
+            el.textContent = '✓ Ağır MinIO/Next.js Uyku Modunda';
+          } else {
+            el.style.color = 'var(--warn)';
+            el.textContent = `⚡ Aktif Konteyner (${r.running_containers.length}): ${r.running_containers.slice(0, 2).join(', ')}`;
+          }
+        }
+        if (document.getElementById('headerRamText')) {
+          document.getElementById('headerRamText').textContent = `RAM: ${r.server_rss_mb} MB (${r.mem_percent}%)`;
+        }
+      } catch (e) {
+        console.error('Resource telemetry error:', e);
+      }
+    };
+
     async function loadEnvConfig() {
       try {
         const res = await fetch('/api/env');
@@ -1937,6 +2648,7 @@
           const data = await res.json();
           if (data.ok) {
             loadEnvConfig();
+            loadShops();
             showToast('✓ Ayarlar başarıyla .env dosyasına kaydedildi!');
           }
         } catch (err) {
@@ -1944,7 +2656,19 @@
         }
       };
     }
+
+    loadShops();
     loadEnvConfig();
+    loadSystemResources();
+    setInterval(loadSystemResources, 30000);
+
+    // Handle OAuth Redirect Return
+    if (window.location.search.includes('etsy_connected=1') || window.location.hash === '#tab-api') {
+      switchTab('api');
+      if (window.location.search.includes('etsy_connected=1')) {
+        showToast('🎉 Etsy OAuth 2.0 bağlantısı başarıyla tamamlandı!');
+      }
+    }
   </script>
 </body>
 </html>
