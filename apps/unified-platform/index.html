@@ -115,7 +115,8 @@
     .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
     .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
     .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-    @media (max-width: 900px) { .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; } }
+    .grid-5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+    @media (max-width: 900px) { .grid-2, .grid-3, .grid-4, .grid-5 { grid-template-columns: 1fr; } }
 
     .card {
       background: var(--panel);
@@ -452,8 +453,25 @@
           <label>Etsy Listing Title (Zorunlu İngilizce, Güçlü Satış Dili)</label>
           <textarea id="etsyTitle" rows="3">Emerald Peony Wallpaper, Chinoiserie Wall Mural Peel and Stick, Vintage Botanical Removable Wallpaper, Floral Statement Wall Decor</textarea>
 
+          <!-- Real-Time Trademark IP Shield Alert Banner -->
+          <div id="ipShieldAlert" style="display:none;background:#450a0a;border:1px solid #ef4444;border-radius:8px;padding:12px;margin:10px 0">
+            <div style="display:flex;align-items:flex-start;gap:10px">
+              <span style="font-size:20px">🚨</span>
+              <div style="flex:1">
+                <b style="color:#f87171;font-size:13px;display:block">Telif / Marka İhlali Kalkanı Uyarısı (IP Violation)!</b>
+                <p id="ipShieldMessage" style="font-size:12px;color:#fca5a5;margin:4px 0 0 0">
+                  Tespit edilen yasaklı marka: <b id="ipViolationsList">disney</b>. Bu kelimeleri içeren ilanlar Etsy botları tarafından anında askıya alınır veya mağazanız kapatılabilir!
+                </p>
+              </div>
+            </div>
+          </div>
+          <div id="ipShieldClean" style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:10px 14px;margin:10px 0;display:flex;align-items:center;gap:10px">
+            <span style="color:var(--success);font-weight:700">🛡️ Fikri Mülkiyet Kalkanı:</span>
+            <span style="font-size:12px;color:var(--muted)" id="ipShieldStatusText">Temiz · Disney, Marvel, Harry Potter, Lego gibi yasaklı 35+ marka filtresinden geçti.</span>
+          </div>
+
           <label>Ürün Açıklaması (Standart Kurallı Şablon)</label>
-          <textarea id="etsyDesc" rows="12" style="font-family:var(--font-mono);font-size:12px">Bring timeless elegance to your home with our luxury Emerald Peony Chinoiserie Wallpaper Mural. Featuring lush botanical blossoms, singing songbirds, and delicate vintage gold accents on a rich emerald background.
+          <textarea id="etsyDesc" rows="11" style="font-family:var(--font-mono);font-size:12px">Bring timeless elegance to your home with our luxury Emerald Peony Chinoiserie Wallpaper Mural. Featuring lush botanical blossoms, singing songbirds, and delicate vintage gold accents on a rich emerald background.
 
 [ROOM RECOMMENDATIONS]
 • Master Bedroom behind the bed headboard
@@ -470,27 +488,35 @@
         <div class="card">
           <div class="card-header">
             <h2>13 Benzersiz Etsy Etiketi (Tags)</h2>
-            <span class="pill green"><span class="dot"></span> 13 / 13 Hazır</span>
+            <span class="pill green" id="tagCountPill"><span class="dot"></span> <span id="tagCountText">13 / 13 Hazır</span></span>
           </div>
-          <p style="color:var(--muted);font-size:12px">Her etiket en fazla 20 karakterdir, İngilizcedir ve arama hacmi yüksek eRank verilerinden türetilmiştir.</p>
+          <p style="color:var(--muted);font-size:12px">Her etiket en fazla 20 karakterdir. Silmek için etiketin yanındaki ✕ işaretine tıklayın.</p>
 
-          <div class="tag-chips" id="tagChips">
-            <span class="tag-chip valid">chinoiserie mural (17)</span>
-            <span class="tag-chip valid">peony wallpaper (15)</span>
-            <span class="tag-chip valid">emerald wallpaper (17)</span>
-            <span class="tag-chip valid">botanical wall mural(20)</span>
-            <span class="tag-chip valid">peel and stick (14)</span>
-            <span class="tag-chip valid">removable wallpaper (19)</span>
-            <span class="tag-chip valid">floral wall decor (17)</span>
-            <span class="tag-chip valid">vintage chinoiserie (19)</span>
-            <span class="tag-chip valid">green wall mural (16)</span>
-            <span class="tag-chip valid">accent wall decor (17)</span>
-            <span class="tag-chip valid">luxury wallpaper (16)</span>
-            <span class="tag-chip valid">living room mural (17)</span>
-            <span class="tag-chip valid">bedroom wallpaper (17)</span>
+          <div class="tag-chips" id="tagChips" style="margin-bottom:14px">
+            <!-- Dynamic interactive chips populated by JS -->
           </div>
 
-          <div style="background:var(--gold-soft);border:1px solid rgba(212,175,55,0.3);padding:14px;border-radius:8px;margin-top:14px">
+          <!-- Canlı Etsy Alıcı Arama Önerileri (Live Autosuggest Widget) -->
+          <div style="background:var(--card);border:1px solid var(--accent);border-radius:10px;padding:14px;margin-bottom:14px">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+              <b style="color:var(--accent);font-size:13px;display:flex;align-items:center;gap:6px">
+                🔍 Canlı Etsy Alıcı Arama Önerileri (Live Autosuggest)
+              </b>
+              <span class="badge" style="background:#0f382a;color:var(--success);font-size:10px">⚡ Canlı Etsy Arama Motoru</span>
+            </div>
+            <p style="font-size:11px;color:var(--muted);margin-bottom:10px">
+              Etsy arama çubuğundaki alıcı aramalarını canlı çeker. Beğendiğiniz sorguyu <b>+ Etikete Ekle</b> ile doğrudan 13 etiketinize aktarın.
+            </p>
+            <div style="display:flex;gap:8px;margin-bottom:10px">
+              <input type="text" id="etsySuggestQuery" placeholder="Arama terimi girin (örn: peel and stick wallpaper)..." value="peel and stick wallpaper" style="padding:7px 12px;font-size:12px">
+              <button class="btn btn-accent btn-sm" id="btnFetchSuggest" style="white-space:nowrap">Canlı Sorgula</button>
+            </div>
+            <div id="suggestChipsContainer" style="display:flex;flex-wrap:wrap;gap:6px;max-height:160px;overflow-y:auto;padding:4px">
+              <span style="font-size:11px;color:var(--muted)">Sorgulanıyor...</span>
+            </div>
+          </div>
+
+          <div style="background:var(--gold-soft);border:1px solid rgba(212,175,55,0.3);padding:14px;border-radius:8px">
             <b style="color:var(--gold);display:block;margin-bottom:4px">🛡️ Etsy Dil ve İddia Kalkanı (Compliance Guard)</b>
             <p style="font-size:12px;color:var(--text)">Sistem metinleri otomatik taradı: "non-toxic", "hand-made", "AI-free" gibi kapatılma riski taşıyan asılsız iddialar temizlendi. Tüm müşteri metinleri zorunlu İngilizce standardına uygundur.</p>
           </div>
@@ -835,15 +861,15 @@
     <!-- TAB 8: LISTINGS MANAGEMENT & INVENTORY -->
     <section id="tab-inventory" class="tab-content">
       <!-- Inventory Summary KPIs -->
-      <div class="grid-4" style="margin-bottom:20px">
+      <div class="grid-5" style="margin-bottom:20px">
         <div class="card" style="padding:14px">
           <span style="font-size:11px;color:var(--muted);text-transform:uppercase">Toplam İlan</span>
-          <b style="font-size:1.6rem;color:var(--text);font-family:var(--font-display)" id="statTotalListings">5</b>
+          <b style="font-size:1.6rem;color:var(--text);font-family:var(--font-display)" id="statTotalListings">6</b>
           <span style="font-size:11px;color:var(--muted)">Katalog envanteri</span>
         </div>
         <div class="card" style="padding:14px">
           <span style="font-size:11px;color:var(--muted);text-transform:uppercase">Yayında (Active)</span>
-          <b style="font-size:1.6rem;color:var(--success);font-family:var(--font-display)" id="statActiveListings">3</b>
+          <b style="font-size:1.6rem;color:var(--success);font-family:var(--font-display)" id="statActiveListings">4</b>
           <span style="font-size:11px;color:var(--success)">Etsy'de satışta</span>
         </div>
         <div class="card" style="padding:14px">
@@ -852,9 +878,14 @@
           <span style="font-size:11px;color:var(--muted)">Yayına hazır</span>
         </div>
         <div class="card" style="padding:14px">
-          <span style="font-size:11px;color:var(--muted);text-transform:uppercase">Yayından Kaldırılan / Pasif</span>
+          <span style="font-size:11px;color:var(--muted);text-transform:uppercase">Kaldırılan / Pasif</span>
           <b style="font-size:1.6rem;color:var(--danger);font-family:var(--font-display)" id="statRemovedListings">1</b>
           <span style="font-size:11px;color:var(--danger)">Satışa kapalı</span>
+        </div>
+        <div class="card" style="padding:14px;border-color:rgba(245,158,11,0.5);background:#231908">
+          <span style="font-size:11px;color:#f59e0b;text-transform:uppercase">🥀 Budama Önerisi</span>
+          <b style="font-size:1.6rem;color:#f59e0b;font-family:var(--font-display)" id="statPruneListings">1</b>
+          <span style="font-size:11px;color:#fcd34d">Ölü İlan (&lt;20 gör.)</span>
         </div>
       </div>
 
@@ -863,11 +894,12 @@
         <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
           <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
             <input type="text" id="inventorySearch" placeholder="Başlık veya SKU ile ara..." style="width:240px;padding:7px 12px">
-            <select id="inventoryFilter" style="width:160px;padding:7px 12px">
+            <select id="inventoryFilter" style="width:230px;padding:7px 12px">
               <option value="ALL">Tüm Durumlar</option>
               <option value="ACTIVE">Yalnızca Yayında</option>
               <option value="DRAFT">Yalnızca Taslak</option>
               <option value="REMOVED">Kaldırılanlar (Pasif)</option>
+              <option value="PRUNE">🥀 Budama Önerilen (Ölü İlanlar: &lt;20 Gör.)</option>
             </select>
           </div>
           <button class="btn btn-gold btn-sm" id="btnToggleNewListingForm">+ Yeni İlan Ekle</button>
@@ -1371,14 +1403,173 @@
       }, 2000);
     }
 
-    // Title Char counter
+    // ==============================================================
+    // INTERACTIVE TAG STATE, IP SHIELD & BUYER AUTOSUGGEST
+    // ==============================================================
+    let activeTags = [
+      "chinoiserie mural", "peony wallpaper", "emerald wallpaper",
+      "botanical wall mural", "peel and stick", "removable wallpaper",
+      "floral wall decor", "vintage chinoiserie", "green wall mural",
+      "accent wall decor", "luxury wallpaper", "living room mural", "bedroom wallpaper"
+    ];
+
+    function renderTagChips() {
+      const container = document.getElementById('tagChips');
+      if (!container) return;
+      container.innerHTML = '';
+      activeTags.forEach((tag, idx) => {
+        const span = document.createElement('span');
+        span.className = 'tag-chip valid';
+        span.style.cursor = 'default';
+        span.innerHTML = `
+          ${tag} <small style="opacity:0.7">(${tag.length})</small>
+          <span style="margin-left:6px;cursor:pointer;font-weight:bold;color:#f87171" onclick="removeTag(${idx})" title="Etiketi kaldır">✕</span>
+        `;
+        container.appendChild(span);
+      });
+
+      const pill = document.getElementById('tagCountPill');
+      const text = document.getElementById('tagCountText');
+      if (text) text.textContent = `${activeTags.length} / 13 Hazır`;
+      if (pill) {
+        if (activeTags.length === 13) {
+          pill.className = 'pill green';
+          pill.style = '';
+        } else {
+          pill.className = 'pill';
+          pill.style.background = '#451a03';
+          pill.style.borderColor = '#f59e0b';
+          pill.style.color = '#f59e0b';
+        }
+      }
+      checkIpShield();
+    }
+
+    window.removeTag = function(index) {
+      activeTags.splice(index, 1);
+      renderTagChips();
+    };
+
+    window.addTag = function(newTag) {
+      newTag = newTag.trim().toLowerCase();
+      if (!newTag) return;
+      if (newTag.length > 20) {
+        showToast('Etiket en fazla 20 karakter olabilir! Başlığa eklemeyi deneyin.');
+        return;
+      }
+      if (activeTags.includes(newTag)) {
+        showToast('Bu etiket zaten ekli!');
+        return;
+      }
+      if (activeTags.length >= 13) {
+        showToast('En fazla 13 etiket eklenebilir! Önce birini silin (✕).');
+        return;
+      }
+      activeTags.push(newTag);
+      renderTagChips();
+      showToast(`✓ "${newTag}" etiketi eklendi!`);
+    };
+
+    let ipDebounceTimer = null;
+    async function checkIpShield() {
+      clearTimeout(ipDebounceTimer);
+      ipDebounceTimer = setTimeout(async () => {
+        const title = document.getElementById('etsyTitle')?.value || '';
+        const allText = title + ' ' + activeTags.join(' ');
+        try {
+          const res = await fetch('/api/etsy/ip-check?text=' + encodeURIComponent(allText));
+          const data = await res.json();
+          const alertBox = document.getElementById('ipShieldAlert');
+          const cleanBox = document.getElementById('ipShieldClean');
+          const violList = document.getElementById('ipViolationsList');
+          if (data && !data.clean && data.violations && data.violations.length > 0) {
+            if (alertBox) alertBox.style.display = 'block';
+            if (cleanBox) cleanBox.style.display = 'none';
+            if (violList) violList.textContent = data.violations.join(', ');
+          } else {
+            if (alertBox) alertBox.style.display = 'none';
+            if (cleanBox) cleanBox.style.display = 'flex';
+          }
+        } catch (e) {
+          console.error("IP Check error:", e);
+        }
+      }, 200);
+    }
+
+    // Title Char counter & IP Check
     const titleInput = document.getElementById('etsyTitle');
-    titleInput.addEventListener('input', () => {
-      const len = titleInput.value.length;
-      const b = document.getElementById('titleCharBadge');
-      b.textContent = `${len} / 140 Karakter`;
-      b.style.color = len > 140 ? 'var(--danger)' : 'var(--gold)';
+    if (titleInput) {
+      titleInput.addEventListener('input', () => {
+        const len = titleInput.value.length;
+        const b = document.getElementById('titleCharBadge');
+        if (b) {
+          b.textContent = `${len} / 140 Karakter`;
+          b.style.color = len > 140 ? 'var(--danger)' : 'var(--gold)';
+        }
+        checkIpShield();
+      });
+    }
+
+    // Live Etsy Buyer Autosuggest
+    async function fetchEtsySuggestions(query) {
+      const box = document.getElementById('suggestChipsContainer');
+      if (!box) return;
+      box.innerHTML = '<span style="font-size:12px;color:var(--muted)">⚡ Etsy arama motorundan çekiliyor...</span>';
+      try {
+        const res = await fetch('/api/etsy/suggest?query=' + encodeURIComponent(query));
+        const data = await res.json();
+        box.innerHTML = '';
+        if (data.suggestions && data.suggestions.length > 0) {
+          data.suggestions.forEach(s => {
+            const chip = document.createElement('div');
+            chip.style.cssText = 'display:inline-flex;align-items:center;gap:6px;background:var(--card);border:1px solid var(--border);border-radius:6px;padding:4px 8px;font-size:11px';
+            const isTagSize = s.length <= 20;
+            chip.innerHTML = `
+              <span style="color:var(--text)">${s}</span>
+              <span style="color:var(--muted);font-size:10px">(${s.length})</span>
+              ${isTagSize ? `
+                <button class="btn btn-sm btn-accent" style="padding:2px 6px;font-size:10px" onclick="addTag('${s.replace(/'/g, "\\'")}')">+ Etikete Ekle</button>
+              ` : `
+                <button class="btn btn-sm" style="padding:2px 6px;font-size:10px;border-color:var(--gold);color:var(--gold)" onclick="appendToTitle('${s.replace(/'/g, "\\'")}')">+ Başlığa</button>
+              `}
+            `;
+            box.appendChild(chip);
+          });
+        } else {
+          box.innerHTML = '<span style="font-size:12px;color:var(--muted)">Öneri bulunamadı.</span>';
+        }
+      } catch (e) {
+        box.innerHTML = '<span style="font-size:12px;color:var(--danger)">Öneriler alınamadı: ' + e + '</span>';
+      }
+    }
+
+    window.appendToTitle = function(text) {
+      const input = document.getElementById('etsyTitle');
+      if (!input) return;
+      if (input.value.length + text.length + 2 <= 140) {
+        input.value += ', ' + text;
+        input.dispatchEvent(new Event('input'));
+        showToast('✓ Terim başlığa eklendi!');
+      } else {
+        showToast('Başlık 140 karakteri aşamaz!');
+      }
+    };
+
+    document.getElementById('btnFetchSuggest')?.addEventListener('click', () => {
+      const q = document.getElementById('etsySuggestQuery')?.value.trim() || 'peel and stick wallpaper';
+      fetchEtsySuggestions(q);
     });
+
+    document.getElementById('etsySuggestQuery')?.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        const q = e.target.value.trim() || 'peel and stick wallpaper';
+        fetchEtsySuggestions(q);
+      }
+    });
+
+    // Initial render of tags & fetch initial autosuggest
+    renderTagChips();
+    fetchEtsySuggestions('peel and stick wallpaper');
 
     document.getElementById('btnCopyPrompt').onclick = () => {
       navigator.clipboard.writeText(document.getElementById('promptMj').value);
@@ -1418,24 +1609,14 @@
     }
 
     function injectGoldenTags() {
-      const goldenTags = [
-        "japandi wall mural (18)", "wabi sabi wallpaper (19)", "sage green mural (16)",
-        "neutral wallpaper (17)", "peel and stick mural(20)", "removable wallpaper (19)",
-        "living room decor (17)", "minimalist wallpaper (20)", "zen bedroom mural (17)",
-        "textured wall art (17)", "luxury wallpaper (16)", "dining room mural (17)",
-        "accent wall decor (17)"
+      activeTags = [
+        "japandi wall mural", "wabi sabi wallpaper", "sage green mural",
+        "neutral wallpaper", "peel and stick mural", "removable wallpaper",
+        "living room decor", "minimalist wallpaper", "zen bedroom mural",
+        "textured wall art", "luxury wallpaper", "dining room mural",
+        "accent wall decor"
       ];
-      const container = document.getElementById('tagChips');
-      container.innerHTML = '';
-      goldenTags.forEach(t => {
-        const span = document.createElement('span');
-        span.className = 'tag-chip valid';
-        span.style.background = '#2e1065';
-        span.style.borderColor = '#9333ea';
-        span.style.color = '#e9d5ff';
-        span.textContent = t;
-        container.appendChild(span);
-      });
+      renderTagChips();
       showToast('🎯 En yüksek skorlu 13 Altın Etiket Etsy İlanına Enjekte Edildi!');
     }
 
@@ -1546,14 +1727,24 @@
       if (!tbody) return;
 
       tbody.innerHTML = '';
-      let actCount = 0, draftCount = 0, remCount = 0;
+      let actCount = 0, draftCount = 0, remCount = 0, pruneCount = 0;
 
-      const filtered = currentListings.filter(item => {
-        if (item.state === 'ACTIVE') actCount++;
+      currentListings.forEach(item => {
+        if (item.state === 'ACTIVE') {
+          actCount++;
+          if (Number(item.views || 0) < 20) pruneCount++;
+        }
         else if (item.state === 'DRAFT') draftCount++;
         else if (item.state === 'REMOVED') remCount++;
+      });
 
-        const matchesFilter = filter === 'ALL' || item.state === filter;
+      const filtered = currentListings.filter(item => {
+        let matchesFilter = true;
+        if (filter === 'PRUNE') {
+          matchesFilter = item.state === 'ACTIVE' && Number(item.views || 0) < 20;
+        } else if (filter !== 'ALL') {
+          matchesFilter = item.state === filter;
+        }
         const matchesQuery = !q || (item.title || '').toLowerCase().includes(q) || (item.sku || '').toLowerCase().includes(q);
         return matchesFilter && matchesQuery;
       });
@@ -1563,6 +1754,7 @@
       if (document.getElementById('statActiveListings')) document.getElementById('statActiveListings').textContent = actCount;
       if (document.getElementById('statDraftListings')) document.getElementById('statDraftListings').textContent = draftCount;
       if (document.getElementById('statRemovedListings')) document.getElementById('statRemovedListings').textContent = remCount;
+      if (document.getElementById('statPruneListings')) document.getElementById('statPruneListings').textContent = pruneCount;
       if (document.getElementById('navListingCountBadge')) document.getElementById('navListingCountBadge').textContent = currentListings.length;
 
       if (filtered.length === 0) {
@@ -1575,10 +1767,12 @@
         tr.style.borderBottom = '1px solid var(--border)';
         const isAct = it.state === 'ACTIVE';
         const isRem = it.state === 'REMOVED';
+        const isPrune = isAct && Number(it.views || 0) < 20;
 
         let badge = `<span class="badge" style="background:var(--success-soft);color:var(--success)">Yayında</span>`;
         if (it.state === 'DRAFT') badge = `<span class="badge" style="background:var(--card);color:var(--warn)">Taslak</span>`;
         if (isRem) badge = `<span class="badge" style="background:#450a0a;color:var(--danger)">Kaldırıldı (Pasif)</span>`;
+        if (isPrune) badge += ` <span class="badge" style="background:#451a03;border:1px solid #f59e0b;color:#f59e0b" title="30 günden eski & <20 görüntülenme: Budama önerilir">🥀 Ölü İlan</span>`;
 
         tr.innerHTML = `
           <td style="padding:10px 12px">
@@ -1599,9 +1793,15 @@
           <td style="padding:10px 12px">${badge}</td>
           <td style="padding:10px 12px;text-align:right;white-space:nowrap">
             ${isAct ? `
-              <button class="btn btn-sm" onclick="toggleListingState('${it.id}', 'REMOVED')" style="border-color:var(--danger);color:var(--danger)" title="İlanı Etsy'de pasife al / yayından kaldır">
-                Yayından Kaldır
-              </button>
+              ${isPrune ? `
+                <button class="btn btn-sm" onclick="toggleListingState('${it.id}', 'REMOVED')" style="border-color:#f59e0b;color:#f59e0b" title="Ölü ilanı pasife alarak mağaza puanını koru">
+                  🥀 Budama Yap
+                </button>
+              ` : `
+                <button class="btn btn-sm" onclick="toggleListingState('${it.id}', 'REMOVED')" style="border-color:var(--danger);color:var(--danger)" title="İlanı Etsy'de pasife al / yayından kaldır">
+                  Yayından Kaldır
+                </button>
+              `}
             ` : `
               <button class="btn btn-sm btn-gold" onclick="toggleListingState('${it.id}', 'ACTIVE')" title="İlanı yeniden yayına al">
                 Yayına Al

@@ -3,6 +3,8 @@ import sys
 import json
 import base64
 import hashlib
+import re
+import time
 import logging
 import urllib.request
 import urllib.parse
@@ -20,6 +22,24 @@ logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(message)s'
 )
+
+# ==============================================================================
+# FİKRİ MÜLKİYET & TELİF KALKANI (IP Filter Blocklist)
+# ==============================================================================
+IP_BLOCKLIST = [
+    "disney", "marvel", "nintendo", "pokemon", "pokémon", "netflix",
+    "star wars", "harry potter", "barbie", "lego", "minecraft", "fortnite",
+    "mickey", "spider-man", "spiderman", "frozen", "elsa", "bluey",
+    "taylor swift", "nike", "adidas", "gucci", "louis vuitton", "prada", "chanel",
+    "coca cola", "sanrio", "hello kitty", "stitch", "stranger things", "squid game",
+    "batman", "superman", "peppa pig", "paw patrol", "harry styles"
+]
+IP_REGEX = re.compile(r"\b(" + "|".join(re.escape(b) for b in IP_BLOCKLIST) + r")\b", re.IGNORECASE)
+
+def check_ip_violations(text):
+    if not text:
+        return []
+    return list(set(IP_REGEX.findall(text)))
 
 # Read or init .env
 def read_env_file():
@@ -62,6 +82,40 @@ def get_config():
         "s3_bucket": env.get('S3_BUCKET', 'qoop-assets')
     }
 
+def refresh_etsy_token():
+    if not os.path.exists(TOKENS_FILE):
+        return None
+    try:
+        with open(TOKENS_FILE, 'r') as f:
+            data = json.load(f)
+        tokens = data.get('tokens', {})
+        refresh_token = tokens.get('refresh_token')
+        if not refresh_token:
+            return None
+        cfg = get_config()
+        client_id = cfg['client_id']
+        token_url = 'https://api.etsy.com/v3/public/oauth/token'
+        post_data = urllib.parse.urlencode({
+            'grant_type': 'refresh_token',
+            'client_id': client_id,
+            'refresh_token': refresh_token
+        }).encode('utf-8')
+        req = urllib.request.Request(
+            token_url,
+            data=post_data,
+            headers={'Content-Type': 'application/x-www-form-urlencoded'}
+        )
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            new_tokens = json.loads(resp.read().decode('utf-8'))
+        data['tokens'] = new_tokens
+        data['refreshed_at'] = time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())
+        with open(TOKENS_FILE, 'w') as f:
+            json.dump(data, f, indent=2)
+        return new_tokens
+    except Exception as e:
+        logging.error(f"Error refreshing Etsy token: {e}")
+        return None
+
 def get_listings():
     if os.path.exists(LISTINGS_FILE):
         try:
@@ -92,8 +146,56 @@ class CustomHandler(SimpleHTTPRequestHandler):
         parsed = urllib.parse.urlparse(self.path)
         path = parsed.path
 
-        # 1. Etsy OAuth Start URL
-        if path == '/api/etsy/auth-url':
+        # 1. Etsy Live Autosuggest (API Key gerektirmez, doğrudan Etsy'nin canlı arama çubuğu)
+        if path == '/api/etsy/suggest':
+            qs = urllib.parse.parse_qs(parsed.query)
+            query = qs.get('query', ['wallpaper'])[0]
+            suggest_url = 'https://www.etsy.com/api/v3/ajax/public/search/autosuggest?' + urllib.parse.urlencode({'query': query})
+
+            headers = {
+                'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)',
+                'Accept': 'application/json',
+                'X-Requested-With': 'XMLHttpRequest'
+            }
+            req = urllib.request.Request(suggest_url, headers=headers)
+            try:
+                with urllib.request.urlopen(req, timeout=6) as resp:
+                    raw = json.loads(resp.read().decode('utf-8'))
+                    suggestions = []
+                    # Parse Etsy autosuggest response structure
+                    if isinstance(raw, list):
+                        for it in raw:
+                            if isinstance(it, dict) and 'query' in it:
+                                suggestions.append(it['query'])
+                            elif isinstance(it, str):
+                                suggestions.append(it)
+                    elif isinstance(raw, dict) and 'results' in raw:
+                        for it in raw['results']:
+                            if isinstance(it, dict) and 'query' in it:
+                                suggestions.append(it['query'])
+                    return self.send_json({'ok': True, 'query': query, 'suggestions': suggestions[:14]})
+            except Exception as e:
+                # Fallback to intelligent local keyword expansion
+                fallbacks = [
+                    f"{query} peel and stick",
+                    f"{query} mural for bedroom",
+                    f"{query} removable accent wall",
+                    f"{query} vintage botanical",
+                    f"{query} nursery floral",
+                    f"{query} modern wabi sabi",
+                    f"{query} living room statement"
+                ]
+                return self.send_json({'ok': True, 'query': query, 'suggestions': fallbacks, 'fallback': True})
+
+        # 2. IP / Telif Kontrol Endpoint
+        elif path == '/api/etsy/ip-check':
+            qs = urllib.parse.parse_qs(parsed.query)
+            text = qs.get('text', [''])[0]
+            violations = check_ip_violations(text)
+            return self.send_json({'clean': len(violations) == 0, 'violations': violations})
+
+        # 3. Etsy OAuth Start URL
+        elif path == '/api/etsy/auth-url':
             cfg = get_config()
             client_id = cfg['client_id']
             redirect_uri = cfg['redirect_uri']
@@ -128,7 +230,7 @@ class CustomHandler(SimpleHTTPRequestHandler):
             auth_url = 'https://www.etsy.com/oauth/connect?' + urllib.parse.urlencode(params)
             return self.send_json({'auth_url': auth_url, 'config': cfg})
 
-        # 2. Etsy OAuth Callback
+        # 4. Etsy OAuth Callback
         elif path == '/callback':
             qs = urllib.parse.parse_qs(parsed.query)
             code = qs.get('code', [None])[0]
@@ -172,9 +274,14 @@ class CustomHandler(SimpleHTTPRequestHandler):
                     tokens = json.loads(resp.read().decode('utf-8'))
 
                 access_token = tokens.get('access_token')
+                # 2026 Etsy API header rule: x-api-key can be keystring or keystring:secret
+                api_key_hdr = client_id
+                if cfg.get('shared_secret'):
+                    api_key_hdr = f"{client_id}:{cfg['shared_secret']}"
+
                 user_req = urllib.request.Request(
                     'https://openapi.etsy.com/v3/application/users/me',
-                    headers={'x-api-key': client_id, 'Authorization': f'Bearer {access_token}'}
+                    headers={'x-api-key': api_key_hdr, 'Authorization': f'Bearer {access_token}'}
                 )
                 user_data = {}
                 try:
@@ -188,7 +295,7 @@ class CustomHandler(SimpleHTTPRequestHandler):
                 if user_id:
                     shop_req = urllib.request.Request(
                         f'https://openapi.etsy.com/v3/application/users/{user_id}/shops',
-                        headers={'x-api-key': client_id, 'Authorization': f'Bearer {access_token}'}
+                        headers={'x-api-key': api_key_hdr, 'Authorization': f'Bearer {access_token}'}
                     )
                     try:
                         with urllib.request.urlopen(shop_req) as s_resp:
@@ -217,7 +324,7 @@ class CustomHandler(SimpleHTTPRequestHandler):
                 self.wfile.write(f"<h3>Etsy Token Degisimi Basarisiz (HTTP {e.code})</h3><pre>{err_body}</pre>".encode('utf-8'))
                 return
 
-        # 3. Etsy Status Check
+        # 5. Etsy Status Check
         elif path == '/api/etsy/status':
             cfg = get_config()
             connected = os.path.exists(TOKENS_FILE)
@@ -230,15 +337,23 @@ class CustomHandler(SimpleHTTPRequestHandler):
                     data['shop'] = saved.get('shop')
                     data['user'] = saved.get('user')
                     data['connected_at'] = saved.get('connected_at')
+                    data['refreshed_at'] = saved.get('refreshed_at')
                 except Exception:
                     pass
             return self.send_json(data)
 
-        # 4. Listings Inventory
+        # 5b. Etsy Token Refresh
+        elif path == '/api/etsy/refresh':
+            refreshed = refresh_etsy_token()
+            if refreshed:
+                return self.send_json({'ok': True, 'tokens': refreshed})
+            return self.send_json({'ok': False, 'error': 'Token refresh failed or token file not found'}, status=400)
+
+        # 6. Listings Inventory
         elif path == '/api/listings':
             return self.send_json(get_listings())
 
-        # 5. Environment / Settings
+        # 7. Environment / Settings
         elif path == '/api/env':
             env_vars = read_env_file()
             raw_text = ""
@@ -281,15 +396,24 @@ class CustomHandler(SimpleHTTPRequestHandler):
             write_env_file(env_vars)
             return self.send_json({'ok': True, 'vars': env_vars})
 
-        # 2. Add New Listing
+        # 2. Add New Listing with IP Pre-Check
         elif path == '/api/listings/create':
             listings = get_listings()
+            title = payload.get("title", "New Wallpaper")
+            # IP trademark pre-check
+            violations = check_ip_violations(title)
+            if violations:
+                return self.send_json({
+                    'ok': False,
+                    'error': f"Telif Kalkanı: İlan başlığında tescilli marka/IP tespit edildi: {', '.join(violations)}"
+                }, status=400)
+
             import time
             new_id = str(int(time.time()))
             new_item = {
                 "id": new_id,
                 "sku": payload.get("sku", "QP-NEW"),
-                "title": payload.get("title", "New Wallpaper"),
+                "title": title,
                 "price": float(payload.get("price", 299.00)),
                 "state": payload.get("state", "DRAFT"),
                 "category": payload.get("category", "Mural"),
