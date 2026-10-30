@@ -1,0 +1,6 @@
+import {it,expect} from 'vitest';import {automaticVariantName} from '../src/lib/variant-name';
+it('uses approved snapshot rather than generic title',()=>{expect(automaticVariantName('Çalışma',{prompt:'old watercolor',raw:{brief:{mode:'pattern',values:{primary:'Ağaç',medium:'Vektör',palette:'Adaçayı'},custom:{}}}})).toBe('Ağaç · Vektör · Adaçayı · Seamless pattern');});
+it('resolves other selections and respects current approved medium',()=>{const name=automaticVariantName('Test',{prompt:'watercolor',raw:{brief:{values:{primary:'__other__',medium:'Vektör'},custom:{primary:'Zeytin dalı'}}}});expect(name).toContain('Zeytin dalı');expect(name).not.toContain('watercolor');});
+it('extracts description without midjourney arguments',()=>{expect(automaticVariantName('Test',{prompt:'Misty forest with cranes --ar 1:1 --tile',raw:{}})).toBe('Misty forest with cranes');});
+it('uses safe title when only technical instructions exist',()=>{expect(automaticVariantName('Orman · Düzenleme',{prompt:'Create a tile\nGrid coordinates x00-y00',raw:{sourceMode:'pattern'}})).toBe('Orman · Seamless pattern');});
+it('limits length and does not invent details',()=>{expect(automaticVariantName('a'.repeat(500))).toHaveLength(100);});

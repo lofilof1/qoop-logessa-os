@@ -1,0 +1,4 @@
+CREATE TABLE "KeywordWatch" ("term" TEXT NOT NULL PRIMARY KEY,"category" TEXT NOT NULL,"priority" INTEGER NOT NULL DEFAULT 2,"status" TEXT NOT NULL DEFAULT 'active',"reason" TEXT NOT NULL,"createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP);
+CREATE INDEX "KeywordWatch_priority_term_idx" ON "KeywordWatch"("priority","term");
+CREATE TABLE "KeywordObservation" ("id" TEXT NOT NULL PRIMARY KEY,"term" TEXT NOT NULL,"observedAt" TEXT NOT NULL,"market" TEXT NOT NULL,"searches" TEXT NOT NULL,"clicks" TEXT NOT NULL,"competition" TEXT NOT NULL,"ctr" TEXT NOT NULL,"notes" TEXT NOT NULL,"createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,CONSTRAINT "KeywordObservation_term_fkey" FOREIGN KEY ("term") REFERENCES "KeywordWatch"("term") ON DELETE RESTRICT ON UPDATE CASCADE);
+CREATE INDEX "KeywordObservation_term_observedAt_market_idx" ON "KeywordObservation"("term","observedAt","market");

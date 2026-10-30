@@ -1,0 +1,14 @@
+{
+  "source": "Shareable source package - empty research dataset",
+  "snapshotDate": "2026-10-30",
+  "datasetHash": "752411bab1ef9fc07b84c3335bbe4bfa92c73070ee2f7de29782728d25e49d5e",
+  "policyVersion": "share-source-v1",
+  "counts": {
+    "families": 0,
+    "references": 0,
+    "keywords": 0,
+    "prompts": 0,
+    "documents": 0
+  },
+  "exclusions": []
+}

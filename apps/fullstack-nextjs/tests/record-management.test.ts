@@ -1,0 +1,3 @@
+import {it,expect} from 'vitest';import {designManagement,promptManagement} from '../src/lib/record-management';
+it('only supports recoverable trash and restore operations',()=>{expect(designManagement.parse({action:'trash'})).toEqual({action:'trash'});expect(promptManagement.parse({action:'restore'})).toEqual({action:'restore'});expect(()=>designManagement.parse({action:'purge'})).toThrow();});
+it('rejects empty names and prompts rather than destroying their source',()=>{expect(()=>designManagement.parse({action:'edit',title:'  ',description:''})).toThrow();expect(()=>promptManagement.parse({action:'edit',prompt:'  '})).toThrow();expect(promptManagement.parse({action:'edit',prompt:' New prompt '})).toEqual({action:'edit',prompt:'New prompt'});});

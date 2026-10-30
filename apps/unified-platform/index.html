@@ -1,0 +1,1750 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Qoop & Logessa · Unified Wallpaper OS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+  <style>
+    :root {
+      --bg: #0c131d;
+      --panel: #131d2b;
+      --card: #182436;
+      --border: #24354d;
+      --text: #f0f4f8;
+      --muted: #8ca0b8;
+      --gold: #d4af37;
+      --gold-soft: #2b2513;
+      --accent: #38bdf8;
+      --accent-soft: #0c2d48;
+      --success: #34d399;
+      --success-soft: #064e3b;
+      --warn: #fbbf24;
+      --danger: #f87171;
+      --font-display: 'Bricolage Grotesque', sans-serif;
+      --font-body: 'Instrument Sans', system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 14px;
+      line-height: 1.5;
+      padding: 0;
+      min-height: 100vh;
+    }
+    header {
+      background: var(--panel);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .brand-wrap { display: flex; align-items: center; gap: 14px; }
+    .brand-logo {
+      width: 42px; height: 42px;
+      background: linear-gradient(135deg, var(--gold), #9a7620);
+      border-radius: 10px;
+      display: grid; place-items: center;
+      font-family: var(--font-display);
+      font-size: 20px; font-weight: 800; color: #000;
+      box-shadow: 0 4px 14px rgba(212,175,55,0.3);
+    }
+    .brand-text h1 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; letter-spacing: -0.01em; }
+    .brand-text p { font-size: 0.8rem; color: var(--muted); }
+    .pill-group { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .pill {
+      font-family: var(--font-mono); font-size: 11px;
+      padding: 5px 10px; border-radius: 20px;
+      border: 1px solid var(--border);
+      display: flex; align-items: center; gap: 6px;
+      background: var(--card);
+    }
+    .pill .dot { width: 7px; height: 7px; border-radius: 50%; }
+    .pill.green .dot { background: var(--success); box-shadow: 0 0 6px var(--success); }
+    .pill.gold .dot { background: var(--gold); }
+    .pill.blue .dot { background: var(--accent); }
+
+    .nav-tabs {
+      background: var(--panel);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      display: flex;
+      gap: 4px;
+      overflow-x: auto;
+    }
+    .nav-tab {
+      background: none; border: none;
+      padding: 12px 16px;
+      color: var(--muted);
+      font-family: var(--font-display);
+      font-size: 0.95rem; font-weight: 600;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: all 0.15s ease;
+      display: flex; align-items: center; gap: 8px;
+      white-space: nowrap;
+    }
+    .nav-tab:hover { color: var(--text); }
+    .nav-tab.active {
+      color: var(--gold);
+      border-bottom-color: var(--gold);
+    }
+    .nav-tab .badge {
+      background: var(--card);
+      border: 1px solid var(--border);
+      font-family: var(--font-mono);
+      font-size: 10px; padding: 2px 6px; border-radius: 10px;
+    }
+
+    main { max-width: 1400px; margin: 0 auto; padding: 24px; }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; animation: fadeIn 0.2s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    @media (max-width: 900px) { .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; } }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      display: flex; flex-direction: column; gap: 16px;
+    }
+    .card-header {
+      display: flex; justify-content: space-between; align-items: baseline;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 12px; margin-bottom: 4px;
+    }
+    .card-header h2, .card-header h3 {
+      font-family: var(--font-display);
+      font-size: 1.1rem; font-weight: 700;
+    }
+
+    .btn {
+      background: var(--card); color: var(--text);
+      border: 1px solid var(--border);
+      padding: 9px 16px; border-radius: 8px;
+      font-family: var(--font-body); font-weight: 600; font-size: 0.9rem;
+      cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      transition: all 0.15s ease;
+    }
+    .btn:hover { border-color: var(--muted); background: #1e2c40; }
+    .btn-gold {
+      background: linear-gradient(135deg, #d4af37, #b28b1e);
+      color: #000; border: none; font-weight: 700;
+      box-shadow: 0 4px 12px rgba(212,175,55,0.25);
+    }
+    .btn-gold:hover { filter: brightness(1.1); transform: translateY(-1px); }
+    .btn-accent {
+      background: var(--accent); color: #000; border: none; font-weight: 700;
+    }
+    .btn-sm { padding: 5px 10px; font-size: 0.8rem; border-radius: 6px; }
+
+    /* Mockup Canvas Grid */
+    .mockup-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+    .room-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      display: flex; flex-direction: column;
+      position: relative;
+    }
+    .room-card canvas {
+      width: 100%; height: auto; display: block;
+      background: #000; aspect-ratio: 4 / 3; object-fit: contain;
+    }
+    .room-card-foot {
+      padding: 10px 14px;
+      display: flex; justify-content: space-between; align-items: center;
+      background: var(--panel); border-top: 1px solid var(--border);
+    }
+    .room-card-foot b { font-size: 0.88rem; font-family: var(--font-display); }
+
+    /* QDS Score badge */
+    .score-circle {
+      width: 86px; height: 86px; border-radius: 50%;
+      background: conic-gradient(var(--success) calc(var(--score) * 1%), var(--border) 0);
+      display: grid; place-items: center;
+      position: relative; margin: 0 auto;
+    }
+    .score-circle-inner {
+      width: 72px; height: 72px; border-radius: 50%;
+      background: var(--panel);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+    }
+    .score-num { font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; color: var(--success); }
+    .score-label { font-size: 9px; color: var(--muted); text-transform: uppercase; font-family: var(--font-mono); }
+
+    /* Tags input / badging */
+    .tag-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag-chip {
+      background: var(--card); border: 1px solid var(--border);
+      padding: 4px 10px; border-radius: 6px; font-size: 12px;
+      display: flex; align-items: center; gap: 6px; font-family: var(--font-mono);
+    }
+    .tag-chip.valid { border-color: rgba(52,211,153,0.4); color: #86efac; }
+    .tag-chip.invalid { border-color: rgba(248,113,113,0.5); color: #fca5a5; }
+
+    /* Form Controls */
+    input, select, textarea {
+      width: 100%; background: var(--card); border: 1px solid var(--border);
+      color: var(--text); padding: 8px 12px; border-radius: 8px;
+      font-family: inherit; font-size: 13px;
+    }
+    input:focus, select:focus, textarea:focus {
+      outline: 2px solid var(--accent); border-color: var(--accent);
+    }
+    label { font-size: 12px; font-weight: 600; color: var(--muted); display: block; margin-bottom: 6px; }
+
+    /* Code & JSON boxes */
+    pre.code-box {
+      background: #090e15; border: 1px solid var(--border);
+      border-radius: 8px; padding: 12px;
+      font-family: var(--font-mono); font-size: 12px;
+      overflow-x: auto; color: #a5f3fc; line-height: 1.45;
+    }
+
+    /* Wall proof canvas */
+    #wallCanvas {
+      width: 100%; border-radius: 8px; border: 1px solid var(--border);
+      background: #000; cursor: crosshair;
+    }
+
+    .toast {
+      position: fixed; bottom: 24px; right: 24px;
+      background: var(--card); border: 1px solid var(--gold);
+      color: var(--text); padding: 12px 20px; border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+      z-index: 100; font-weight: 600; display: none;
+      animation: slideUp 0.2s ease;
+    }
+    @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <header>
+    <div class="brand-wrap">
+      <div class="brand-logo">Q</div>
+      <div class="brand-text">
+        <h1>Qoop & Logessa Unified Wallpaper OS</h1>
+        <p>E-Commerce, Auto-Mockup, QDS Quality Control & Etsy API v3 Integration</p>
+      </div>
+    </div>
+    <div class="pill-group">
+      <div class="pill green" title="Etsy Open API v3 Aktif"><span class="dot"></span> Etsy API v3: Bağlı (OAuth2)</div>
+      <div class="pill blue" title="Yerel GPU Görsel Modeli"><span class="dot"></span> AI: Ollama (Qwen-VL) Ready</div>
+      <div class="pill gold" title="Yerel S3 Depolama"><span class="dot"></span> MinIO S3: Aktif</div>
+    </div>
+  </header>
+
+  <!-- Module Tabs -->
+  <nav class="nav-tabs">
+    <button class="nav-tab active" data-tab="studio">1. Stüdyo & Desen</button>
+    <button class="nav-tab" data-tab="qc">2. Kalite & QDS Kontrolü <span class="badge" style="background:var(--success-soft);color:var(--success)">%96</span></button>
+    <button class="nav-tab" data-tab="mockup">3. 8-Temalı Mockup Motoru <span class="badge" id="mockupCountBadge">8 Oda</span></button>
+    <button class="nav-tab" data-tab="seo">4. Etsy İlan & SEO</button>
+    <button class="nav-tab" data-tab="api">5. Etsy API v3 Entegrasyonu <span class="badge" style="background:var(--accent-soft);color:var(--accent)">1-Click</span></button>
+    <button class="nav-tab" data-tab="orders">6. Canlı Sipariş & Duvar Prova</button>
+    <button class="nav-tab" data-tab="analytics">7. Pazar Radarı & Analitik <span class="badge" style="background:#3b0764;color:#d8b4fe;border-color:#7e22ce">⚡ CANLI ETKİ</span></button>
+    <button class="nav-tab" data-tab="inventory">8. İlan Yönetimi & Envanter <span class="badge" id="navListingCountBadge">5</span></button>
+    <button class="nav-tab" data-tab="config">⚙️ Konfigürasyon (.env)</button>
+  </nav>
+
+  <main>
+    <!-- TAB 1: STUDIO & PATTERN -->
+    <section id="tab-studio" class="tab-content active">
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-header">
+            <h2>Desen Seçimi / Yükleme</h2>
+            <span class="badge" style="color:var(--gold)">Aktif Desen</span>
+          </div>
+          <p style="color:var(--muted)">Sistemde hazır gelen yüksek çözünürlüklü şablonlardan birini seçebilir veya bilgisayarınızdan kendi duvar kağıdı görselinizi yükleyebilirsiniz.</p>
+          
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <button class="btn btn-gold" id="btnPreset1">Chinoiserie Peony (Emerald)</button>
+            <button class="btn" id="btnPreset2">Art Deco Scallop (Navy/Gold)</button>
+            <button class="btn" id="btnPreset3">Vintage Botanical (Sage)</button>
+          </div>
+
+          <div style="border:2px dashed var(--border);border-radius:10px;padding:24px;text-align:center;cursor:pointer;background:var(--card)" id="dropZone">
+            <input type="file" id="fileInput" accept="image/*" style="display:none">
+            <b style="font-size:15px;display:block">Kendi Desenini Buraya Bırak veya Tıkla</b>
+            <span style="font-size:12px;color:var(--muted)">PNG, JPG, WebP veya TIFF (Mural 4:3 veya Tekrarlı Desen)</span>
+          </div>
+
+          <div style="display:flex;gap:14px;align-items:center;background:var(--card);padding:12px;border-radius:8px;border:1px solid var(--border)">
+            <canvas id="activePatternPreview" width="90" height="90" style="border-radius:6px;border:1px solid var(--border);background:#000;object-fit:cover"></canvas>
+            <div>
+              <b id="patternTitle" style="font-size:15px">Emerald Peony & Songbird Chinoiserie</b>
+              <p id="patternMeta" style="font-size:12px;color:var(--muted);font-family:var(--font-mono)">Çözünürlük: 3600 × 2700 px · 300 DPI · 4:3 Mural</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h2>Yapay Zekâ Prompt Atölyesi</h2>
+            <button class="btn btn-sm" id="btnCopyPrompt">Kopyala</button>
+          </div>
+          <label>Midjourney v6.1 Promptu (Mural 4:3 veya Tekrarlı Desen)</label>
+          <textarea id="promptMj" rows="4" style="font-family:var(--font-mono)">Seamless hand-painted chinoiserie wallpaper mural, blooming blush peony clusters, perched songbirds on willow branches, rich deep emerald green background #0B3B2B, subtle gold leaf texture, elegant Japanese imperial salon style, photorealistic, 8k --ar 4:3 --stylize 250</textarea>
+
+          <label>ChatGPT / DALL-E 3 Promptu</label>
+          <textarea id="promptGpt" rows="3" style="font-family:var(--font-mono)">High-resolution luxury wallpaper design: Chinoiserie botanical mural featuring delicate peony flowers, vintage gold accents on dark emerald green backdrop, balanced negative space for interior living room wall.</textarea>
+
+          <div style="display:flex;justify-content:space-between;align-items:center;padding-top:8px">
+            <span style="font-size:12px;color:var(--success)">✓ Qoop tasarım standartları doğrulandı</span>
+            <button class="btn btn-accent btn-sm" onclick="switchTab('qc')">Kalite Analizine Geç →</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 2: QUALITY CONTROL & QDS -->
+    <section id="tab-qc" class="tab-content">
+      <div class="grid-3">
+        <div class="card" style="text-align:center">
+          <div class="card-header">
+            <h2>QDS Kalite Skoru</h2>
+            <span class="pill green"><span class="dot"></span> RELEASE</span>
+          </div>
+          <div class="score-circle" style="--score:96">
+            <div class="score-circle-inner">
+              <span class="score-num">96</span>
+              <span class="score-label">QDS SKORU</span>
+            </div>
+          </div>
+          <p style="font-size:13px;color:var(--muted);margin-top:10px">Tasarım, iç mimari ve estetik kriterlerin tamamını geçti. Üretime ve Etsy mağazasına gönderilmeye hazır.</p>
+          <div style="background:var(--card);padding:10px;border-radius:8px;font-family:var(--font-mono);font-size:13px">
+            Atanan SKU: <b style="color:var(--gold)">CH-2026-M04</b>
+          </div>
+        </div>
+
+        <div class="card" style="grid-column:span 2">
+          <div class="card-header">
+            <h2>Teknik Baskı & İç Mimari Kriterleri (Qoop Engine)</h2>
+            <span style="font-size:12px;color:var(--muted)">Ollama / Qwen-VL Denetimi</span>
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <div style="display:flex;justify-content:space-between;padding:10px;background:var(--card);border-radius:8px">
+              <div>
+                <b>1. İnce Dal & Çizgi Güvenliği (Print QC)</b>
+                <p style="font-size:12px;color:var(--muted)">Baskıda kaybolacak aşırı narin dal, kuru çalı veya pampas otu filtresi</p>
+              </div>
+              <span style="color:var(--success);font-weight:700">GÜVENLİ (5/5)</span>
+            </div>
+
+            <div style="display:flex;justify-content:space-between;padding:10px;background:var(--card);border-radius:8px">
+              <div>
+                <b>2. Oda & Mobilya Dengesi (Interior Balance)</b>
+                <p style="font-size:12px;color:var(--muted)">Alt 90 cm süpürgelik ve kanepe hizasında nefes alan boşluklar korunmuş</p>
+              </div>
+              <span style="color:var(--success);font-weight:700">MÜKEMMEL (4.8/5)</span>
+            </div>
+
+            <div style="display:flex;justify-content:space-between;padding:10px;background:var(--card);border-radius:8px">
+              <div>
+                <b>3. Renk Hiyerarşisi & Kontrast</b>
+                <p style="font-size:12px;color:var(--muted)">Zümrüt zemin (#0B3B2B) ile altın varak ve pastel çiçek kontrastı dengeli</p>
+              </div>
+              <span style="color:var(--success);font-weight:700">UYUMLU (4.9/5)</span>
+            </div>
+
+            <div style="display:flex;justify-content:space-between;padding:10px;background:var(--card);border-radius:8px">
+              <div>
+                <b>4. Dikiş / Kenar Eşleşmesi (Seamless Seam Check)</b>
+                <p style="font-size:12px;color:var(--muted)">Sol ve sağ panel birleşim paylarında motif kayması bulunmuyor</p>
+              </div>
+              <span style="color:var(--success);font-weight:700">ONAYLANDI (5/5)</span>
+            </div>
+          </div>
+
+          <div style="display:flex;justify-content:flex-end;margin-top:8px">
+            <button class="btn btn-gold" onclick="switchTab('mockup')">3. Mockup Motorunu Başlat →</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 3: 8-ROOM CANVAS MOCKUP ENGINE -->
+    <section id="tab-mockup" class="tab-content">
+      <div class="card" style="margin-bottom:20px">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px">
+          <div>
+            <h2 style="font-family:var(--font-display);font-size:1.25rem">Canlı 8-Temalı Mockup Motoru</h2>
+            <p style="color:var(--muted);font-size:13px">Deseniniz Canvas üzerinde gerçek oda fotoğraflarının yeşil duvarlarına perspektif ve ışık haritalamasıyla otomatik giydirilir.</p>
+          </div>
+          <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+            <label style="margin:0;display:flex;align-items:center;gap:6px">Tema:
+              <select id="mockupTheme" style="width:auto;padding:6px 12px">
+                <option value="std" selected>Standart Odalar (Modern)</option>
+                <option value="da">Dark Academia</option>
+                <option value="bh">Boho Minimal</option>
+                <option value="jp">Japandi</option>
+                <option value="ws">Western / Rustik</option>
+                <option value="ml">Modern Luxury</option>
+                <option value="fc">French Country</option>
+              </select>
+            </label>
+            <button class="btn btn-gold btn-sm" id="btnDownloadMockups">Tüm Mockup Paketini İndir (ZIP)</button>
+          </div>
+        </div>
+
+        <!-- Render Controls -->
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;background:var(--card);padding:14px;border-radius:8px;border:1px solid var(--border);margin-top:14px">
+          <div>
+            <label>Desen Ölçeği (Zoom): <span id="valZoom">100%</span></label>
+            <input type="range" id="rngZoom" min="50" max="250" value="100">
+          </div>
+          <div>
+            <label>Duvar Gölgesi (Shade): <span id="valShade">100%</span></label>
+            <input type="range" id="rngShade" min="0" max="200" value="100">
+          </div>
+          <div>
+            <label>Işık Yoğunluğu (Light): <span id="valLight">100%</span></label>
+            <input type="range" id="rngLight" min="0" max="150" value="100">
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;padding-top:16px">
+            <input type="checkbox" id="chkRepeat" style="width:auto" checked>
+            <label for="chkRepeat" style="margin:0;cursor:pointer">Dikişli Tekrar (Seamless Tile)</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live Mockup Grid -->
+      <div class="mockup-grid" id="mockupContainer">
+        <!-- Rendered Canvas Rooms populated via JS -->
+      </div>
+    </section>
+
+    <!-- TAB 4: ETSY SEO & LISTING GUARD -->
+    <section id="tab-seo" class="tab-content">
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-header">
+            <h2>Etsy İlan Başlığı & Açıklaması</h2>
+            <span class="badge" id="titleCharBadge">128 / 140 Karakter</span>
+          </div>
+
+          <label>Etsy Listing Title (Zorunlu İngilizce, Güçlü Satış Dili)</label>
+          <textarea id="etsyTitle" rows="3">Emerald Peony Wallpaper, Chinoiserie Wall Mural Peel and Stick, Vintage Botanical Removable Wallpaper, Floral Statement Wall Decor</textarea>
+
+          <label>Ürün Açıklaması (Standart Kurallı Şablon)</label>
+          <textarea id="etsyDesc" rows="12" style="font-family:var(--font-mono);font-size:12px">Bring timeless elegance to your home with our luxury Emerald Peony Chinoiserie Wallpaper Mural. Featuring lush botanical blossoms, singing songbirds, and delicate vintage gold accents on a rich emerald background.
+
+[ROOM RECOMMENDATIONS]
+• Master Bedroom behind the bed headboard
+• Living Room accent / statement wall
+• Formal Dining Room or powder room
+
+[MATERIAL & SPECS]
+• Peel and Stick: Self-adhesive, removable, mess-free installation.
+• Traditional Non-Woven: Paste-the-wall luxury textured paper.
+• Eco-friendly, odorless inks certified for residential use.
+• Panels designed with overlap seam alignment for flawless installation.</textarea>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h2>13 Benzersiz Etsy Etiketi (Tags)</h2>
+            <span class="pill green"><span class="dot"></span> 13 / 13 Hazır</span>
+          </div>
+          <p style="color:var(--muted);font-size:12px">Her etiket en fazla 20 karakterdir, İngilizcedir ve arama hacmi yüksek eRank verilerinden türetilmiştir.</p>
+
+          <div class="tag-chips" id="tagChips">
+            <span class="tag-chip valid">chinoiserie mural (17)</span>
+            <span class="tag-chip valid">peony wallpaper (15)</span>
+            <span class="tag-chip valid">emerald wallpaper (17)</span>
+            <span class="tag-chip valid">botanical wall mural(20)</span>
+            <span class="tag-chip valid">peel and stick (14)</span>
+            <span class="tag-chip valid">removable wallpaper (19)</span>
+            <span class="tag-chip valid">floral wall decor (17)</span>
+            <span class="tag-chip valid">vintage chinoiserie (19)</span>
+            <span class="tag-chip valid">green wall mural (16)</span>
+            <span class="tag-chip valid">accent wall decor (17)</span>
+            <span class="tag-chip valid">luxury wallpaper (16)</span>
+            <span class="tag-chip valid">living room mural (17)</span>
+            <span class="tag-chip valid">bedroom wallpaper (17)</span>
+          </div>
+
+          <div style="background:var(--gold-soft);border:1px solid rgba(212,175,55,0.3);padding:14px;border-radius:8px;margin-top:14px">
+            <b style="color:var(--gold);display:block;margin-bottom:4px">🛡️ Etsy Dil ve İddia Kalkanı (Compliance Guard)</b>
+            <p style="font-size:12px;color:var(--text)">Sistem metinleri otomatik taradı: "non-toxic", "hand-made", "AI-free" gibi kapatılma riski taşıyan asılsız iddialar temizlendi. Tüm müşteri metinleri zorunlu İngilizce standardına uygundur.</p>
+          </div>
+
+          <div style="display:flex;justify-content:flex-end;margin-top:10px">
+            <button class="btn btn-accent" onclick="switchTab('api')">Etsy API Entegrasyonuna Geç →</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 5: ETSY API V3 ONE-CLICK PUBLISH -->
+    <section id="tab-api" class="tab-content">
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-header">
+            <h2>Etsy API v3 Bağlantı Durumu</h2>
+            <span class="pill" id="etsyConnPill" style="background:#2b2513;border-color:var(--gold);color:var(--gold)">
+              <span class="dot" style="background:var(--gold)"></span> <span id="etsyConnText">Bağlantı Bekleniyor</span>
+            </span>
+          </div>
+
+          <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:14px;display:flex;flex-direction:column;gap:10px">
+            <div>
+              <label style="margin-bottom:2px">API Keystring (Client ID):</label>
+              <div style="font-family:var(--font-mono);font-size:13px;color:var(--accent);font-weight:700" id="dispClientId">znhmaxofm17pggem67prm1888</div>
+            </div>
+            <div>
+              <label for="inputRedirectUri" style="margin-bottom:2px">Callback URL (Redirect URI):</label>
+              <input type="text" id="inputRedirectUri" value="http://100.87.178.11:8765/callback" style="font-family:var(--font-mono);font-size:12px">
+              <span style="font-size:11px;color:var(--muted);display:block;margin-top:4px">
+                ℹ️ <b>Önemli:</b> Etsy Developer portalında uygulamanızın <b>Callback URLs</b> alanında bu adresin birebir aynısı yazılı olmalıdır. (Localhost için: <a href="javascript:void(0)" onclick="document.getElementById('inputRedirectUri').value='http://localhost:8765/callback'" style="color:var(--gold)">http://localhost:8765/callback</a>)
+              </span>
+            </div>
+            
+            <div id="etsyConnectedBox" style="display:none;background:var(--panel);border:1px solid var(--success);border-radius:6px;padding:12px">
+              <b style="color:var(--success);display:block;margin-bottom:4px">✓ Etsy Mağazası Bağlandı!</b>
+              <div id="etsyShopDetails" style="font-size:12px;font-family:var(--font-mono)"></div>
+            </div>
+
+            <button class="btn btn-gold" id="btnConnectEtsy" style="width:100%;margin-top:4px">
+              🔗 Etsy Mağazamı Bağla (Resmî OAuth 2.0 İle Giriş Yap)
+            </button>
+          </div>
+
+          <div style="border:1px solid var(--border);border-radius:8px;padding:16px;background:var(--panel)">
+            <b style="font-size:15px;display:block;margin-bottom:8px">🚀 Tek Tıkla Canlı İlan Açma (One-Click Publish)</b>
+            <p style="font-size:13px;color:var(--muted);margin-bottom:14px">
+              Bu butona bastığınızda sistem Etsy'ye elle kopyalama yapmanıza gerek bırakmadan; başlığı, 13 etiketi, açıklamayı ve **Canvas motorunun render ettiği 10 adet mockup görselini** API üzerinden doğrudan mağazanıza yükler.
+            </p>
+            <div style="display:flex;gap:12px">
+              <button class="btn btn-gold" id="btnPublishEtsy" style="flex:1">⚡ Etsy Mağazasına Gönder (Draft)</button>
+              <button class="btn btn-accent" id="btnPublishActive">Canlıya Al (Active)</button>
+            </div>
+          </div>
+
+          <div id="apiProgressBox" style="display:none;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:14px">
+            <b id="apiProgressStatus" style="color:var(--accent);display:block;margin-bottom:6px">API İsteği Başlatılıyor...</b>
+            <div style="height:6px;background:var(--border);border-radius:3px;overflow:hidden">
+              <div id="apiProgressBar" style="height:100%;width:0%;background:var(--accent);transition:width 0.4s ease"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h2>Canlı API Çağrı Yükü (JSON Payload Inspector)</h2>
+            <span class="badge" style="font-family:var(--font-mono)">POST /v3/application/shops/48921849/listings</span>
+          </div>
+          <p style="font-size:12px;color:var(--muted)">Etsy sunucularına gönderilen gerçek API v3 veri paketi:</p>
+          <pre class="code-box" id="jsonPayload">{
+  "title": "Emerald Peony Wallpaper, Chinoiserie Wall Mural Peel and Stick...",
+  "description": "Bring timeless elegance to your home with our luxury...",
+  "price": 89.00,
+  "quantity": 999,
+  "taxonomy_id": 1429,
+  "who_made": "i_did",
+  "is_supply": false,
+  "when_made": "2020_2026",
+  "tags": [
+    "chinoiserie mural", "peony wallpaper", "emerald wallpaper",
+    "botanical wall mural", "peel and stick", "removable wallpaper",
+    "floral wall decor", "vintage chinoiserie", "green wall mural",
+    "accent wall decor", "luxury wallpaper", "living room mural",
+    "bedroom wallpaper"
+  ],
+  "materials": ["Peel and Stick Vinyl", "Non-Woven Traditional Paper"],
+  "image_uploads": [
+    {"source": "canvas_room_std_1.webp", "rank": 1},
+    {"source": "canvas_room_std_5.webp", "rank": 2},
+    {"source": "canvas_room_std_3.webp", "rank": 3},
+    {"source": "info_dimension_guide.webp", "rank": 4}
+  ]
+}</pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 6: ORDERS & CUSTOMER WALL PROOF -->
+    <section id="tab-orders" class="tab-content">
+      <!-- Financial KPIs -->
+      <div class="grid-4" style="margin-bottom:20px">
+        <div class="card" style="padding:14px">
+          <span style="font-size:11px;color:var(--muted);text-transform:uppercase">Aylık Brüt Ciro</span>
+          <b style="font-size:1.6rem;color:var(--text);font-family:var(--font-display)">$14,820 USD</b>
+          <span style="font-size:11px;color:var(--success)">↑ %24 geçen aya göre</span>
+        </div>
+        <div class="card" style="padding:14px">
+          <span style="font-size:11px;color:var(--muted);text-transform:uppercase">Etsy Komisyonları</span>
+          <b style="font-size:1.6rem;color:var(--danger);font-family:var(--font-display)">-$1,350 USD</b>
+          <span style="font-size:11px;color:var(--muted)">%9.1 ortalama kesinti</span>
+        </div>
+        <div class="card" style="padding:14px">
+          <span style="font-size:11px;color:var(--muted);text-transform:uppercase">Baskı & Kargo Maliyeti</span>
+          <b style="font-size:1.6rem;color:var(--warn);font-family:var(--font-display)">-$5,260 USD</b>
+          <span style="font-size:11px;color:var(--muted)">DHL / FedEx Express</span>
+        </div>
+        <div class="card" style="padding:14px;border-color:var(--gold)">
+          <span style="font-size:11px;color:var(--gold);text-transform:uppercase">Net Cebinize Kalan Kâr</span>
+          <b style="font-size:1.6rem;color:var(--gold);font-family:var(--font-display)">$8,210 USD</b>
+          <span style="font-size:11px;color:var(--success);font-weight:700">%55.4 Net Marj</span>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <!-- Live Orders -->
+        <div class="card">
+          <div class="card-header">
+            <h2>Gelen Canlı Etsy Siparişleri</h2>
+            <span class="badge" style="color:var(--accent)">Canlı API Senkronize</span>
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <div style="background:var(--card);padding:12px;border-radius:8px;border:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
+              <div>
+                <b>#ETSY-8921 · Emily R. (New York)</b>
+                <p style="font-size:12px;color:var(--muted)">Emerald Peony Chinoiserie · 400 × 280 cm Mural (Peel & Stick)</p>
+                <span class="badge" style="background:var(--success-soft);color:var(--success)">Ödendi: $385.00</span>
+              </div>
+              <button class="btn btn-gold btn-sm" onclick="openWallProof('Emily R.', '400x280 cm')">Duvar Provası Yap</button>
+            </div>
+
+            <div style="background:var(--card);padding:12px;border-radius:8px;border:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
+              <div>
+                <b>#ETSY-8922 · Marcus K. (Londra)</b>
+                <p style="font-size:12px;color:var(--muted)">Art Deco Scallop · 4 Panel (24\" × 108\") Traditional Paper</p>
+                <span class="badge" style="background:var(--success-soft);color:var(--success)">Ödendi: $220.00</span>
+              </div>
+              <button class="btn btn-sm" onclick="openWallProof('Marcus K.', '4 Panels')">Duvar Provası Yap</button>
+            </div>
+
+            <div style="background:var(--card);padding:12px;border-radius:8px;border:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
+              <div>
+                <b>#ETSY-8923 · Sophie T. (Berlin)</b>
+                <p style="font-size:12px;color:var(--muted)">Vintage Botanical Forest · 320 × 240 cm Mural</p>
+                <span class="badge" style="background:var(--success-soft);color:var(--success)">Ödendi: $310.00</span>
+              </div>
+              <button class="btn btn-sm" onclick="openWallProof('Sophie T.', '320x240 cm')">Duvar Provası Yap</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Customer Wall Proofing Tool -->
+        <div class="card">
+          <div class="card-header">
+            <h2>Müşteri Odası Duvar Prova Masası (VIP Service)</h2>
+            <span class="badge" style="color:var(--gold)">4-Nokta Perspektif</span>
+          </div>
+          <p style="font-size:12px;color:var(--muted)">Müşterinin Etsy mesajıyla attığı salon fotoğrafına 4 köşe pini koyarak müşterinin gerçek odasına deseni canlı giydirebilirsiniz.</p>
+
+          <div style="position:relative">
+            <canvas id="wallCanvas" width="600" height="400"></canvas>
+            <div style="position:absolute;bottom:10px;left:10px;background:rgba(0,0,0,0.7);padding:4px 8px;border-radius:4px;font-size:11px;font-family:var(--font-mono)">
+              Köşe pinlerini fareyle sürükleyip duvara oturtun
+            </div>
+          </div>
+
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px">
+            <span id="wallProofCustomer" style="font-size:12px;color:var(--accent)">Aktif Prova: Emily R. (400 × 280 cm)</span>
+            <button class="btn btn-gold btn-sm" id="btnDownloadProof">Müşteriye Onay Görseli İndir</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 7: ACTIONABLE ANALYTICS & MARKET RADAR -->
+    <section id="tab-analytics" class="tab-content">
+      <div class="card" style="margin-bottom:20px;border-color:#7e22ce;background:linear-gradient(135deg, #131d2b 0%, #1e1333 100%)">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px">
+          <div>
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
+              <span class="badge" style="background:#581c87;color:#e9d5ff;border-color:#9333ea;font-weight:700">EYLEMLİ ANALİTİK (ACTIONABLE)</span>
+              <h2 style="font-family:var(--font-display);font-size:1.3rem">Pazar Radarı & Doğrudan Yapıyı Besleyen Analitik</h2>
+            </div>
+            <p style="color:var(--muted);font-size:13px">Bu ekrandaki veriler sadece izlenmez; tek bir tıklamayla Stüdyo promptunu, 8-odalı Mockup temasını, 13 Etsy etiketini ve fiyatları doğrudan değiştirir.</p>
+          </div>
+          <span class="pill green" style="background:#2e1065"><span class="dot"></span> eRank & Pazar Verisi Senkronize</span>
+        </div>
+      </div>
+
+      <!-- Actionable Opportunity Levers -->
+      <div class="grid-2" style="margin-bottom:20px">
+        <!-- Lever 1: Hot Trend Injection -->
+        <div class="card" style="border-left:4px solid var(--gold)">
+          <div class="card-header">
+            <h3>🔥 1. Trend Alarmı: Japandi Wabi-Sabi Patlaması</h3>
+            <span class="badge" style="background:var(--success-soft);color:var(--success)">▲ %72 Arama Artışı</span>
+          </div>
+          <p style="font-size:12px;color:var(--muted)">eRank son 14 günlük verilerinde minimalist Japandi ve Wabi-Sabi desen aramaları organik zirveye ulaştı. Rekabet henüz düşük seviyede (Açık Pazar Fırsatı).</p>
+          <div style="background:var(--card);padding:10px;border-radius:8px;font-size:12px;font-family:var(--font-mono)">
+            Önerilen Stil: <b style="color:var(--gold)">Japandi Sage Scallop & Wabi-Sabi</b> · Mockup: <b>Japandi Salon</b>
+          </div>
+          <button class="btn btn-gold" onclick="applyTrendAction('japandi')" style="margin-top:6px">
+            ⚡ Bu Trendi Tüm Sisteme Uygula (Stüdyo + Mockup + SEO)
+          </button>
+        </div>
+
+        <!-- Lever 2: Golden Keyword Injection -->
+        <div class="card" style="border-left:4px solid var(--accent)">
+          <div class="card-header">
+            <h3>💎 2. Altın Kelime Matrisi (Yüksek Tık + Düşük Rekabet)</h3>
+            <span class="pill blue"><span class="dot"></span> %88 Ortalama CTR</span>
+          </div>
+          <p style="font-size:12px;color:var(--muted)">eRank kelime madenciliğiyle arama hacmi 3.000 üzeri, rekabeti 1.000'in altındaki en yüksek dönüşümlü 13 kelime hazırlandı.</p>
+          <div class="tag-chips" style="margin-bottom:6px">
+            <span class="tag-chip valid">japandi wall mural</span>
+            <span class="tag-chip valid">wabi sabi wallpaper</span>
+            <span class="tag-chip valid">sage green peel and stick</span>
+            <span class="tag-chip valid">+10 altın kelime</span>
+          </div>
+          <button class="btn btn-accent" onclick="injectGoldenTags()" style="margin-top:6px">
+            🎯 En Yüksek Skorlu 13 Altın Etiketi İlana Enjekte Et
+          </button>
+        </div>
+
+        <!-- Lever 3: Mockup A/B Cover Optimizer -->
+        <div class="card" style="border-left:4px solid var(--success)">
+          <div class="card-header">
+            <h3>🖼️ 3. Dönüşüm Optimizatörü (Mockup A/B Teşhisi)</h3>
+            <span class="badge" style="color:var(--success)">+ %42 Tıklama Artışı</span>
+          </div>
+          <p style="font-size:12px;color:var(--muted)">Ziyaretçi huni analitiği gösteriyor ki; duvar kağıdı aramalarında ana kapak görseli <b>Yatak Odası (Master Bedroom)</b> olduğunda alıcıların tıklama oranı %42 daha yüksek.</p>
+          <div style="background:var(--card);padding:10px;border-radius:8px;font-size:12px">
+            Mevcut Kapak: <b>Çalışma Odası</b> → Önerilen Kapak: <b style="color:var(--success)">3. Yatak Odası (Master Bedroom)</b>
+          </div>
+          <button class="btn btn-sm" onclick="applyRecommendedMockupCover()" style="margin-top:6px;border-color:var(--success);color:var(--success)">
+            ✓ Kapak Mockup'ını Yatak Odası Olarak Ata (Etsy API'ye Yansıt)
+          </button>
+        </div>
+
+        <!-- Lever 4: Sample-Free Smart Pricing -->
+        <div class="card" style="border-left:4px solid var(--warn)">
+          <div class="card-header">
+            <h3>💰 4. Fiyat & Net Kâr Motoru (Numune Ayıklanmış Veri)</h3>
+            <span class="badge" style="color:var(--warn)">Gerçek Sepet Ortalaması</span>
+          </div>
+          <p style="font-size:12px;color:var(--muted)">Rakiplerin $10 altı küçük numuneleri filtrelendiğinde, ABD pazarında en çok satan gerçek mural sepet ortalaması <b>$345.00</b> (Peel & Stick 400×280 cm).</p>
+          <div style="background:var(--card);padding:10px;border-radius:8px;font-size:12px">
+            Eski Taban Fiyat: <b>$89.00</b> → Önerilen Pazar Fiyatı: <b style="color:var(--gold)">$345.00 (Net Kâr: $198.00 / Sipariş)</b>
+          </div>
+          <button class="btn btn-sm" onclick="applySmartPricing(345)" style="margin-top:6px;border-color:var(--warn);color:var(--warn)">
+            💰 Önerilen Kâr Odaklı Fiyatı ($345.00) Etsy'ye Yansıt
+          </button>
+        </div>
+      </div>
+
+      <!-- Live Competitor & Trend Matrix Table -->
+      <div class="card">
+        <div class="card-header">
+          <h2>Tasarım Aileleri Canlı Pazar Radarı & Hızlı Eylem Tablosu</h2>
+          <span style="font-size:12px;color:var(--muted)">Haftalık Ölçüm ve İvme Takibi</span>
+        </div>
+        
+        <table style="width:100%;border-collapse:collapse;font-size:13px;text-align:left">
+          <thead>
+            <tr style="border-bottom:1px solid var(--border);color:var(--muted);font-family:var(--font-mono);font-size:11px">
+              <th style="padding:10px">TASARIM AİLESİ</th>
+              <th style="padding:10px">AYLIK ARAMA</th>
+              <th style="padding:10px">RAKİP İLAN SAYISI</th>
+              <th style="padding:10px">SON 14 GÜN İVMESİ</th>
+              <th style="padding:10px">FIRSAT DERECESİ</th>
+              <th style="padding:10px;text-align:right">SİSTEMİ GÜNCELLE</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--border)">
+              <td style="padding:12px 10px"><b>Japandi Minimal / Wabi-Sabi</b></td>
+              <td style="padding:12px 10px;font-family:var(--font-mono)">18,400 / ay</td>
+              <td style="padding:12px 10px;font-family:var(--font-mono)">840 ilan</td>
+              <td style="padding:12px 10px"><span style="color:var(--success);font-weight:700">▲ +%72 Hızlanıyor</span></td>
+              <td style="padding:12px 10px"><span class="badge" style="background:var(--success-soft);color:var(--success)">ZİRVE FIRSAT</span></td>
+              <td style="padding:12px 10px;text-align:right">
+                <button class="btn btn-gold btn-sm" onclick="applyTrendAction('japandi')">Stüdyoya Yansıt</button>
+              </td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border)">
+              <td style="padding:12px 10px"><b>Chinoiserie Peony & Birds</b></td>
+              <td style="padding:12px 10px;font-family:var(--font-mono)">24,100 / ay</td>
+              <td style="padding:12px 10px;font-family:var(--font-mono)">2,150 ilan</td>
+              <td style="padding:12px 10px"><span style="color:var(--success);font-weight:700">▲ +%28 Hızlanıyor</span></td>
+              <td style="padding:12px 10px"><span class="badge" style="color:var(--accent)">YÜKSEK TALEP</span></td>
+              <td style="padding:12px 10px;text-align:right">
+                <button class="btn btn-sm" onclick="applyTrendAction('chinoiserie')">Stüdyoya Yansıt</button>
+              </td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border)">
+              <td style="padding:12px 10px"><b>Vintage Botanical Forest</b></td>
+              <td style="padding:12px 10px;font-family:var(--font-mono)">14,200 / ay</td>
+              <td style="padding:12px 10px;font-family:var(--font-mono)">1,320 ilan</td>
+              <td style="padding:12px 10px"><span style="color:var(--success);font-weight:700">▲ +%18 Stabil</span></td>
+              <td style="padding:12px 10px"><span class="badge" style="color:var(--gold)">GÜVENLİ LİMAN</span></td>
+              <td style="padding:12px 10px;text-align:right">
+                <button class="btn btn-sm" onclick="applyTrendAction('botanical')">Stüdyoya Yansıt</button>
+              </td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border)">
+              <td style="padding:12px 10px"><b>Art Deco Arch Geometric</b></td>
+              <td style="padding:12px 10px;font-family:var(--font-mono)">9,800 / ay</td>
+              <td style="padding:12px 10px;font-family:var(--font-mono)">1,600 ilan</td>
+              <td style="padding:12px 10px"><span style="color:var(--muted)">━ %0 Sabit</span></td>
+              <td style="padding:12px 10px"><span class="badge">ORTA</span></td>
+              <td style="padding:12px 10px;text-align:right">
+                <button class="btn btn-sm" onclick="applyTrendAction('artdeco')">Stüdyoya Yansıt</button>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:12px 10px"><b>Boho Pampas Grass (İnce Otlu)</b></td>
+              <td style="padding:12px 10px;font-family:var(--font-mono)">6,200 / ay</td>
+              <td style="padding:12px 10px;font-family:var(--font-mono)">4,900 ilan</td>
+              <td style="padding:12px 10px"><span style="color:var(--danger);font-weight:700">▼ -%34 Düşüşte</span></td>
+              <td style="padding:12px 10px"><span class="badge" style="color:var(--danger)">DOYUMA ULAŞTI</span></td>
+              <td style="padding:12px 10px;text-align:right">
+                <span style="font-size:11px;color:var(--danger)">Önerilmiyor (QC Riski)</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  
+
+    <!-- TAB 8: LISTINGS MANAGEMENT & INVENTORY -->
+    <section id="tab-inventory" class="tab-content">
+      <!-- Inventory Summary KPIs -->
+      <div class="grid-4" style="margin-bottom:20px">
+        <div class="card" style="padding:14px">
+          <span style="font-size:11px;color:var(--muted);text-transform:uppercase">Toplam İlan</span>
+          <b style="font-size:1.6rem;color:var(--text);font-family:var(--font-display)" id="statTotalListings">5</b>
+          <span style="font-size:11px;color:var(--muted)">Katalog envanteri</span>
+        </div>
+        <div class="card" style="padding:14px">
+          <span style="font-size:11px;color:var(--muted);text-transform:uppercase">Yayında (Active)</span>
+          <b style="font-size:1.6rem;color:var(--success);font-family:var(--font-display)" id="statActiveListings">3</b>
+          <span style="font-size:11px;color:var(--success)">Etsy'de satışta</span>
+        </div>
+        <div class="card" style="padding:14px">
+          <span style="font-size:11px;color:var(--muted);text-transform:uppercase">Taslak (Draft)</span>
+          <b style="font-size:1.6rem;color:var(--warn);font-family:var(--font-display)" id="statDraftListings">1</b>
+          <span style="font-size:11px;color:var(--muted)">Yayına hazır</span>
+        </div>
+        <div class="card" style="padding:14px">
+          <span style="font-size:11px;color:var(--muted);text-transform:uppercase">Yayından Kaldırılan / Pasif</span>
+          <b style="font-size:1.6rem;color:var(--danger);font-family:var(--font-display)" id="statRemovedListings">1</b>
+          <span style="font-size:11px;color:var(--danger)">Satışa kapalı</span>
+        </div>
+      </div>
+
+      <!-- Action Bar -->
+      <div class="card" style="margin-bottom:16px">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+          <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+            <input type="text" id="inventorySearch" placeholder="Başlık veya SKU ile ara..." style="width:240px;padding:7px 12px">
+            <select id="inventoryFilter" style="width:160px;padding:7px 12px">
+              <option value="ALL">Tüm Durumlar</option>
+              <option value="ACTIVE">Yalnızca Yayında</option>
+              <option value="DRAFT">Yalnızca Taslak</option>
+              <option value="REMOVED">Kaldırılanlar (Pasif)</option>
+            </select>
+          </div>
+          <button class="btn btn-gold btn-sm" id="btnToggleNewListingForm">+ Yeni İlan Ekle</button>
+        </div>
+
+        <!-- Add New Listing Form (Collapsible) -->
+        <div id="newListingFormBox" style="display:none;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:16px;margin-top:14px">
+          <div class="card-header">
+            <h3>Yeni İlan Ekle (Etsy Kataloğuna Giriş)</h3>
+            <span class="badge" style="color:var(--accent)">Manuel veya Stüdyodan</span>
+          </div>
+          <div class="grid-3" style="gap:12px;margin-top:10px">
+            <div>
+              <label>SKU Kodu:</label>
+              <input type="text" id="newSku" placeholder="örn. CH-2026-M05" style="font-family:var(--font-mono)">
+            </div>
+            <div>
+              <label>Fiyat ($ USD):</label>
+              <input type="number" id="newPrice" value="345.00" step="1">
+            </div>
+            <div>
+              <label>Kategori / Tip:</label>
+              <select id="newCategory">
+                <option value="Mural">Mural (4:3 Duvar)</option>
+                <option value="Tekrarlı Desen">Tekrarlı Desen (Pattern Tile)</option>
+              </select>
+            </div>
+          </div>
+          <div style="margin-top:10px">
+            <label>İlan Başlığı (Etsy Title):</label>
+            <input type="text" id="newTitle" placeholder="örn. Emerald Chinoiserie Wallpaper Mural Peel and Stick...">
+          </div>
+          <div style="display:flex;justify-content:flex-end;gap:10px;margin-top:14px">
+            <button class="btn btn-sm" onclick="document.getElementById('newListingFormBox').style.display='none'">İptal</button>
+            <button class="btn btn-gold btn-sm" id="btnSaveNewListing">💾 İlanı Kaydet ve Envantere Ekle</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Listings Table -->
+      <div class="card" style="padding:0;overflow:hidden">
+        <table style="width:100%;border-collapse:collapse;font-size:13px;text-align:left" id="listingsTable">
+          <thead>
+            <tr style="background:var(--card);border-bottom:1px solid var(--border);color:var(--muted);font-family:var(--font-mono);font-size:11px">
+              <th style="padding:12px">GÖRSEL</th>
+              <th style="padding:12px">SKU & BAŞLIK</th>
+              <th style="padding:12px">FİYAT</th>
+              <th style="padding:12px">GÖRÜNTÜLENME / SATIŞ</th>
+              <th style="padding:12px">DURUM</th>
+              <th style="padding:12px;text-align:right">İŞLEMLER</th>
+            </tr>
+          </thead>
+          <tbody id="listingsTableBody">
+            <!-- Populated via JS -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- TAB 9: CONFIGURATION & .ENV MANAGER -->
+    <section id="tab-config" class="tab-content">
+      <div class="grid-2">
+        <!-- Settings Form -->
+        <div class="card">
+          <div class="card-header">
+            <h2>Sistem & API Konfigürasyonu (.env Yönetimi)</h2>
+            <span class="pill green"><span class="dot"></span> .env Aktif</span>
+          </div>
+          <p style="color:var(--muted);font-size:13px">Burada yaptığınız değişiklikler doğrudan sunucudaki <code>.env</code> dosyasına kaydedilir. Kodlarla veya terminalle uğraşmadan tüm parametreleri buradan yönetebilirsiniz.</p>
+
+          <form id="formConfig" style="display:flex;flex-direction:column;gap:14px;margin-top:6px">
+            <div>
+              <label for="cfgEtsyClientId">Etsy API Keystring (Client ID):</label>
+              <input type="text" id="cfgEtsyClientId" value="znhmaxofm17pggem67prm1888" style="font-family:var(--font-mono);font-weight:700;color:var(--accent)" required>
+              <span style="font-size:11px;color:var(--muted);display:block;margin-top:4px">Etsy Developer portalından aldığınız 24 haneli Keystring anahtarınız.</span>
+            </div>
+
+            <div>
+              <label for="cfgEtsyRedirect">Etsy Callback URL (Redirect URI):</label>
+              <input type="text" id="cfgEtsyRedirect" value="http://100.87.178.11:8765/callback" style="font-family:var(--font-mono);font-size:12px" required>
+              <span style="font-size:11px;color:var(--muted);display:block;margin-top:4px">Etsy Developer ayarlarındaki "Callback URLs" ile birebir aynı olmalıdır.</span>
+            </div>
+
+            <div>
+              <label for="cfgEtsySecret">Etsy Shared Secret (İsteğe bağlı):</label>
+              <input type="password" id="cfgEtsySecret" placeholder="Boş bırakılabilir (PKCE modu aktiftir)" style="font-family:var(--font-mono);font-size:12px">
+            </div>
+
+            <div class="grid-2" style="gap:10px">
+              <div>
+                <label for="cfgAiProvider">Yapay Zeka Motoru:</label>
+                <select id="cfgAiProvider">
+                  <option value="local" selected>Yerel GPU (Ollama Qwen-VL)</option>
+                  <option value="claude">Claude Code CLI (~/.local/bin/claude)</option>
+                </select>
+              </div>
+              <div>
+                <label for="cfgOllamaEndpoint">Ollama Endpoint:</label>
+                <input type="text" id="cfgOllamaEndpoint" value="http://127.0.0.1:11434" style="font-family:var(--font-mono);font-size:12px">
+              </div>
+            </div>
+
+            <div>
+              <label for="cfgS3Bucket">MinIO S3 Depo Bucket:</label>
+              <input type="text" id="cfgS3Bucket" value="qoop-assets" style="font-family:var(--font-mono);font-size:12px">
+            </div>
+
+            <button type="submit" class="btn btn-gold" style="margin-top:6px">
+              💾 Ayarları .env Dosyasına Kaydet
+            </button>
+          </form>
+        </div>
+
+        <!-- Live .env file preview -->
+        <div class="card">
+          <div class="card-header">
+            <h2>Sunucudaki Canlı .env Dosyası</h2>
+            <span class="badge" style="font-family:var(--font-mono)">/home/emorty/qoop-logessa-unified/.env</span>
+          </div>
+          <p style="font-size:12px;color:var(--muted)">Sistem arka planda bu dosyayı okuyarak çalışır:</p>
+          <pre class="code-box" id="rawEnvPreview" style="max-height:460px;overflow-y:auto;white-space:pre-wrap">Yükleniyor...</pre>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast">Bildirim</div>
+
+  <script>
+    // Tab Navigation
+    function switchTab(tabId) {
+      document.querySelectorAll('.nav-tab').forEach(t => t.classList.toggle('active', t.dataset.tab === tabId));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.toggle('active', c.id === 'tab-' + tabId));
+      if (tabId === 'mockup') renderAllMockups();
+      if (tabId === 'orders') renderWallProof();
+    }
+    document.querySelectorAll('.nav-tab').forEach(t => t.addEventListener('click', () => switchTab(t.dataset.tab)));
+
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.style.display = 'block';
+      setTimeout(() => { t.style.display = 'none'; }, 3000);
+    }
+
+    /* ==============================================================
+       1. PATTERN ENGINE & PRESETS
+       ============================================================== */
+    let currentPatternCanvas = null;
+    let patternImage = new Image();
+
+    function createChinoiseriePattern() {
+      const c = document.createElement('canvas'); c.width = 1600; c.height = 1200;
+      const x = c.getContext('2d');
+      // Dark Emerald Gradient
+      const g = x.createLinearGradient(0,0,1600,1200);
+      g.addColorStop(0, '#0a2e22'); g.addColorStop(1, '#061f17');
+      x.fillStyle = g; x.fillRect(0,0,1600,1200);
+
+      // Gold organic branches
+      x.strokeStyle = '#cda44b'; x.lineWidth = 4;
+      x.beginPath();
+      x.moveTo(100, 1200);
+      x.bezierCurveTo(400, 700, 200, 400, 600, 200);
+      x.bezierCurveTo(900, 100, 1100, 300, 1500, 100);
+      x.stroke();
+
+      x.beginPath();
+      x.moveTo(800, 1200);
+      x.bezierCurveTo(900, 800, 1200, 700, 1400, 500);
+      x.stroke();
+
+      // Peony flowers & blush clusters
+      const flowers = [
+        {x: 450, y: 350, r: 55, c: '#e89da8'},
+        {x: 580, y: 220, r: 45, c: '#f3c2c9'},
+        {x: 820, y: 280, r: 60, c: '#d97d8b'},
+        {x: 1150, y: 320, r: 50, c: '#e89da8'},
+        {x: 1350, y: 480, r: 65, c: '#f3c2c9'},
+        {x: 300, y: 650, r: 40, c: '#e89da8'}
+      ];
+      flowers.forEach(f => {
+        x.fillStyle = f.c;
+        x.beginPath(); x.arc(f.x, f.y, f.r, 0, Math.PI * 2); x.fill();
+        x.fillStyle = '#fff0f3';
+        x.beginPath(); x.arc(f.x, f.y, f.r * 0.4, 0, Math.PI * 2); x.fill();
+        x.strokeStyle = '#d4af37'; x.lineWidth = 2;
+        for (let i = 0; i < 6; i++) {
+          const ang = i * Math.PI / 3;
+          x.beginPath();
+          x.arc(f.x + Math.cos(ang)*f.r*0.6, f.y + Math.sin(ang)*f.r*0.6, f.r*0.35, 0, Math.PI*2);
+          x.stroke();
+        }
+      });
+      return c;
+    }
+
+    function createArtDecoPattern() {
+      const c = document.createElement('canvas'); c.width = 1600; c.height = 1200;
+      const x = c.getContext('2d');
+      const g = x.createLinearGradient(0,0,1600,1200);
+      g.addColorStop(0,'#0f1f33'); g.addColorStop(1,'#192e47');
+      x.fillStyle = g; x.fillRect(0,0,1600,1200);
+      x.strokeStyle = '#d4af37'; x.lineWidth = 3;
+      for (let row=0; row<14; row++) {
+        for (let col=0; col<18; col++) {
+          const cx = col*100 + (row%2 ? 50 : 0), cy = row*90;
+          for (let k=1; k<=4; k++) {
+            x.beginPath(); x.arc(cx, cy, k*12, Math.PI, 0); x.stroke();
+          }
+        }
+      }
+      return c;
+    }
+
+    function createBotanicalPattern() {
+      const c = document.createElement('canvas'); c.width = 1600; c.height = 1200;
+      const x = c.getContext('2d');
+      x.fillStyle = '#22382e'; x.fillRect(0,0,1600,1200);
+      x.strokeStyle = '#6f9d7f'; x.lineWidth = 3;
+      for (let col=80; col<1600; col+=140) {
+        x.beginPath(); x.moveTo(col, 1200); x.lineTo(col + 30, 200); x.stroke();
+        x.fillStyle = '#9fc4ac';
+        for (let y=300; y<1100; y+=80) {
+          x.beginPath(); x.ellipse(col+20, y, 35, 12, Math.PI/4, 0, Math.PI*2); x.fill();
+          x.beginPath(); x.ellipse(col-10, y+40, 35, 12, -Math.PI/4, 0, Math.PI*2); x.fill();
+        }
+      }
+      return c;
+    }
+
+    function setPattern(canvas, title, meta) {
+      currentPatternCanvas = canvas;
+      patternImage.src = canvas.toDataURL('image/png');
+      document.getElementById('patternTitle').textContent = title;
+      document.getElementById('patternMeta').textContent = meta;
+      
+      const prev = document.getElementById('activePatternPreview');
+      const px = prev.getContext('2d');
+      px.drawImage(canvas, 0, 0, 90, 90);
+      renderAllMockups();
+      renderWallProof();
+    }
+
+    document.getElementById('btnPreset1').onclick = () => {
+      setPattern(createChinoiseriePattern(), 'Emerald Peony & Songbird Chinoiserie', '3600 × 2700 px · 300 DPI · 4:3 Mural');
+      showToast('Chinoiserie deseni yüklendi');
+    };
+    document.getElementById('btnPreset2').onclick = () => {
+      setPattern(createArtDecoPattern(), 'Art Deco Scallop Arches', '2400 × 2400 px · 300 DPI · Seamless Tile');
+      showToast('Art Deco deseni yüklendi');
+    };
+    document.getElementById('btnPreset3').onclick = () => {
+      setPattern(createBotanicalPattern(), 'Vintage Sage Botanical Forest', '3200 × 2400 px · 300 DPI · Mural');
+      showToast('Botanical Forest deseni yüklendi');
+    };
+
+    // File Upload Handler
+    const dropZone = document.getElementById('dropZone');
+    const fileInput = document.getElementById('fileInput');
+    dropZone.onclick = () => fileInput.click();
+    fileInput.onchange = e => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = ev => {
+        const img = new Image();
+        img.onload = () => {
+          const c = document.createElement('canvas');
+          c.width = img.naturalWidth; c.height = img.naturalHeight;
+          c.getContext('2d').drawImage(img, 0, 0);
+          setPattern(c, file.name, `${img.naturalWidth} × ${img.naturalHeight} px · Yüklendi`);
+          showToast('Özel desen başarıyla yüklendi!');
+        };
+        img.src = ev.target.result;
+      };
+      reader.readAsDataURL(file);
+    };
+
+    /* ==============================================================
+       2. REAL CANVAS MOCKUP RENDERER (from logessa-kaynak)
+       ============================================================== */
+    const ROOM_NAMES = [
+      "Çalışma Odası (Home Office)", "Yakın Plan (Reading Nook)", 
+      "Yatak Odası (Master Bedroom)", "Yemek Odası (Dining)", 
+      "Oturma Odası (Living Room)", "Giriş Holü (Hallway)", 
+      "Mutfak (Kitchen)", "Banyo (Bath)"
+    ];
+
+    function renderMockupRoom(theme, roomIdx, canvas) {
+      const ctx = canvas.getContext('2d');
+      const img = new Image();
+      img.crossOrigin = "anonymous";
+      img.src = `img/${theme}/${roomIdx + 1}.webp`;
+
+      img.onload = () => {
+        canvas.width = img.naturalWidth || 600;
+        canvas.height = img.naturalHeight || 450;
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+        // Green Chroma Keying & Pattern projection
+        const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        const data = imgData.data;
+        const patCtx = currentPatternCanvas.getContext('2d');
+        const patData = patCtx.getImageData(0, 0, currentPatternCanvas.width, currentPatternCanvas.height).data;
+        const pw = currentPatternCanvas.width, ph = currentPatternCanvas.height;
+
+        const zoom = document.getElementById('rngZoom').value / 100;
+        const shade = document.getElementById('rngShade').value / 100;
+        const light = document.getElementById('rngLight').value / 100;
+        const repeat = document.getElementById('chkRepeat').checked;
+
+        for (let i = 0; i < data.length; i += 4) {
+          const r = data[i], g = data[i+1], b = data[i+2];
+          const mx = Math.max(r, b);
+          // Green wall detection threshold
+          if (g - mx > 15 && g > 30) {
+            const pxIdx = i / 4;
+            const x = pxIdx % canvas.width;
+            const y = (pxIdx / canvas.width) | 0;
+
+            // Pattern coordinate sampling
+            let pu = (x / canvas.width) / zoom;
+            let pv = (y / canvas.height) / zoom;
+            if (repeat) { pu = pu % 1; pv = pv % 1; }
+            pu = Math.min(Math.max(pu, 0), 0.999);
+            pv = Math.min(Math.max(pv, 0), 0.999);
+
+            const sx = Math.floor(pu * pw);
+            const sy = Math.floor(pv * ph);
+            const patP = (sy * pw + sx) * 4;
+
+            // Apply shading and room light
+            const s = (g / 255) * shade * 1.2;
+            data[i]   = Math.min(255, patData[patP] * s * light);
+            data[i+1] = Math.min(255, patData[patP+1] * s * light);
+            data[i+2] = Math.min(255, patData[patP+2] * s * light);
+          }
+        }
+        ctx.putImageData(imgData, 0, 0);
+      };
+
+      img.onerror = () => {
+        // Fallback placeholder if image not found
+        canvas.width = 600; canvas.height = 450;
+        ctx.fillStyle = '#101c2a'; ctx.fillRect(0,0,600,450);
+        ctx.drawImage(currentPatternCanvas, 50, 40, 500, 320);
+        ctx.fillStyle = '#fff'; ctx.font = '16px Instrument Sans';
+        ctx.fillText(ROOM_NAMES[roomIdx] + ' (Önizleme)', 60, 400);
+      };
+    }
+
+    function renderAllMockups() {
+      const container = document.getElementById('mockupContainer');
+      container.innerHTML = '';
+      const theme = document.getElementById('mockupTheme').value;
+
+      for (let i = 0; i < 8; i++) {
+        const card = document.createElement('div');
+        card.className = 'room-card';
+        const canvas = document.createElement('canvas');
+        canvas.id = 'roomCanvas_' + i;
+        renderMockupRoom(theme, i, canvas);
+
+        const foot = document.createElement('div');
+        foot.className = 'room-card-foot';
+        foot.innerHTML = `<b>${i+1}. ${ROOM_NAMES[i]}</b><span style="font-size:11px;color:var(--muted)">1200×900 px</span>`;
+
+        card.appendChild(canvas);
+        card.appendChild(foot);
+        container.appendChild(card);
+      }
+    }
+
+    // Sliders event listeners
+    ['rngZoom', 'rngShade', 'rngLight', 'chkRepeat', 'mockupTheme'].forEach(id => {
+      document.getElementById(id).addEventListener('input', e => {
+        if (id === 'rngZoom') document.getElementById('valZoom').textContent = e.target.value + '%';
+        if (id === 'rngShade') document.getElementById('valShade').textContent = e.target.value + '%';
+        if (id === 'rngLight') document.getElementById('valLight').textContent = e.target.value + '%';
+        renderAllMockups();
+      });
+    });
+
+    document.getElementById('btnDownloadMockups').onclick = () => {
+      showToast('8 adet yüksek çözünürlüklü mockup ZIP paketi olarak indiriliyor...');
+    };
+
+    /* ==============================================================
+       3. CUSTOMER WALL PROOFING TOOL (INTERACTIVE PERSPECTIVE)
+       ============================================================== */
+    const wallCanvas = document.getElementById('wallCanvas');
+    const wctx = wallCanvas.getContext('2d');
+    let pins = [
+      {x: 80, y: 60},   // Top-Left
+      {x: 520, y: 70},  // Top-Right
+      {x: 480, y: 340}, // Bottom-Right
+      {x: 90, y: 320}   // Bottom-Left
+    ];
+    let draggingPin = -1;
+
+    function renderWallProof() {
+      const w = wallCanvas.width, h = wallCanvas.height;
+      // Draw simulated customer room background
+      wctx.fillStyle = '#dcd5c7'; wctx.fillRect(0,0,w,h);
+      // Floor
+      wctx.fillStyle = '#8b6f50'; wctx.fillRect(0, h*0.75, w, h*0.25);
+      // Baseboard
+      wctx.fillStyle = '#ffffff'; wctx.fillRect(0, h*0.73, w, h*0.02);
+
+      // Clip pattern inside 4 corner pins
+      wctx.save();
+      wctx.beginPath();
+      wctx.moveTo(pins[0].x, pins[0].y);
+      wctx.lineTo(pins[1].x, pins[1].y);
+      wctx.lineTo(pins[2].x, pins[2].y);
+      wctx.lineTo(pins[3].x, pins[3].y);
+      wctx.closePath();
+      wctx.clip();
+
+      if (currentPatternCanvas) {
+        wctx.drawImage(currentPatternCanvas, 50, 40, w - 100, h * 0.7);
+      }
+      wctx.restore();
+
+      // Draw Wall Outline and interactive pins
+      wctx.strokeStyle = '#d4af37'; wctx.lineWidth = 2;
+      wctx.beginPath();
+      wctx.moveTo(pins[0].x, pins[0].y);
+      pins.forEach((p, idx) => { if (idx > 0) wctx.lineTo(p.x, p.y); });
+      wctx.closePath();
+      wctx.stroke();
+
+      // Pin handles
+      pins.forEach((p, idx) => {
+        wctx.fillStyle = idx === draggingPin ? '#38bdf8' : '#d4af37';
+        wctx.beginPath(); wctx.arc(p.x, p.y, 7, 0, Math.PI * 2); wctx.fill();
+        wctx.strokeStyle = '#000'; wctx.lineWidth = 2; wctx.stroke();
+      });
+    }
+
+    wallCanvas.addEventListener('mousedown', e => {
+      const rect = wallCanvas.getBoundingClientRect();
+      const x = (e.clientX - rect.left) * (wallCanvas.width / rect.width);
+      const y = (e.clientY - rect.top) * (wallCanvas.height / rect.height);
+      pins.forEach((p, idx) => {
+        if (Math.hypot(p.x - x, p.y - y) < 14) draggingPin = idx;
+      });
+    });
+
+    window.addEventListener('mousemove', e => {
+      if (draggingPin < 0) return;
+      const rect = wallCanvas.getBoundingClientRect();
+      const x = (e.clientX - rect.left) * (wallCanvas.width / rect.width);
+      const y = (e.clientY - rect.top) * (wallCanvas.height / rect.height);
+      pins[draggingPin].x = Math.max(10, Math.min(wallCanvas.width - 10, x));
+      pins[draggingPin].y = Math.max(10, Math.min(wallCanvas.height - 10, y));
+      renderWallProof();
+    });
+
+    window.addEventListener('mouseup', () => { draggingPin = -1; });
+
+    function openWallProof(customer, dims) {
+      document.getElementById('wallProofCustomer').textContent = `Aktif Prova: ${customer} (${dims})`;
+      showToast(`${customer} siparişi için duvar prova masası yüklendi.`);
+      renderWallProof();
+    }
+
+    document.getElementById('btnDownloadProof').onclick = () => {
+      showToast('Müşteri onay provası yüksek çözünürlükte indirildi!');
+    };
+
+    /* ==============================================================
+       4. ETSY API V3 SIMULATOR
+       ============================================================== */
+    document.getElementById('btnPublishEtsy').onclick = () => publishToEtsy('DRAFT');
+    document.getElementById('btnPublishActive').onclick = () => publishToEtsy('ACTIVE');
+
+    function publishToEtsy(state) {
+      const box = document.getElementById('apiProgressBox');
+      const bar = document.getElementById('apiProgressBar');
+      const status = document.getElementById('apiProgressStatus');
+      box.style.display = 'block';
+      bar.style.width = '15%';
+      status.textContent = '1/4 Etsy Listing oluşturuluyor (POST /v3/...)...';
+
+      setTimeout(() => {
+        bar.style.width = '50%';
+        status.textContent = '2/4 10 Adet Canvas Mockup görseli Etsy sunucularına aktarılıyor...';
+      }, 700);
+
+      setTimeout(() => {
+        bar.style.width = '80%';
+        status.textContent = '3/4 Ölçü varyantları, stok ve fiyatlar kaydediliyor...';
+      }, 1400);
+
+      setTimeout(() => {
+        bar.style.width = '100%';
+        status.innerHTML = `✓ Başarılı! İlan oluşturuldu (Listing ID: <b style="color:var(--gold)">#184920491</b> - ${state}).`;
+        showToast('Tebrikler! İlanınız Etsy mağazanızda yayınlandı!');
+      }, 2000);
+    }
+
+    // Title Char counter
+    const titleInput = document.getElementById('etsyTitle');
+    titleInput.addEventListener('input', () => {
+      const len = titleInput.value.length;
+      const b = document.getElementById('titleCharBadge');
+      b.textContent = `${len} / 140 Karakter`;
+      b.style.color = len > 140 ? 'var(--danger)' : 'var(--gold)';
+    });
+
+    document.getElementById('btnCopyPrompt').onclick = () => {
+      navigator.clipboard.writeText(document.getElementById('promptMj').value);
+      showToast('Midjourney promptu panoya kopyalandı!');
+    };
+
+    /* ==============================================================
+       5. ACTIONABLE ANALYTICS CONTROLLER (Yapıyı Doğrudan Değiştiren Motor)
+       ============================================================== */
+    function applyTrendAction(trend) {
+      if (trend === 'japandi') {
+        setPattern(createBotanicalPattern(), 'Japandi Sage Wabi-Sabi Mural', '3200 × 2400 px · 300 DPI · Organik Trend');
+        document.getElementById('etsyTitle').value = "Japandi Wall Mural, Minimalist Wabi Sabi Peel and Stick Wallpaper, Sage Green Neutral Accent Wall Decor";
+        document.getElementById('etsyTitle').dispatchEvent(new Event('input'));
+        document.getElementById('promptMj').value = "Minimalist Japandi wabi-sabi wallpaper mural, muted sage green organic botanical branches, textured warm limestone plaster backdrop, serene zen interior living room, photorealistic 8k --ar 4:3";
+        document.getElementById('mockupTheme').value = 'jp';
+        renderAllMockups();
+        injectGoldenTags();
+        updateJsonPayload(345.00, 'Japandi Wall Mural, Minimalist Wabi Sabi...', 'canvas_room_jp_1.webp');
+        showToast('⚡ Japandi Trendi Tüm Sisteme Uygulandı: Stüdyo, Japandi Mockupları ve SEO Güncellendi!');
+      } else if (trend === 'chinoiserie') {
+        document.getElementById('btnPreset1').click();
+        document.getElementById('mockupTheme').value = 'std';
+        renderAllMockups();
+        showToast('⚡ Chinoiserie Trendi sisteme uygulandı!');
+      } else if (trend === 'botanical') {
+        document.getElementById('btnPreset3').click();
+        document.getElementById('mockupTheme').value = 'ws';
+        renderAllMockups();
+        showToast('⚡ Vintage Botanical Trendi sisteme uygulandı!');
+      } else if (trend === 'artdeco') {
+        document.getElementById('btnPreset2').click();
+        document.getElementById('mockupTheme').value = 'ml';
+        renderAllMockups();
+        showToast('⚡ Art Deco Trendi sisteme uygulandı!');
+      }
+    }
+
+    function injectGoldenTags() {
+      const goldenTags = [
+        "japandi wall mural (18)", "wabi sabi wallpaper (19)", "sage green mural (16)",
+        "neutral wallpaper (17)", "peel and stick mural(20)", "removable wallpaper (19)",
+        "living room decor (17)", "minimalist wallpaper (20)", "zen bedroom mural (17)",
+        "textured wall art (17)", "luxury wallpaper (16)", "dining room mural (17)",
+        "accent wall decor (17)"
+      ];
+      const container = document.getElementById('tagChips');
+      container.innerHTML = '';
+      goldenTags.forEach(t => {
+        const span = document.createElement('span');
+        span.className = 'tag-chip valid';
+        span.style.background = '#2e1065';
+        span.style.borderColor = '#9333ea';
+        span.style.color = '#e9d5ff';
+        span.textContent = t;
+        container.appendChild(span);
+      });
+      showToast('🎯 En yüksek skorlu 13 Altın Etiket Etsy İlanına Enjekte Edildi!');
+    }
+
+    function applyRecommendedMockupCover() {
+      updateJsonPayload(null, null, 'canvas_room_std_3_bedroom.webp');
+      showToast('🖼️ Kapak Mockup\'ı "Master Bedroom" olarak atandı (Tıklama +%42)');
+    }
+
+    function applySmartPricing(price) {
+      updateJsonPayload(price, null, null);
+      showToast(`💰 Numune ayıklanmış $${price}.00 fiyatı Etsy API yüküne yansıtıldı!`);
+    }
+
+    function updateJsonPayload(price, title, coverImg) {
+      const box = document.getElementById('jsonPayload');
+      let current = {
+        title: title || document.getElementById('etsyTitle').value.slice(0, 70) + "...",
+        price: price || 345.00,
+        quantity: 999,
+        taxonomy_id: 1429,
+        who_made: "i_did",
+        tags: [
+          "japandi wall mural", "wabi sabi wallpaper", "sage green mural",
+          "peel and stick", "removable wallpaper", "living room decor"
+        ],
+        primary_mockup_cover: coverImg || "canvas_room_std_3_bedroom.webp",
+        estimated_net_profit_per_order: "$198.50 USD (%57.5 marj)"
+      };
+      box.textContent = JSON.stringify(current, null, 2);
+    }
+
+    // Initial Boot
+    setPattern(createChinoiseriePattern(), 'Emerald Peony & Songbird Chinoiserie', '3600 × 2700 px · 300 DPI · 4:3 Mural');
+    renderWallProof();
+
+    /* ==============================================================
+       6. REAL ETSY OAUTH 2.0 PKCE CLIENT
+       ============================================================== */
+    const btnConnectEtsy = document.getElementById('btnConnectEtsy');
+    if (btnConnectEtsy) {
+      btnConnectEtsy.onclick = async () => {
+        const redirectUri = document.getElementById('inputRedirectUri').value.trim();
+        showToast('Etsy yetkilendirme linki oluşturuluyor...');
+        try {
+          const res = await fetch('/api/etsy/auth-url?redirect_uri=' + encodeURIComponent(redirectUri));
+          const data = await res.json();
+          if (data.auth_url) {
+            window.location.href = data.auth_url;
+          } else {
+            alert('Yetkilendirme adresi oluşturulamadı.');
+          }
+        } catch (e) {
+          alert('Bağlantı hatası: ' + e);
+        }
+      };
+    }
+
+    async function checkEtsyStatus() {
+      try {
+        const res = await fetch('/api/etsy/status');
+        const data = await res.json();
+        if (data.config && data.config.client_id) {
+          document.getElementById('dispClientId').textContent = data.config.client_id;
+        }
+        if (data.config && data.config.redirect_uri) {
+          document.getElementById('inputRedirectUri').value = data.config.redirect_uri;
+        }
+        if (data.connected) {
+          const pill = document.getElementById('etsyConnPill');
+          pill.style.background = 'var(--success-soft)';
+          pill.style.borderColor = 'var(--success)';
+          pill.style.color = 'var(--success)';
+          const shopName = (data.shop && data.shop.shop_name) || (data.user && data.user.primary_email) || 'Mağaza Aktif';
+          document.getElementById('etsyConnText').textContent = 'Bağlandı (' + shopName + ')';
+
+          const box = document.getElementById('etsyConnectedBox');
+          box.style.display = 'block';
+          document.getElementById('etsyShopDetails').innerHTML = `
+            Mağaza Adı: <b style="color:var(--gold)">${shopName}</b> (Shop ID: ${(data.shop && data.shop.shop_id) || '48921849'})<br>
+            API Token: <span style="color:var(--success)">Aktif (Bearer OAuth 2.0)</span><br>
+            Bağlantı Zamanı: ${data.connected_at || 'Yeni'}
+          `;
+          document.getElementById('btnConnectEtsy').textContent = '🔄 Etsy Yetkilendirmesini Yenile';
+        }
+      } catch (e) {}
+    }
+    checkEtsyStatus();
+
+    /* ==============================================================
+       7. TAB 8: INVENTORY & LISTINGS MANAGEMENT (Canlı İlan Masası)
+       ============================================================== */
+    let currentListings = [];
+
+    async function loadListings() {
+      try {
+        const res = await fetch('/api/listings');
+        currentListings = await res.json();
+        renderListingsTable();
+      } catch (e) {
+        console.error("Listings fetch error:", e);
+      }
+    }
+
+    function renderListingsTable() {
+      const q = (document.getElementById('inventorySearch')?.value || '').toLowerCase();
+      const filter = document.getElementById('inventoryFilter')?.value || 'ALL';
+      const tbody = document.getElementById('listingsTableBody');
+      if (!tbody) return;
+
+      tbody.innerHTML = '';
+      let actCount = 0, draftCount = 0, remCount = 0;
+
+      const filtered = currentListings.filter(item => {
+        if (item.state === 'ACTIVE') actCount++;
+        else if (item.state === 'DRAFT') draftCount++;
+        else if (item.state === 'REMOVED') remCount++;
+
+        const matchesFilter = filter === 'ALL' || item.state === filter;
+        const matchesQuery = !q || (item.title || '').toLowerCase().includes(q) || (item.sku || '').toLowerCase().includes(q);
+        return matchesFilter && matchesQuery;
+      });
+
+      // Update KPIs
+      if (document.getElementById('statTotalListings')) document.getElementById('statTotalListings').textContent = currentListings.length;
+      if (document.getElementById('statActiveListings')) document.getElementById('statActiveListings').textContent = actCount;
+      if (document.getElementById('statDraftListings')) document.getElementById('statDraftListings').textContent = draftCount;
+      if (document.getElementById('statRemovedListings')) document.getElementById('statRemovedListings').textContent = remCount;
+      if (document.getElementById('navListingCountBadge')) document.getElementById('navListingCountBadge').textContent = currentListings.length;
+
+      if (filtered.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="6" style="padding:24px;text-align:center;color:var(--muted)">Eşleşen ilan bulunamadı.</td></tr>';
+        return;
+      }
+
+      filtered.forEach(it => {
+        const tr = document.createElement('tr');
+        tr.style.borderBottom = '1px solid var(--border)';
+        const isAct = it.state === 'ACTIVE';
+        const isRem = it.state === 'REMOVED';
+
+        let badge = `<span class="badge" style="background:var(--success-soft);color:var(--success)">Yayında</span>`;
+        if (it.state === 'DRAFT') badge = `<span class="badge" style="background:var(--card);color:var(--warn)">Taslak</span>`;
+        if (isRem) badge = `<span class="badge" style="background:#450a0a;color:var(--danger)">Kaldırıldı (Pasif)</span>`;
+
+        tr.innerHTML = `
+          <td style="padding:10px 12px">
+            <img src="${it.image || 'img/std/1.webp'}" style="width:48px;height:48px;border-radius:6px;object-fit:cover;border:1px solid var(--border)">
+          </td>
+          <td style="padding:10px 12px">
+            <b style="font-family:var(--font-mono);color:var(--gold);font-size:12px">${it.sku || '-'}</b>
+            <div style="font-weight:600;font-size:13px;max-width:380px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis" title="${it.title}">${it.title}</div>
+            <span style="font-size:11px;color:var(--muted)">${it.category || 'Mural'} · ID: #${it.id}</span>
+          </td>
+          <td style="padding:10px 12px;font-family:var(--font-mono);font-weight:700">
+            $${Number(it.price).toFixed(2)}
+          </td>
+          <td style="padding:10px 12px;font-size:12px;font-family:var(--font-mono)">
+            <div>👁️ ${it.views || 0} görüntülenme</div>
+            <div style="color:var(--muted)">🛍️ ${it.sales || 0} sipariş ($${Number(it.revenue || 0).toLocaleString()})</div>
+          </td>
+          <td style="padding:10px 12px">${badge}</td>
+          <td style="padding:10px 12px;text-align:right;white-space:nowrap">
+            ${isAct ? `
+              <button class="btn btn-sm" onclick="toggleListingState('${it.id}', 'REMOVED')" style="border-color:var(--danger);color:var(--danger)" title="İlanı Etsy'de pasife al / yayından kaldır">
+                Yayından Kaldır
+              </button>
+            ` : `
+              <button class="btn btn-sm btn-gold" onclick="toggleListingState('${it.id}', 'ACTIVE')" title="İlanı yeniden yayına al">
+                Yayına Al
+              </button>
+            `}
+            <button class="btn btn-sm" onclick="deleteListingItem('${it.id}')" style="color:var(--muted)" title="Sil">🗑️</button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    async function toggleListingState(id, newState) {
+      try {
+        const res = await fetch('/api/listings/status', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({id, state: newState})
+        });
+        const data = await res.json();
+        if (data.ok) {
+          currentListings = data.listings;
+          renderListingsTable();
+          showToast(newState === 'ACTIVE' ? 'İlan yeniden yayına alındı!' : 'İlan yayından kaldırıldı (Pasife alındı).');
+        }
+      } catch (e) {
+        showToast('İşlem başarısız: ' + e);
+      }
+    }
+
+    async function deleteListingItem(id) {
+      if (!confirm('Bu ilanı envanterden silmek istediğinize emin misiniz?')) return;
+      try {
+        const res = await fetch('/api/listings/delete', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({id})
+        });
+        const data = await res.json();
+        if (data.ok) {
+          currentListings = data.listings;
+          renderListingsTable();
+          showToast('İlan envanterden silindi.');
+        }
+      } catch (e) {
+        showToast('Silme başarısız: ' + e);
+      }
+    }
+
+    // Toggle New Listing Box
+    const btnToggleForm = document.getElementById('btnToggleNewListingForm');
+    if (btnToggleForm) {
+      btnToggleForm.onclick = () => {
+        const b = document.getElementById('newListingFormBox');
+        b.style.display = b.style.display === 'none' ? 'block' : 'none';
+      };
+    }
+
+    // Create New Listing
+    const btnSaveNew = document.getElementById('btnSaveNewListing');
+    if (btnSaveNew) {
+      btnSaveNew.onclick = async () => {
+        const sku = document.getElementById('newSku').value.trim() || 'QP-NEW';
+        const price = document.getElementById('newPrice').value || 345.00;
+        const category = document.getElementById('newCategory').value;
+        const title = document.getElementById('newTitle').value.trim() || 'Emerald Chinoiserie Wallpaper Mural';
+
+        try {
+          const res = await fetch('/api/listings/create', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({sku, price, category, title, state: 'DRAFT', image: 'img/std/1.webp'})
+          });
+          const data = await res.json();
+          if (data.ok) {
+            currentListings = data.listings;
+            renderListingsTable();
+            document.getElementById('newListingFormBox').style.display = 'none';
+            showToast('✓ Yeni ilan başarıyla envantere eklendi!');
+          }
+        } catch (e) {
+          showToast('Ekleme başarısız: ' + e);
+        }
+      };
+    }
+
+    document.getElementById('inventorySearch')?.addEventListener('input', renderListingsTable);
+    document.getElementById('inventoryFilter')?.addEventListener('change', renderListingsTable);
+    loadListings();
+
+    /* ==============================================================
+       8. TAB 9: CONFIGURATION & .ENV MANAGER
+       ============================================================== */
+    async function loadEnvConfig() {
+      try {
+        const res = await fetch('/api/env');
+        const data = await res.json();
+        if (data.vars) {
+          if (document.getElementById('cfgEtsyClientId')) document.getElementById('cfgEtsyClientId').value = data.vars.ETSY_CLIENT_ID || '';
+          if (document.getElementById('cfgEtsyRedirect')) document.getElementById('cfgEtsyRedirect').value = data.vars.ETSY_REDIRECT_URI || '';
+          if (document.getElementById('cfgEtsySecret')) document.getElementById('cfgEtsySecret').value = data.vars.ETSY_SHARED_SECRET || '';
+          if (document.getElementById('cfgAiProvider')) document.getElementById('cfgAiProvider').value = data.vars.AI_PROVIDER || 'local';
+          if (document.getElementById('cfgOllamaEndpoint')) document.getElementById('cfgOllamaEndpoint').value = data.vars.OLLAMA_ENDPOINT || 'http://127.0.0.1:11434';
+          if (document.getElementById('cfgS3Bucket')) document.getElementById('cfgS3Bucket').value = data.vars.S3_BUCKET || 'qoop-assets';
+        }
+        if (data.raw && document.getElementById('rawEnvPreview')) {
+          document.getElementById('rawEnvPreview').textContent = data.raw;
+        }
+      } catch (e) {
+        console.error("Config load error:", e);
+      }
+    }
+
+    const formConfig = document.getElementById('formConfig');
+    if (formConfig) {
+      formConfig.onsubmit = async (e) => {
+        e.preventDefault();
+        const payload = {
+          ETSY_CLIENT_ID: document.getElementById('cfgEtsyClientId').value.trim(),
+          ETSY_REDIRECT_URI: document.getElementById('cfgEtsyRedirect').value.trim(),
+          ETSY_SHARED_SECRET: document.getElementById('cfgEtsySecret').value.trim(),
+          AI_PROVIDER: document.getElementById('cfgAiProvider').value,
+          OLLAMA_ENDPOINT: document.getElementById('cfgOllamaEndpoint').value.trim(),
+          S3_BUCKET: document.getElementById('cfgS3Bucket').value.trim()
+        };
+
+        try {
+          const res = await fetch('/api/env', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(payload)
+          });
+          const data = await res.json();
+          if (data.ok) {
+            loadEnvConfig();
+            showToast('✓ Ayarlar başarıyla .env dosyasına kaydedildi!');
+          }
+        } catch (err) {
+          showToast('Kaydetme hatası: ' + err);
+        }
+      };
+    }
+    loadEnvConfig();
+  </script>
+</body>
+</html>

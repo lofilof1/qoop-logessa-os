@@ -1,0 +1,872 @@
+{
+  "version": "qoop-keyword-watchlist-v1",
+  "createdAt": "2026-10-23",
+  "sourceSnapshotDate": "2026-10-16",
+  "sourcePath": "/Users/USER/Desktop/Logessa/stil-arsivi/kelimeler.csv",
+  "sourceHash": "382e321957bdf5bd30914081d946cf7b33778e5f98d1f0c2237e1ec5ab071af9",
+  "reviewCache": [
+    "data/knowledge/cache/053e6684598d652a3f5fbe597c17cbeaf6b6f6ad9019b703727799ef8d795208.json",
+    "data/knowledge/cache/e862ebd5c0632d1b25a380eb837468d9ef7905122d6bc6e64eacf12d734d35ba.json"
+  ],
+  "keywords": [
+    {
+      "term": "forest wallpaper",
+      "category": "MZ",
+      "priority": 1,
+      "reason": "Manzara/orman çekirdeği",
+      "status": "active",
+      "tagEligible": true,
+      "sourceSnapshotDate": "2026-10-16",
+      "sourcePath": "stil-arsivi/kelimeler.csv",
+      "historicalMetrics": {
+        "searches": "381",
+        "clicks": "404",
+        "ctr": "106",
+        "competition": "14037"
+      },
+      "provenance": "historical-snapshot"
+    },
+    {
+      "term": "forest mural",
+      "category": "MZ",
+      "priority": 1,
+      "reason": "Manzara/orman çekirdeği",
+      "status": "active",
+      "tagEligible": true,
+      "sourceSnapshotDate": "2026-10-16",
+      "sourcePath": "stil-arsivi/kelimeler.csv",
+      "historicalMetrics": {
+        "searches": "4",
+        "clicks": "0",
+        "ctr": "0",
+        "competition": "7403"
+      },
+      "provenance": "historical-snapshot"
+    },
+    {
+      "term": "landscape wallpaper",
+      "category": "MZ",
+      "priority": 1,
+      "reason": "Manzara/orman çekirdeği",
+      "status": "active",
+      "tagEligible": true,
+      "sourceSnapshotDate": "2026-10-16",
+      "sourcePath": "stil-arsivi/kelimeler.csv",
+      "historicalMetrics": {
+        "searches": "448",
+        "clicks": "512",
+        "ctr": "114",
+        "competition": "31250"
+      },
+      "provenance": "historical-snapshot"
+    },
+    {
+      "term": "landscape mural",
+      "category": "MZ",
+      "priority": 1,
+      "reason": "Manzara/orman çekirdeği",
+      "status": "active",
+      "tagEligible": true,
+      "sourceSnapshotDate": "2026-10-16",
+      "sourcePath": "stil-arsivi/kelimeler.csv",
+      "historicalMetrics": {
+        "searches": "6",
+        "clicks": "1",
+        "ctr": "17",
+        "competition": "8565"
+      },
+      "provenance": "historical-snapshot"
+    },
+    {
+      "term": "woodland wallpaper",
+      "category": "MZ",
+      "priority": 1,
+      "reason": "Manzara/orman çekirdeği",
+      "status": "active",
+      "tagEligible": true,
+      "sourceSnapshotDate": "2026-10-16",
+      "sourcePath": "stil-arsivi/kelimeler.csv",
+      "historicalMetrics": {
+        "searches": "516",
+        "clicks": "503",
+        "ctr": "97",
+        "competition": "6137"
+      },
+      "provenance": "historical-snapshot"
+    },
+    {
+      "term": "misty forest wallpaper",
+      "category": "MZ",
+      "priority": 1,
+      "reason": "Manzara/orman çekirdeği",
+      "status": "active",
+      "tagEligible": false,
+      "sourceSnapshotDate": null,
+      "sourcePath": null,
+      "historicalMetrics": null,
+      "provenance": "new-candidate"
+    },
+    {
+      "term": "vintage landscape wallpaper",
+      "category": "MZ",
+      "priority": 1,
+      "reason": "Manzara/orman çekirdeği",
+      "status": "active",
+      "tagEligible": false,
+      "sourceSnapshotDate": null,
+      "sourcePath": null,
+      "historicalMetrics": null,
+      "provenance": "new-candidate"
+    },
+    {
+      "term": "tree wallpaper",
+      "category": "MZ",
+      "priority": 1,
+      "reason": "Manzara/orman çekirdeği",
+      "status": "active",
+      "tagEligible": true,
+      "sourceSnapshotDate": "2026-10-16",
+      "sourcePath": "stil-arsivi/kelimeler.csv",
+      "historicalMetrics": {
+        "searches": "102",
+        "clicks": "93",
+        "ctr": "91",
+        "competition": "34915"
+      },
+      "provenance": "historical-snapshot"
+    },
+    {
+      "term": "botanical wallpaper",
+      "category": "BT",
+      "priority": 1,
+      "reason": "Botanik çekirdeği",
+      "status": "active",
+      "tagEligible": true,
+      "sourceSnapshotDate": "2026-10-16",
+      "sourcePath": "stil-arsivi/kelimeler.csv",
+      "historicalMetrics": {
+        "searches": "1202",
+        "clicks": "1195",
+        "ctr": "99",
+        "competition": "32642"
+      },
+      "provenance": "historical-snapshot"
+    },
+    {
+      "term": "botanical mural",
+      "category": "BT",
+      "priority": 1,
+      "reason": "Botanik çekirdeği",
+      "status": "active",
+      "tagEligible": true,
+      "sourceSnapshotDate": "2026-10-16",
+      "sourcePath": "stil-arsivi/kelimeler.csv",
+      "historicalMetrics": {
+        "searches": "4",
+        "clicks": "0",
+        "ctr": "0",
+        "competition": "11618"
+      },
+      "provenance": "historical-snapshot"
+    },
+    {
+      "term": "floral wallpaper",
+      "category": "BT",
+      "priority": 1,
+      "reason": "Botanik çekirdeği",
+      "status": "active",
+      "tagEligible": true,
+      "sourceSnapshotDate": "2026-10-16",
+      "sourcePath": "stil-arsivi/kelimeler.csv",
+      "historicalMetrics": {
+        "searches": "1434",
+        "clicks": "1589",
+        "ctr": "111",
+        "competition": "78169"
+      },
+      "provenance": "historical-snapshot"
+    },
+    {
+      "term": "dark floral wallpaper",
+      "category": "BT",
+      "priority": 1,
+      "reason": "Botanik çekirdeği",
+      "status": "active",
+      "tagEligible": false,
+      "sourceSnapshotDate": "2026-10-16",
+      "sourcePath": "stil-arsivi/kelimeler.csv",
+      "historicalMetrics": {
+        "searches": "790",
+        "clicks": "766",
+        "ctr": "97",
+        "competition": "7223"
+      },
+      "provenance": "historical-snapshot"
+    },
+    {
+      "term": "vintage floral wallpaper",
+      "category": "BT",
+      "priority": 1,
+      "reason": "Botanik çekirdeği",
+      "status": "active",
+      "tagEligible": false,
+      "sourceSnapshotDate": null,
+      "sourcePath": null,
+      "historicalMetrics": null,
+      "provenance": "new-candidate"
+    },
+    {
+      "term": "dark botanical wallpaper",
+      "category": "BT",
+      "priority": 1,
+      "reason": "Botanik çekirdeği",
+      "status": "active",
+      "tagEligible": false,
+      "sourceSnapshotDate": "2026-10-16",
+      "sourcePath": "stil-arsivi/kelimeler.csv",
+      "historicalMetrics": {
+        "searches": "785",
+        "clicks": "779",
+        "ctr": "99",
+        "competition": "5158"
+      },
+      "provenance": "historical-snapshot"
+    },
+    {
+      "term": "moody wallpaper",
+      "category": "GENEL",
+      "priority": 1,
+      "reason": "Ana koleksiyonun stil ve format karşılaştırması",
+      "status": "active",
+      "tagEligible": true,
+      "sourceSnapshotDate": "2026-10-16",
+      "sourcePath": "stil-arsivi/kelimeler.csv",
+      "historicalMetrics": {
+        "searches": "1328",
+        "clicks": "1333",
+        "ctr": "100",
+        "competition": "7863"
+      },
+      "provenance": "historical-snapshot"
+    },
+    {
+      "term": "wallpaper mural",
+      "category": "GENEL",
+      "priority": 1,
+      "reason": "Ana koleksiyonun stil ve format karşılaştırması",
+      "status": "active",
+      "tagEligible": true,
+      "sourceSnapshotDate": "2026-10-16",
+      "sourcePath": "stil-arsivi/kelimeler.csv",
+      "historicalMetrics": {
+        "searches": "1349",
+        "clicks": "1386",
+        "ctr": "103",
+        "competition": "64068"
+      },
+      "provenance": "historical-snapshot"
+    },
+    {
+      "term": "wildflower wallpaper",
+      "category": "BT",
+      "priority": 2,
+      "reason": "Destekleyici motif karşılaştırması",
+      "status": "active",
+      "tagEligible": true,
+      "sourceSnapshotDate": "2026-10-16",
+      "sourcePath": "stil-arsivi/kelimeler.csv",
+      "historicalMetrics": {
+        "searches": "419",
+        "clicks": "421",
+        "ctr": "100",
+        "competition": "5643"
+      },
+      "provenance": "historical-snapshot"
+    },
+    {
+      "term": "bird wallpaper",
+      "category": "BT",
+      "priority": 2,
+      "reason": "Destekleyici motif karşılaştırması",
+      "status": "active",
+      "tagEligible": true,
+      "sourceSnapshotDate": "2026-10-16",
+      "sourcePath": "stil-arsivi/kelimeler.csv",
+      "historicalMetrics": {
+        "searches": "1084",
+        "clicks": "1085",
+        "ctr": "100",
+        "competition": "9322"
+      },
+      "provenance": "historical-snapshot"
+    },
+    {
+      "term": "chinoiserie wallpaper",
+      "category": "CH",
+      "priority": 2,
+      "reason": "Koleksiyon ailesi karşılaştırması",
+      "status": "active",
+      "tagEligible": false,
+      "sourceSnapshotDate": "2026-10-16",
+      "sourcePath": "stil-arsivi/kelimeler.csv",
+      "historicalMetrics": {
+        "searches": "1192",
+        "clicks": "1643",
+        "ctr": "138",
+        "competition": "4819"
+      },
+      "provenance": "historical-snapshot"
+    },
+    {
+      "term": "chinoiserie mural",
+      "category": "CH",
+      "priority": 2,
+      "reason": "Koleksiyon ailesi karşılaştırması",
+      "status": "active",
+      "tagEligible": true,
+      "sourceSnapshotDate": "2026-10-16",
+      "sourcePath": "stil-arsivi/kelimeler.csv",
+      "historicalMetrics": {
+        "searches": "1",
+        "clicks": "0",
+        "ctr": "0",
+        "competition": "1403"
+      },
+      "provenance": "historical-snapshot"
+    },
+    {
+      "term": "toile wallpaper",
+      "category": "TO",
+      "priority": 2,
+      "reason": "Koleksiyon ailesi karşılaştırması",
+      "status": "active",
+      "tagEligible": true,
+      "sourceSnapshotDate": "2026-10-16",
+      "sourcePath": "stil-arsivi/kelimeler.csv",
+      "historicalMetrics": {
+        "searches": "300",
+        "clicks": "287",
+        "ctr": "96",
+        "competition": "3170"
+      },
+      "provenance": "historical-snapshot"
+    },
+    {
+      "term": "vintage wallpaper",
+      "category": "VK",
+      "priority": 2,
+      "reason": "Sanatsal stil karşılaştırması",
+      "status": "active",
+      "tagEligible": true,
+      "sourceSnapshotDate": "2026-10-16",
+      "sourcePath": "stil-arsivi/kelimeler.csv",
+      "historicalMetrics": {
+        "searches": "1202",
+        "clicks": "1194",
+        "ctr": "99",
+        "competition": "60719"
+      },
+      "provenance": "historical-snapshot"
+    },
+    {
+      "term": "cottagecore wallpaper",
+      "category": "VK",
+      "priority": 2,
+      "reason": "Sanatsal stil karşılaştırması",
+      "status": "active",
+      "tagEligible": false,
+      "sourceSnapshotDate": "2026-10-16",
+      "sourcePath": "stil-arsivi/kelimeler.csv",
+      "historicalMetrics": {
+        "searches": "203",
+        "clicks": "195",
+        "ctr": "96",
+        "competition": "9772"
+      },
+      "provenance": "historical-snapshot"
+    },
+    {
+      "term": "hand painted wallpaper",
+      "category": "VK",
+      "priority": 2,
+      "reason": "Sanatsal stil karşılaştırması",
+      "status": "active",
+      "tagEligible": false,
+      "sourceSnapshotDate": null,
+      "sourcePath": null,
+      "historicalMetrics": null,
+      "provenance": "new-candidate"
+    },
+    {
+      "term": "watercolor wallpaper",
+      "category": "VK",
+      "priority": 2,
+      "reason": "Sanatsal stil karşılaştırması",
+      "status": "active",
+      "tagEligible": true,
+      "sourceSnapshotDate": "2026-10-16",
+      "sourcePath": "stil-arsivi/kelimeler.csv",
+      "historicalMetrics": {
+        "searches": "103",
+        "clicks": "95",
+        "ctr": "92",
+        "competition": "30496"
+      },
+      "provenance": "historical-snapshot"
+    },
+    {
+      "term": "sage green wallpaper",
+      "category": "RENK",
+      "priority": 2,
+      "reason": "Görselle eşleştiğinde renk niyeti",
+      "status": "active",
+      "tagEligible": true,
+      "sourceSnapshotDate": "2026-10-16",
+      "sourcePath": "stil-arsivi/kelimeler.csv",
+      "historicalMetrics": {
+        "searches": "586",
+        "clicks": "579",
+        "ctr": "99",
+        "competition": "2964"
+      },
+      "provenance": "historical-snapshot"
+    },
+    {
+      "term": "green wallpaper",
+      "category": "RENK",
+      "priority": 2,
+      "reason": "Görselle eşleştiğinde renk niyeti",
+      "status": "active",
+      "tagEligible": true,
+      "sourceSnapshotDate": "2026-10-16",
+      "sourcePath": "stil-arsivi/kelimeler.csv",
+      "historicalMetrics": {
+        "searches": "1197",
+        "clicks": "1196",
+        "ctr": "100",
+        "competition": "54437"
+      },
+      "provenance": "historical-snapshot"
+    },
+    {
+      "term": "neutral wallpaper",
+      "category": "RENK",
+      "priority": 2,
+      "reason": "Görselle eşleştiğinde renk niyeti",
+      "status": "active",
+      "tagEligible": true,
+      "sourceSnapshotDate": "2026-10-16",
+      "sourcePath": "stil-arsivi/kelimeler.csv",
+      "historicalMetrics": {
+        "searches": "596",
+        "clicks": "590",
+        "ctr": "99",
+        "competition": "20902"
+      },
+      "provenance": "historical-snapshot"
+    },
+    {
+      "term": "beige wallpaper",
+      "category": "RENK",
+      "priority": 2,
+      "reason": "Görselle eşleştiğinde renk niyeti",
+      "status": "active",
+      "tagEligible": true,
+      "sourceSnapshotDate": "2026-10-16",
+      "sourcePath": "stil-arsivi/kelimeler.csv",
+      "historicalMetrics": {
+        "searches": "398",
+        "clicks": "392",
+        "ctr": "98",
+        "competition": "39368"
+      },
+      "provenance": "historical-snapshot"
+    },
+    {
+      "term": "bedroom wallpaper",
+      "category": "ME",
+      "priority": 2,
+      "reason": "Görselle eşleştiğinde oda ve kullanım niyeti",
+      "status": "active",
+      "tagEligible": true,
+      "sourceSnapshotDate": "2026-10-16",
+      "sourcePath": "stil-arsivi/kelimeler.csv",
+      "historicalMetrics": {
+        "searches": "393",
+        "clicks": "385",
+        "ctr": "98",
+        "competition": "119316"
+      },
+      "provenance": "historical-snapshot"
+    },
+    {
+      "term": "living room wallpaper",
+      "category": "ME",
+      "priority": 2,
+      "reason": "Görselle eşleştiğinde oda ve kullanım niyeti",
+      "status": "active",
+      "tagEligible": false,
+      "sourceSnapshotDate": "2026-10-16",
+      "sourcePath": "stil-arsivi/kelimeler.csv",
+      "historicalMetrics": {
+        "searches": "9",
+        "clicks": "1",
+        "ctr": "11",
+        "competition": "111850"
+      },
+      "provenance": "historical-snapshot"
+    },
+    {
+      "term": "dining room wallpaper",
+      "category": "ME",
+      "priority": 2,
+      "reason": "Görselle eşleştiğinde oda ve kullanım niyeti",
+      "status": "active",
+      "tagEligible": false,
+      "sourceSnapshotDate": null,
+      "sourcePath": null,
+      "historicalMetrics": null,
+      "provenance": "new-candidate"
+    },
+    {
+      "term": "bathroom wallpaper",
+      "category": "ME",
+      "priority": 2,
+      "reason": "Görselle eşleştiğinde oda ve kullanım niyeti",
+      "status": "active",
+      "tagEligible": true,
+      "sourceSnapshotDate": "2026-10-16",
+      "sourcePath": "stil-arsivi/kelimeler.csv",
+      "historicalMetrics": {
+        "searches": "1243",
+        "clicks": "1263",
+        "ctr": "102",
+        "competition": "69307"
+      },
+      "provenance": "historical-snapshot"
+    },
+    {
+      "term": "accent wall wallpaper",
+      "category": "ME",
+      "priority": 2,
+      "reason": "Görselle eşleştiğinde oda ve kullanım niyeti",
+      "status": "active",
+      "tagEligible": false,
+      "sourceSnapshotDate": "2026-10-16",
+      "sourcePath": "stil-arsivi/kelimeler.csv",
+      "historicalMetrics": {
+        "searches": "6",
+        "clicks": "1",
+        "ctr": "17",
+        "competition": "10386"
+      },
+      "provenance": "historical-snapshot"
+    },
+    {
+      "term": "nursery wallpaper",
+      "category": "BB",
+      "priority": 2,
+      "reason": "Koleksiyon varsa oda niyeti",
+      "status": "active",
+      "tagEligible": true,
+      "sourceSnapshotDate": "2026-10-16",
+      "sourcePath": "stil-arsivi/kelimeler.csv",
+      "historicalMetrics": {
+        "searches": "1224",
+        "clicks": "1321",
+        "ctr": "108",
+        "competition": "64065"
+      },
+      "provenance": "historical-snapshot"
+    },
+    {
+      "term": "wall mural",
+      "category": "GENEL",
+      "priority": 2,
+      "reason": "Format karşılaştırması",
+      "status": "active",
+      "tagEligible": true,
+      "sourceSnapshotDate": "2026-10-16",
+      "sourcePath": "stil-arsivi/kelimeler.csv",
+      "historicalMetrics": {
+        "searches": "1417",
+        "clicks": "1694",
+        "ctr": "120",
+        "competition": "240851"
+      },
+      "provenance": "historical-snapshot"
+    },
+    {
+      "term": "wallpaper",
+      "category": "GENEL",
+      "priority": 3,
+      "reason": "Geniş pazar karşılaştırma referansı",
+      "status": "active",
+      "tagEligible": true,
+      "sourceSnapshotDate": "2026-10-16",
+      "sourcePath": "stil-arsivi/kelimeler.csv",
+      "historicalMetrics": {
+        "searches": "9040",
+        "clicks": "9672",
+        "ctr": "107",
+        "competition": "375867"
+      },
+      "provenance": "historical-snapshot"
+    },
+    {
+      "term": "nursery mural",
+      "category": "BB",
+      "priority": 3,
+      "reason": "Çekirdek doğrulandıktan sonra deney",
+      "status": "active",
+      "tagEligible": true,
+      "sourceSnapshotDate": "2026-10-16",
+      "sourcePath": "stil-arsivi/kelimeler.csv",
+      "historicalMetrics": {
+        "searches": "6",
+        "clicks": "1",
+        "ctr": "17",
+        "competition": "76049"
+      },
+      "provenance": "historical-snapshot"
+    },
+    {
+      "term": "kids room wallpaper",
+      "category": "CO",
+      "priority": 3,
+      "reason": "Çekirdek doğrulandıktan sonra deney",
+      "status": "active",
+      "tagEligible": true,
+      "sourceSnapshotDate": "2026-10-16",
+      "sourcePath": "stil-arsivi/kelimeler.csv",
+      "historicalMetrics": {
+        "searches": "8",
+        "clicks": "1",
+        "ctr": "13",
+        "competition": "47100"
+      },
+      "provenance": "historical-snapshot"
+    },
+    {
+      "term": "japandi wallpaper",
+      "category": "JP",
+      "priority": 3,
+      "reason": "Çekirdek doğrulandıktan sonra deney",
+      "status": "active",
+      "tagEligible": true,
+      "sourceSnapshotDate": "2026-10-16",
+      "sourcePath": "stil-arsivi/kelimeler.csv",
+      "historicalMetrics": {
+        "searches": "103",
+        "clicks": "94",
+        "ctr": "91",
+        "competition": "1592"
+      },
+      "provenance": "historical-snapshot"
+    },
+    {
+      "term": "art deco wallpaper",
+      "category": "AD",
+      "priority": 3,
+      "reason": "Çekirdek doğrulandıktan sonra deney",
+      "status": "active",
+      "tagEligible": true,
+      "sourceSnapshotDate": "2026-10-16",
+      "sourcePath": "stil-arsivi/kelimeler.csv",
+      "historicalMetrics": {
+        "searches": "1412",
+        "clicks": "1526",
+        "ctr": "108",
+        "competition": "18279"
+      },
+      "provenance": "historical-snapshot"
+    },
+    {
+      "term": "geometric wallpaper",
+      "category": "GE",
+      "priority": 3,
+      "reason": "Çekirdek doğrulandıktan sonra deney",
+      "status": "active",
+      "tagEligible": true,
+      "sourceSnapshotDate": "2026-10-16",
+      "sourcePath": "stil-arsivi/kelimeler.csv",
+      "historicalMetrics": {
+        "searches": "942",
+        "clicks": "996",
+        "ctr": "106",
+        "competition": "42919"
+      },
+      "provenance": "historical-snapshot"
+    },
+    {
+      "term": "scallop wallpaper",
+      "category": "CZ",
+      "priority": 3,
+      "reason": "Çekirdek doğrulandıktan sonra deney",
+      "status": "active",
+      "tagEligible": true,
+      "sourceSnapshotDate": "2026-10-16",
+      "sourcePath": "stil-arsivi/kelimeler.csv",
+      "historicalMetrics": {
+        "searches": "7",
+        "clicks": "1",
+        "ctr": "14",
+        "competition": "1003"
+      },
+      "provenance": "historical-snapshot"
+    },
+    {
+      "term": "striped wallpaper",
+      "category": "CZ",
+      "priority": 3,
+      "reason": "Çekirdek doğrulandıktan sonra deney",
+      "status": "active",
+      "tagEligible": true,
+      "sourceSnapshotDate": "2026-10-16",
+      "sourcePath": "stil-arsivi/kelimeler.csv",
+      "historicalMetrics": {
+        "searches": "601",
+        "clicks": "596",
+        "ctr": "99",
+        "competition": "10367"
+      },
+      "provenance": "historical-snapshot"
+    },
+    {
+      "term": "blue wallpaper",
+      "category": "RENK",
+      "priority": 3,
+      "reason": "Çekirdek doğrulandıktan sonra deney",
+      "status": "active",
+      "tagEligible": true,
+      "sourceSnapshotDate": "2026-10-16",
+      "sourcePath": "stil-arsivi/kelimeler.csv",
+      "historicalMetrics": {
+        "searches": "1227",
+        "clicks": "1233",
+        "ctr": "100",
+        "competition": "65234"
+      },
+      "provenance": "historical-snapshot"
+    },
+    {
+      "term": "abstract wallpaper",
+      "category": "SY",
+      "priority": 3,
+      "reason": "Çekirdek doğrulandıktan sonra deney",
+      "status": "active",
+      "tagEligible": true,
+      "sourceSnapshotDate": "2026-10-16",
+      "sourcePath": "stil-arsivi/kelimeler.csv",
+      "historicalMetrics": {
+        "searches": "1021",
+        "clicks": "1121",
+        "ctr": "110",
+        "competition": "56484"
+      },
+      "provenance": "historical-snapshot"
+    },
+    {
+      "term": "organic wallpaper",
+      "category": "SY",
+      "priority": 3,
+      "reason": "Çekirdek doğrulandıktan sonra deney",
+      "status": "active",
+      "tagEligible": true,
+      "sourceSnapshotDate": "2026-10-16",
+      "sourcePath": "stil-arsivi/kelimeler.csv",
+      "historicalMetrics": {
+        "searches": "5",
+        "clicks": "1",
+        "ctr": "20",
+        "competition": "790"
+      },
+      "provenance": "historical-snapshot"
+    },
+    {
+      "term": "mid century wallpaper",
+      "category": "MC",
+      "priority": 3,
+      "reason": "Çekirdek doğrulandıktan sonra deney",
+      "status": "active",
+      "tagEligible": false,
+      "sourceSnapshotDate": "2026-10-16",
+      "sourcePath": "stil-arsivi/kelimeler.csv",
+      "historicalMetrics": {
+        "searches": "504",
+        "clicks": "498",
+        "ctr": "99",
+        "competition": "9187"
+      },
+      "provenance": "historical-snapshot"
+    },
+    {
+      "term": "retro wallpaper",
+      "category": "RT",
+      "priority": 3,
+      "reason": "Çekirdek doğrulandıktan sonra deney",
+      "status": "active",
+      "tagEligible": true,
+      "sourceSnapshotDate": "2026-10-16",
+      "sourcePath": "stil-arsivi/kelimeler.csv",
+      "historicalMetrics": {
+        "searches": "541",
+        "clicks": "556",
+        "ctr": "103",
+        "competition": "22072"
+      },
+      "provenance": "historical-snapshot"
+    },
+    {
+      "term": "maximalist wallpaper",
+      "category": "MK",
+      "priority": 3,
+      "reason": "Çekirdek doğrulandıktan sonra deney",
+      "status": "active",
+      "tagEligible": true,
+      "sourceSnapshotDate": "2026-10-16",
+      "sourcePath": "stil-arsivi/kelimeler.csv",
+      "historicalMetrics": {
+        "searches": "205",
+        "clicks": "197",
+        "ctr": "96",
+        "competition": "4596"
+      },
+      "provenance": "historical-snapshot"
+    },
+    {
+      "term": "tropical wallpaper",
+      "category": "MK",
+      "priority": 3,
+      "reason": "Önceki planda ertelendi; kullanıcı açana kadar pasif",
+      "status": "paused",
+      "tagEligible": true,
+      "sourceSnapshotDate": "2026-10-16",
+      "sourcePath": "stil-arsivi/kelimeler.csv",
+      "historicalMetrics": {
+        "searches": "1117",
+        "clicks": "1125",
+        "ctr": "101",
+        "competition": "22428"
+      },
+      "provenance": "historical-snapshot"
+    },
+    {
+      "term": "coastal wallpaper",
+      "category": "SH",
+      "priority": 3,
+      "reason": "Önceki planda ertelendi; kullanıcı açana kadar pasif",
+      "status": "paused",
+      "tagEligible": true,
+      "sourceSnapshotDate": "2026-10-16",
+      "sourcePath": "stil-arsivi/kelimeler.csv",
+      "historicalMetrics": {
+        "searches": "1198",
+        "clicks": "1198",
+        "ctr": "100",
+        "competition": "12407"
+      },
+      "provenance": "historical-snapshot"
+    }
+  ]
+}

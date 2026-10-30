@@ -1,0 +1,1060 @@
+{
+  "version": "lessons-v1.1",
+  "source": {
+    "id": "course-74c8ca07",
+    "filename": "ilovepdf_merged_compressed.pdf",
+    "sha256": "74c8ca07c4300c7494aa03c5b41f77344f44f6d4369949d30d82ce96b93ee16c",
+    "pageCount": 50,
+    "missingLessons": [
+      "1.14"
+    ],
+    "url": "/lessons/course.pdf"
+  },
+  "lessons": [
+    {
+      "id": "1.1",
+      "title": "Brief mühendisliği",
+      "startPage": 1,
+      "endPage": 4,
+      "sourceUrl": "/lessons/course.pdf"
+    },
+    {
+      "id": "1.2",
+      "title": "Prompt anatomisi",
+      "startPage": 5,
+      "endPage": 7,
+      "sourceUrl": "/lessons/course.pdf"
+    },
+    {
+      "id": "1.3",
+      "title": "Referans ve motif ailesi",
+      "startPage": 8,
+      "endPage": 11,
+      "sourceUrl": "/lessons/course.pdf"
+    },
+    {
+      "id": "1.4",
+      "title": "Kontrollü varyasyon ve ölçek",
+      "startPage": 12,
+      "endPage": 14,
+      "sourceUrl": "/lessons/course.pdf"
+    },
+    {
+      "id": "1.5",
+      "title": "Motif kütüphanesi",
+      "startPage": 15,
+      "endPage": 18,
+      "sourceUrl": "/lessons/course.pdf"
+    },
+    {
+      "id": "1.6",
+      "title": "Seamless mühendisliği",
+      "startPage": 19,
+      "endPage": 20,
+      "sourceUrl": "/lessons/course.pdf"
+    },
+    {
+      "id": "1.7",
+      "title": "İleri tekrar sistemleri",
+      "startPage": 21,
+      "endPage": 22,
+      "sourceUrl": "/lessons/course.pdf"
+    },
+    {
+      "id": "1.8",
+      "title": "Master, colorway ve panel",
+      "startPage": 23,
+      "endPage": 24,
+      "sourceUrl": "/lessons/course.pdf"
+    },
+    {
+      "id": "1.9",
+      "title": "Büyütme ve baskı kalitesi",
+      "startPage": 25,
+      "endPage": 27,
+      "sourceUrl": "/lessons/course.pdf"
+    },
+    {
+      "id": "1.10",
+      "title": "Renk yönetimi",
+      "startPage": 28,
+      "endPage": 29,
+      "sourceUrl": "/lessons/course.pdf"
+    },
+    {
+      "id": "1.11",
+      "title": "Baskı öncesi mühendislik",
+      "startPage": 30,
+      "endPage": 31,
+      "sourceUrl": "/lessons/course.pdf"
+    },
+    {
+      "id": "1.12",
+      "title": "Üretim otomasyonu",
+      "startPage": 32,
+      "endPage": 33,
+      "sourceUrl": "/lessons/course.pdf"
+    },
+    {
+      "id": "1.13",
+      "title": "Tasarım değerlendirmesi",
+      "startPage": 34,
+      "endPage": 35,
+      "sourceUrl": "/lessons/course.pdf"
+    },
+    {
+      "id": "1.14",
+      "title": "Koleksiyon mimarisi",
+      "startPage": 1,
+      "endPage": 2,
+      "sourceUrl": "/lessons/collection-1-14.pdf"
+    },
+    {
+      "id": "1.15",
+      "title": "Sanat yönetimi",
+      "startPage": 36,
+      "endPage": 37,
+      "sourceUrl": "/lessons/course.pdf"
+    },
+    {
+      "id": "1.16",
+      "title": "Tasarım sistemleri",
+      "startPage": 38,
+      "endPage": 39,
+      "sourceUrl": "/lessons/course.pdf"
+    },
+    {
+      "id": "1.17",
+      "title": "İleri pattern mühendisliği",
+      "startPage": 40,
+      "endPage": 41,
+      "sourceUrl": "/lessons/course.pdf"
+    },
+    {
+      "id": "1.18",
+      "title": "Üretim hattı",
+      "startPage": 42,
+      "endPage": 44,
+      "sourceUrl": "/lessons/course.pdf"
+    },
+    {
+      "id": "1.19",
+      "title": "Kalite ve hata analizi",
+      "startPage": 45,
+      "endPage": 46,
+      "sourceUrl": "/lessons/course.pdf"
+    },
+    {
+      "id": "1.20",
+      "title": "Ürün doğrulama",
+      "startPage": 47,
+      "endPage": 50,
+      "sourceUrl": "/lessons/course.pdf"
+    }
+  ],
+  "fields": [
+    {
+      "id": "primary",
+      "label": "Ana motif",
+      "group": "motif",
+      "options": [
+        "Zeytin dalı",
+        "Ağaç",
+        "Çiçek",
+        "Yaprak",
+        "Soyut form",
+        "Geometrik form"
+      ],
+      "page": 8,
+      "lesson": "1.3",
+      "note": "Hero ana karakterdir. Ağaç ve diğer seçimler kullanıcı ihtiyacına göre genişletilmiş seçeneklerdir.",
+      "modes": [
+        "pattern",
+        "mural",
+        "continuous",
+        "motif",
+        "edit"
+      ],
+      "origin": "lesson",
+      "sourceUrl": "/lessons/course.pdf",
+      "optional": false
+    },
+    {
+      "id": "secondary",
+      "label": "Destekleyici öğe",
+      "group": "motif",
+      "options": [
+        "Yok",
+        "Biberiye",
+        "Göl",
+        "Ördek",
+        "İkincil dal",
+        "Küçük çiçek"
+      ],
+      "page": 8,
+      "lesson": "1.3",
+      "note": "Secondary ana öğeyi destekler. Göl/ördek kullanıcı örneğidir; göl alanı ve hayvan boyu ayrı kontrol edilir.",
+      "modes": [
+        "pattern",
+        "mural",
+        "continuous",
+        "motif",
+        "edit"
+      ],
+      "origin": "lesson",
+      "sourceUrl": "/lessons/course.pdf",
+      "optional": false
+    },
+    {
+      "id": "secondaryExtra",
+      "label": "İkinci destekleyici öğe",
+      "group": "motif",
+      "options": [
+        "Yok",
+        "Ördek",
+        "Göl",
+        "Küçük kuş",
+        "İkincil dal"
+      ],
+      "page": 8,
+      "lesson": "1.3",
+      "note": "Birden fazla destek öğesinin ilişkisini planlamak için kullanıcı talebine göre eklenmiştir. Göl ve hayvan aynı boyut metriğiyle ölçülmez.",
+      "modes": [
+        "pattern",
+        "mural",
+        "continuous",
+        "motif",
+        "edit"
+      ],
+      "origin": "user",
+      "sourceUrl": "/lessons/course.pdf",
+      "optional": false
+    },
+    {
+      "id": "filler",
+      "label": "Ritim / dolgu öğesi",
+      "group": "motif",
+      "options": [
+        "Yok",
+        "Tomurcuk",
+        "Küçük yaprak",
+        "Küçük soyut vurgu"
+      ],
+      "page": 8,
+      "lesson": "1.3",
+      "note": "Filler boşluk ve ritmi yönetir; her boşluğun doldurulması gerekmez.",
+      "modes": [
+        "pattern",
+        "mural",
+        "continuous",
+        "motif",
+        "edit"
+      ],
+      "origin": "lesson",
+      "sourceUrl": "/lessons/course.pdf",
+      "optional": false
+    },
+    {
+      "id": "medium",
+      "label": "Sanatsal teknik",
+      "group": "style",
+      "options": [
+        "Suluboya",
+        "Guaj",
+        "Linocut",
+        "Gravür",
+        "Vektör"
+      ],
+      "page": 5,
+      "lesson": "1.2",
+      "note": "Aynı motif ailesinde boya, kenar ve çizgi karakterini sabitle.",
+      "modes": [
+        "pattern",
+        "mural",
+        "continuous",
+        "motif",
+        "edit"
+      ],
+      "origin": "lesson",
+      "sourceUrl": "/lessons/course.pdf",
+      "optional": false
+    },
+    {
+      "id": "linework",
+      "label": "Çizgi karakteri",
+      "group": "style",
+      "options": [
+        "Belirgin kontur yok",
+        "İnce kontur",
+        "Kalın kontur",
+        "Gravür çizgisi"
+      ],
+      "page": 9,
+      "lesson": "1.3",
+      "note": "Seçenekler stil şartnamesini somutlaştıran uygulama önerileridir.",
+      "modes": [
+        "pattern",
+        "mural",
+        "continuous",
+        "motif",
+        "edit"
+      ],
+      "origin": "lesson",
+      "sourceUrl": "/lessons/course.pdf",
+      "optional": false
+    },
+    {
+      "id": "edges",
+      "label": "Kenar karakteri",
+      "group": "style",
+      "options": [
+        "Yumuşak",
+        "Hafif düzensiz",
+        "Keskin",
+        "Karma"
+      ],
+      "page": 36,
+      "lesson": "1.15",
+      "note": "Kenar keskinliği editoryal bir değerlendirmedir; laboratuvar ölçümü değildir.",
+      "modes": [
+        "pattern",
+        "mural",
+        "continuous",
+        "motif",
+        "edit"
+      ],
+      "origin": "lesson",
+      "sourceUrl": "/lessons/course.pdf",
+      "optional": false
+    },
+    {
+      "id": "surface",
+      "label": "Yüzey yaklaşımı",
+      "group": "style",
+      "options": [
+        "Düz renk alanları",
+        "Yumuşak geniş ton geçişleri",
+        "Hafif pigment değişimi",
+        "Mat kâğıt hissi"
+      ],
+      "page": 9,
+      "lesson": "1.3",
+      "note": "Örnek yüzeyler seçenektir; Qoop için onaylanmış zorunlu estetik değildir.",
+      "modes": [
+        "pattern",
+        "mural",
+        "continuous",
+        "motif",
+        "edit"
+      ],
+      "origin": "lesson",
+      "sourceUrl": "/lessons/course.pdf",
+      "optional": false
+    },
+    {
+      "id": "palette",
+      "label": "Palet yönü",
+      "group": "style",
+      "options": [
+        "Adaçayı / kırık beyaz",
+        "Zeytin grisi / krem",
+        "Gece mavisi / sıcak vurgu",
+        "Toprak tonları",
+        "Koleksiyon paleti"
+      ],
+      "page": 2,
+      "lesson": "1.1",
+      "note": "İlk iki palet ders örneğidir; diğerleri çalışma kolaylığı için eklenmiştir. İstersen özel renklerini yaz.",
+      "modes": [
+        "pattern",
+        "mural",
+        "continuous",
+        "motif",
+        "edit"
+      ],
+      "origin": "lesson",
+      "sourceUrl": "/lessons/course.pdf",
+      "optional": false
+    },
+    {
+      "id": "contrast",
+      "label": "Kontrast",
+      "group": "style",
+      "options": [
+        "Düşük",
+        "Orta",
+        "Yüksek"
+      ],
+      "page": 36,
+      "lesson": "1.15",
+      "note": "Koleksiyon hedefini kaydet; yüksek kontrast her tasarımda hata değildir.",
+      "modes": [
+        "pattern",
+        "mural",
+        "continuous",
+        "motif",
+        "edit"
+      ],
+      "origin": "lesson",
+      "sourceUrl": "/lessons/course.pdf",
+      "optional": false
+    },
+    {
+      "id": "saturation",
+      "label": "Doygunluk",
+      "group": "style",
+      "options": [
+        "Soluk",
+        "Dengeli",
+        "Canlı"
+      ],
+      "page": 36,
+      "lesson": "1.15",
+      "note": "Bu ölçek başlangıçta insan değerlendirmesine dayanır.",
+      "modes": [
+        "pattern",
+        "mural",
+        "continuous",
+        "motif",
+        "edit"
+      ],
+      "origin": "lesson",
+      "sourceUrl": "/lessons/course.pdf",
+      "optional": false
+    },
+    {
+      "id": "detail",
+      "label": "Detay seviyesi",
+      "group": "style",
+      "options": [
+        "Az",
+        "Orta",
+        "Yüksek"
+      ],
+      "page": 9,
+      "lesson": "1.3",
+      "note": "Detayın fiziksel baskı ölçeğinde okunurluğu ayrıca incelenir.",
+      "modes": [
+        "pattern",
+        "mural",
+        "continuous",
+        "motif",
+        "edit"
+      ],
+      "origin": "lesson",
+      "sourceUrl": "/lessons/course.pdf",
+      "optional": false
+    },
+    {
+      "id": "repeat",
+      "label": "Tekrar geometrisi",
+      "group": "composition",
+      "options": [
+        "Straight",
+        "Half-drop",
+        "Brick"
+      ],
+      "page": 19,
+      "lesson": "1.6",
+      "note": "Half-drop: komşu kolon H/2 kayar. Brick: komşu satır W/2 kayar. Yönlülük ayrı bir özelliktir.",
+      "modes": [
+        "pattern"
+      ],
+      "origin": "lesson",
+      "sourceUrl": "/lessons/course.pdf",
+      "optional": false
+    },
+    {
+      "id": "distribution",
+      "label": "Dağılım yaklaşımı",
+      "group": "composition",
+      "options": [
+        "Grid",
+        "Random",
+        "Jittered grid",
+        "Poisson disk"
+      ],
+      "page": 40,
+      "lesson": "1.17",
+      "note": "Bu sürüm geometriyi şematik gösterir; Poisson disk üretim algoritması henüz çalıştırılmaz.",
+      "modes": [
+        "pattern"
+      ],
+      "origin": "lesson",
+      "sourceUrl": "/lessons/course.pdf",
+      "optional": false
+    },
+    {
+      "id": "direction",
+      "label": "Motif yönlülüğü",
+      "group": "composition",
+      "options": [
+        "One-way",
+        "Two-way",
+        "Four-way",
+        "Non-directional"
+      ],
+      "page": 21,
+      "lesson": "1.7",
+      "note": "Yönlülük ile kenar eşleşmesi farklı testlerdir.",
+      "modes": [
+        "pattern",
+        "motif"
+      ],
+      "origin": "lesson",
+      "sourceUrl": "/lessons/course.pdf",
+      "optional": false
+    },
+    {
+      "id": "scene",
+      "label": "Sahne içeriği",
+      "group": "composition",
+      "options": [
+        "Manzara",
+        "Botanik",
+        "Geometrik / soyut"
+      ],
+      "page": 22,
+      "lesson": "1.7",
+      "note": "İçeriğe göre değişen alanlar uygulama önerisidir; ders engineered yerleşim yaklaşımını tanımlar.",
+      "modes": [
+        "mural",
+        "continuous",
+        "edit"
+      ],
+      "origin": "application",
+      "sourceUrl": "/lessons/course.pdf",
+      "optional": false
+    },
+    {
+      "id": "composition",
+      "label": "Kompozisyon yaklaşımı",
+      "group": "composition",
+      "options": [
+        "Tek odak",
+        "İki yandan çerçeveleme",
+        "Zeminden yükselen",
+        "Açık merkez",
+        "Katmanlı derinlik"
+      ],
+      "page": 3,
+      "lesson": "1.1",
+      "note": "İçeriğe göre şema üretir; tüm sahnelere aynı oran uygulanmaz.",
+      "modes": [
+        "mural",
+        "continuous",
+        "edit"
+      ],
+      "origin": "lesson",
+      "sourceUrl": "/lessons/course.pdf",
+      "optional": false
+    },
+    {
+      "id": "flow",
+      "label": "Göz akışı",
+      "group": "composition",
+      "options": [
+        "Soldan sağa",
+        "Sağdan sola",
+        "Dikey yükselen",
+        "Merkeze yönelen",
+        "Sakin / yönsüz"
+      ],
+      "page": 38,
+      "lesson": "1.16",
+      "note": "Akış seçenekleri kontrolü somutlaştıran uygulama önerileridir.",
+      "modes": [
+        "mural",
+        "continuous",
+        "edit"
+      ],
+      "origin": "application",
+      "sourceUrl": "/lessons/course.pdf",
+      "optional": false
+    },
+    {
+      "id": "depth",
+      "label": "Destek öğesinin planı",
+      "group": "composition",
+      "options": [
+        "Ön plan",
+        "Orta plan",
+        "Arka plan"
+      ],
+      "page": 22,
+      "lesson": "1.7",
+      "note": "Perspektifte görünen boyut plandan etkilenir; ördek için doğal oran otomatik doğrulanmaz.",
+      "modes": [
+        "mural",
+        "continuous",
+        "edit"
+      ],
+      "origin": "application",
+      "sourceUrl": "/lessons/course.pdf",
+      "optional": false
+    },
+    {
+      "id": "variation",
+      "label": "Değiştirmek istediğin değişken",
+      "group": "revision",
+      "options": [
+        "Yoğunluk",
+        "Motif ölçeği",
+        "Dağılım",
+        "Palet",
+        "Teknik",
+        "Küçük form ayrıntısı"
+      ],
+      "page": 12,
+      "lesson": "1.4",
+      "note": "Karşılaştırılabilir deneyde mümkünse tek değişkeni değiştir; diğerlerini koru.",
+      "modes": [
+        "pattern",
+        "mural",
+        "continuous",
+        "motif",
+        "edit"
+      ],
+      "origin": "lesson",
+      "sourceUrl": "/lessons/course.pdf",
+      "optional": false
+    },
+    {
+      "id": "problem",
+      "label": "Düzeltme hedefi",
+      "group": "revision",
+      "options": [
+        "Henüz yok",
+        "Motif çok büyük",
+        "Çok kalabalık",
+        "Stil değişken",
+        "Fazla kontrast",
+        "Merkezde yığılma",
+        "Tekrar izi",
+        "Kenar eşleşmiyor",
+        "Baskıda detay kayboluyor"
+      ],
+      "page": 10,
+      "lesson": "1.3",
+      "note": "Soruna göre prompt revizyonu veya teknik onarım yolu önerilir; bu ekran görüntüyü incelemez.",
+      "modes": [
+        "pattern",
+        "mural",
+        "continuous",
+        "motif",
+        "edit"
+      ],
+      "origin": "lesson",
+      "sourceUrl": "/lessons/course.pdf",
+      "optional": false
+    },
+    {
+      "id": "referenceRole",
+      "label": "Referansın görevi",
+      "group": "revision",
+      "options": [
+        "Yok",
+        "Stil",
+        "Form",
+        "Kompozisyon"
+      ],
+      "page": 8,
+      "lesson": "1.3",
+      "note": "Bu etkileri ayırmak özgün üretimi destekler; birebir kopya talebi değildir.",
+      "modes": [
+        "pattern",
+        "mural",
+        "continuous",
+        "motif",
+        "edit"
+      ],
+      "origin": "lesson",
+      "sourceUrl": "/lessons/course.pdf",
+      "optional": false
+    },
+    {
+      "id": "continuity",
+      "label": "Sahne devamlılığı",
+      "group": "composition",
+      "options": [
+        "Büyük yatay sahne modülü",
+        "Uyumlu A/B/C sahneler",
+        "Tek büyük masterdan onaylı kesitler"
+      ],
+      "page": 22,
+      "lesson": "1.7",
+      "note": "Seamless mural derslerde ayrı standart olarak tanımlanmaz. Bu kategori kullanıcı talebine dayalı uygulama önerisidir.",
+      "modes": [
+        "continuous"
+      ],
+      "origin": "user",
+      "sourceUrl": "/lessons/course.pdf",
+      "optional": false
+    },
+    {
+      "id": "cropPolicy",
+      "label": "Kesit politikası",
+      "group": "composition",
+      "options": [
+        "Tam yükseklik / seçilebilir yatay pencere",
+        "Onaylı sabit kesitler",
+        "Dar alana özel yeniden kompozisyon"
+      ],
+      "page": 22,
+      "lesson": "1.7",
+      "note": "Her rastgele kesitin dengeli olacağı garanti edilmez. Kesit önizlemesi planlama içindir.",
+      "modes": [
+        "continuous"
+      ],
+      "origin": "user",
+      "sourceUrl": "/lessons/course.pdf",
+      "optional": false
+    },
+    {
+      "id": "exclusions",
+      "label": "Kaçınılacak öğeler",
+      "group": "constraints",
+      "options": [
+        "Yazı / logo / çerçeve / oda sahnesi",
+        "Parlak 3B görünüm",
+        "Aşırı keskin kontur",
+        "Koleksiyonun yasakları"
+      ],
+      "page": 5,
+      "lesson": "1.2",
+      "note": "Ek kısıtlarını Diğer alanından yaz. Ders örnekleri her teknik için evrensel yasak değildir.",
+      "modes": [
+        "pattern",
+        "mural",
+        "continuous",
+        "motif",
+        "edit"
+      ],
+      "origin": "lesson",
+      "sourceUrl": "/lessons/course.pdf",
+      "optional": false
+    },
+    {
+      "id": "aspect",
+      "label": "Üretim tuvali oranı",
+      "group": "composition",
+      "options": [
+        "1:1",
+        "4:3",
+        "3:4",
+        "16:9"
+      ],
+      "page": 2,
+      "lesson": "1.1",
+      "note": "Oran seçenekleri uygulama önerisidir; fiziksel duvar ölçüsünden ayrıdır. Diğer alanına 2:1 gibi pozitif oran yaz.",
+      "modes": [
+        "pattern",
+        "mural",
+        "continuous",
+        "motif",
+        "edit"
+      ],
+      "origin": "application",
+      "sourceUrl": "/lessons/course.pdf",
+      "optional": false
+    },
+    {
+      "id": "collectionRole",
+      "label": "Koleksiyondaki ürün rolü",
+      "group": "collection",
+      "options": [
+        "Henüz belirlenmedi",
+        "Hero",
+        "Supporting",
+        "Coordinate"
+      ],
+      "page": 1,
+      "lesson": "1.14",
+      "note": "Bu ürünün koleksiyondaki görevidir; görsel içindeki ana/destekleyici motif rolüyle aynı değildir. 3 Hero / 5 Supporting / 4 Coordinate öğretici örnektir.",
+      "modes": [
+        "pattern",
+        "mural",
+        "continuous",
+        "motif",
+        "edit"
+      ],
+      "origin": "lesson",
+      "sourceUrl": "/lessons/collection-1-14.pdf",
+      "optional": true
+    },
+    {
+      "id": "colorRole_background",
+      "label": "Background — zemin",
+      "group": "collection",
+      "options": [
+        "Henüz belirlenmedi",
+        "Kırık beyaz",
+        "Adaçayı",
+        "Zeytin yeşili",
+        "Sıcak gri",
+        "Koyu kömür"
+      ],
+      "page": 1,
+      "lesson": "1.14",
+      "note": "Renk rolü dersin yapısından gelir; görünen renk adları seçim yardımcısıdır, zorunlu ders paleti değildir. Diğer alanından özel renk / HEX yazılabilir. Baskı rengi fiziksel prova gerektirir.",
+      "modes": [
+        "pattern",
+        "mural",
+        "continuous",
+        "motif",
+        "edit"
+      ],
+      "origin": "lesson",
+      "sourceUrl": "/lessons/collection-1-14.pdf",
+      "optional": true
+    },
+    {
+      "id": "colorRole_primary",
+      "label": "Primary — ana renk",
+      "group": "collection",
+      "options": [
+        "Henüz belirlenmedi",
+        "Kırık beyaz",
+        "Adaçayı",
+        "Zeytin yeşili",
+        "Sıcak gri",
+        "Koyu kömür"
+      ],
+      "page": 1,
+      "lesson": "1.14",
+      "note": "Renk rolü dersin yapısından gelir; görünen renk adları seçim yardımcısıdır, zorunlu ders paleti değildir. Diğer alanından özel renk / HEX yazılabilir. Baskı rengi fiziksel prova gerektirir.",
+      "modes": [
+        "pattern",
+        "mural",
+        "continuous",
+        "motif",
+        "edit"
+      ],
+      "origin": "lesson",
+      "sourceUrl": "/lessons/collection-1-14.pdf",
+      "optional": true
+    },
+    {
+      "id": "colorRole_secondary",
+      "label": "Secondary — yardımcı renk",
+      "group": "collection",
+      "options": [
+        "Henüz belirlenmedi",
+        "Kırık beyaz",
+        "Adaçayı",
+        "Zeytin yeşili",
+        "Sıcak gri",
+        "Koyu kömür"
+      ],
+      "page": 1,
+      "lesson": "1.14",
+      "note": "Renk rolü dersin yapısından gelir; görünen renk adları seçim yardımcısıdır, zorunlu ders paleti değildir. Diğer alanından özel renk / HEX yazılabilir. Baskı rengi fiziksel prova gerektirir.",
+      "modes": [
+        "pattern",
+        "mural",
+        "continuous",
+        "motif",
+        "edit"
+      ],
+      "origin": "lesson",
+      "sourceUrl": "/lessons/collection-1-14.pdf",
+      "optional": true
+    },
+    {
+      "id": "colorRole_accent",
+      "label": "Accent — vurgu",
+      "group": "collection",
+      "options": [
+        "Henüz belirlenmedi",
+        "Kırık beyaz",
+        "Adaçayı",
+        "Zeytin yeşili",
+        "Sıcak gri",
+        "Koyu kömür"
+      ],
+      "page": 1,
+      "lesson": "1.14",
+      "note": "Renk rolü dersin yapısından gelir; görünen renk adları seçim yardımcısıdır, zorunlu ders paleti değildir. Diğer alanından özel renk / HEX yazılabilir. Baskı rengi fiziksel prova gerektirir.",
+      "modes": [
+        "pattern",
+        "mural",
+        "continuous",
+        "motif",
+        "edit"
+      ],
+      "origin": "lesson",
+      "sourceUrl": "/lessons/collection-1-14.pdf",
+      "optional": true
+    },
+    {
+      "id": "colorRole_shadow",
+      "label": "Shadow — gölge",
+      "group": "collection",
+      "options": [
+        "Henüz belirlenmedi",
+        "Kırık beyaz",
+        "Adaçayı",
+        "Zeytin yeşili",
+        "Sıcak gri",
+        "Koyu kömür"
+      ],
+      "page": 1,
+      "lesson": "1.14",
+      "note": "Renk rolü dersin yapısından gelir; görünen renk adları seçim yardımcısıdır, zorunlu ders paleti değildir. Diğer alanından özel renk / HEX yazılabilir. Baskı rengi fiziksel prova gerektirir.",
+      "modes": [
+        "pattern",
+        "mural",
+        "continuous",
+        "motif",
+        "edit"
+      ],
+      "origin": "lesson",
+      "sourceUrl": "/lessons/collection-1-14.pdf",
+      "optional": true
+    },
+    {
+      "id": "launchWave",
+      "label": "Koleksiyon yayın dalgası",
+      "group": "collection",
+      "options": [
+        "Henüz planlanmadı",
+        "1. dalga",
+        "2. dalga",
+        "3. dalga"
+      ],
+      "page": 2,
+      "lesson": "1.14",
+      "note": "Dalgalar dersin örnek planıdır; satış veya görünürlük garantisi değildir. Burada seçim kaydedilir, Etsy’de yayın yapılmaz.",
+      "modes": [
+        "pattern",
+        "mural",
+        "continuous",
+        "motif",
+        "edit"
+      ],
+      "origin": "lesson",
+      "sourceUrl": "/lessons/collection-1-14.pdf",
+      "optional": true
+    },
+    {
+      "id": "styleFamily",
+      "label": "Tasarım tarzı",
+      "group": "style",
+      "options": [
+        "Henüz belirlenmedi"
+      ],
+      "page": 5,
+      "lesson": "1.2",
+      "note": "Araştırma kelimelerinden derlenen stil seçenekleri; sıklık satış veya Qoop marka onayı değildir.",
+      "modes": [
+        "pattern",
+        "mural",
+        "continuous",
+        "motif",
+        "edit"
+      ],
+      "origin": "application",
+      "sourceUrl": "/lessons/course.pdf",
+      "optional": true
+    }
+  ],
+  "rules": [
+    {
+      "id": "density-examples",
+      "pages": [
+        12,
+        14
+      ],
+      "kind": "example",
+      "text": "%15 / %30 / %50 doluluk ve 5 / 10 / 18 cm motif boyları öğretici örnektir; zorunlu standart değildir."
+    },
+    {
+      "id": "ppi",
+      "pages": [
+        23,
+        25
+      ],
+      "kind": "formula",
+      "text": "Efektif PPI = piksel / fiziksel inç. Metadata değişikliği ayrıntı üretmez. Hedef PPI üreticiden alınır."
+    },
+    {
+      "id": "gate",
+      "pages": [
+        34,
+        46,
+        49
+      ],
+      "kind": "approval",
+      "text": "Estetik puan teknik veya fiziksel prova onayının yerine geçmez."
+    },
+    {
+      "id": "brand-layers",
+      "pages": [
+        36,
+        37,
+        38
+      ],
+      "kind": "design",
+      "text": "Marka sabitleri, koleksiyon dili ve tasarım değişkenleri ayrı tutulur."
+    },
+    {
+      "id": "collection-roles",
+      "pages": [
+        1
+      ],
+      "sourceUrl": "/lessons/collection-1-14.pdf",
+      "kind": "design",
+      "text": "Hero, Supporting ve Coordinate ürün rolleridir; ana, ikincil ve filler motif rolleriyle karıştırılmaz."
+    },
+    {
+      "id": "collection-distribution",
+      "pages": [
+        1,
+        2
+      ],
+      "sourceUrl": "/lessons/collection-1-14.pdf",
+      "kind": "example",
+      "text": "12 tasarımda 3 Hero / 5 Supporting / 4 Coordinate ve üç yayın dalgası örnek başlangıç planıdır."
+    },
+    {
+      "id": "collection-variant",
+      "pages": [
+        1
+      ],
+      "sourceUrl": "/lessons/collection-1-14.pdf",
+      "kind": "formula",
+      "text": "Tasarım × colorway × malzeme kombinasyonu ayrı ilan sayısı değildir."
+    },
+    {
+      "id": "collection-dna",
+      "pages": [
+        2
+      ],
+      "sourceUrl": "/lessons/collection-1-14.pdf",
+      "kind": "design",
+      "text": "Motif, kompozisyon, ölçek ve palet birlikte karşılaştırılır; görsel akrabalık tekrar anlamına gelmez."
+    }
+  ],
+  "totalPageCount": 52,
+  "missingLessons": [],
+  "sources": [
+    {
+      "id": "course-74c8ca07",
+      "filename": "ilovepdf_merged_compressed.pdf",
+      "sha256": "74c8ca07c4300c7494aa03c5b41f77344f44f6d4369949d30d82ce96b93ee16c",
+      "pageCount": 50,
+      "missingLessons": [
+        "1.14"
+      ],
+      "url": "/lessons/course.pdf"
+    },
+    {
+      "id": "lesson-1-14",
+      "filename": "Modul_01_Ders_1_14_Koleksiyon_Mimarisi.pdf",
+      "sha256": "1841e1d7d6a6417a8d0a618bb1471fa3ac6ff8d7fc78b72429c936e1a3630928",
+      "pageCount": 2,
+      "url": "/lessons/collection-1-14.pdf"
+    }
+  ],
+  "evidenceHash": "7910463398f06fcd5006af0d7bc23b44661047c8baf942fbad0c0b0ae8fd450e"
+}

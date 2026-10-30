@@ -1,0 +1,6 @@
+CREATE TABLE "KeywordCsvFile" ("sha" TEXT PRIMARY KEY,"name" TEXT NOT NULL,"bytes" BYTEA NOT NULL,"createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP);
+CREATE TABLE "KeywordCsvBatch" ("id" TEXT PRIMARY KEY,"fingerprint" TEXT NOT NULL UNIQUE,"fileSha" TEXT NOT NULL REFERENCES "KeywordCsvFile"("sha") ON DELETE RESTRICT ON UPDATE CASCADE,"settings" JSONB NOT NULL,"stats" JSONB NOT NULL,"createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP);
+CREATE TABLE "KeywordCsvObservation" ("id" TEXT PRIMARY KEY,"fingerprint" TEXT NOT NULL UNIQUE,"batchId" TEXT NOT NULL REFERENCES "KeywordCsvBatch"("id") ON DELETE RESTRICT ON UPDATE CASCADE,"row" INTEGER NOT NULL,"term" TEXT NOT NULL,"market" TEXT NOT NULL,"platform" TEXT NOT NULL,"source" TEXT NOT NULL,"definition" TEXT NOT NULL,"period" TEXT NOT NULL,"observedAt" TEXT NOT NULL,"metrics" JSONB NOT NULL,"createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP);
+CREATE INDEX "KeywordCsvObservation_market_platform_term_definition_period_idx" ON "KeywordCsvObservation"("market","platform","term","definition","period");
+CREATE TABLE "KeywordCsvProfile" ("signature" TEXT PRIMARY KEY,"settings" JSONB NOT NULL,"updatedAt" TIMESTAMP(3) NOT NULL);
+CREATE TABLE "KeywordCsvReport" ("fingerprint" TEXT PRIMARY KEY,"result" JSONB NOT NULL,"createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP);

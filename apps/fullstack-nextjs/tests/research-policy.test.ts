@@ -1,0 +1,5 @@
+import {it,expect} from 'vitest';import {evidenceMeaning,evidenceCoverage,researchRules} from '../src/lib/research-policy';
+it('never turns review growth or estimates into orders',()=>{for(const kind of ['review-growth','estimated-sales'] as const)expect(evidenceMeaning(kind,50)).toMatchObject({state:'INDICATOR_ONLY',actualOrders:null,successProbability:null});});
+it('does not treat keyword CTR as listing conversion',()=>{expect(evidenceMeaning('erank-ctr',130)).toMatchObject({value:130,actualOrders:null,successProbability:null});});
+it('does not infer entry success from young shops',()=>{expect(evidenceMeaning('new-shop',20).successProbability).toBeNull();});
+it('keeps missing distinct from measured zero without score thresholds',()=>{expect(evidenceMeaning('actual-orders',0).actualOrders).toBe(0);expect(evidenceMeaning('actual-orders',null).state).toBe('UNKNOWN');expect(evidenceCoverage([null,0,2,null])).toEqual({known:2,unknown:2,total:4,score:null,successProbability:null});expect(evidenceCoverage(Array(50).fill(2)).successProbability).toBeNull();expect(researchRules).toHaveLength(4);});

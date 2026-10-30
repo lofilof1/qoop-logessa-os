@@ -1,0 +1,72 @@
+[
+  {
+    "id": "184920491",
+    "sku": "MZ-0042-M",
+    "title": "Emerald Peony Wallpaper, Chinoiserie Wall Mural Peel and Stick, Vintage Botanical Removable Wallpaper",
+    "price": 345.00,
+    "state": "ACTIVE",
+    "category": "Mural",
+    "views": 1420,
+    "favorites": 286,
+    "sales": 34,
+    "revenue": 11730.00,
+    "image": "img/std/1.webp",
+    "created_at": "2026-10-15T12:00:00Z"
+  },
+  {
+    "id": "184920492",
+    "sku": "JP-0018-M",
+    "title": "Japandi Wall Mural, Minimalist Wabi Sabi Peel and Stick Wallpaper, Sage Green Neutral Accent Wall Decor",
+    "price": 320.00,
+    "state": "ACTIVE",
+    "category": "Mural",
+    "views": 980,
+    "favorites": 142,
+    "sales": 19,
+    "revenue": 6080.00,
+    "image": "img/jp/1.webp",
+    "created_at": "2026-10-20T14:30:00Z"
+  },
+  {
+    "id": "184920493",
+    "sku": "VB-0012-M",
+    "title": "Vintage Botanical Forest Landscape Wallpaper, Etched Pine Trees Mural, Removable Living Room Statement Wall",
+    "price": 360.00,
+    "state": "ACTIVE",
+    "category": "Mural",
+    "views": 2100,
+    "favorites": 410,
+    "sales": 48,
+    "revenue": 17280.00,
+    "image": "img/ws/1.webp",
+    "created_at": "2026-10-02T09:15:00Z"
+  },
+  {
+    "id": "184920494",
+    "sku": "AD-0005-T",
+    "title": "Art Deco Scallop Wallpaper Tile, Navy Blue and Gold Foil Geometric Repeating Pattern",
+    "price": 185.00,
+    "state": "DRAFT",
+    "category": "Tekrarlı Desen",
+    "views": 0,
+    "favorites": 0,
+    "sales": 0,
+    "revenue": 0.00,
+    "image": "img/ml/1.webp",
+    "created_at": "2026-10-28T16:45:00Z"
+  },
+  {
+    "id": "184920495",
+    "sku": "BH-0003-P",
+    "title": "Boho Dried Pampas Grass Wallpaper (Eski Stil - Yayından Kaldırıldı)",
+    "price": 89.00,
+    "state": "REMOVED",
+    "category": "Tekrarlı Desen",
+    "views": 450,
+    "favorites": 35,
+    "sales": 4,
+    "revenue": 356.00,
+    "image": "img/bh/1.webp",
+    "created_at": "2026-09-10T11:00:00Z"
+  }
+]

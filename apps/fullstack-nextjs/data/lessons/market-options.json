@@ -1,0 +1,2084 @@
+{
+  "version": "market-options-v1",
+  "snapshotDate": "2026-10-16",
+  "sourceHash": "672744c4ce49e5ed0899a7324e5512c030b2aefb42a8ad9c119b20626f9c6402",
+  "countDefinition": "İfadenin geçtiği tekil anahtar kelime satırı sayısı; arama hacmi veya satış değildir.",
+  "fields": {
+    "primary": [
+      {
+        "value": "Çiçekler",
+        "phrase": "floral|flowers?",
+        "keywordCount": 642
+      },
+      {
+        "value": "Botanik dallar",
+        "phrase": "botanical",
+        "keywordCount": 509
+      },
+      {
+        "value": "Soyut biçimler",
+        "phrase": "abstract",
+        "keywordCount": 360
+      },
+      {
+        "value": "Geometrik biçimler",
+        "phrase": "geometric",
+        "keywordCount": 333
+      },
+      {
+        "value": "Çizgiler",
+        "phrase": "stripes?|striped",
+        "keywordCount": 291
+      },
+      {
+        "value": "Kuşlar",
+        "phrase": "birds?",
+        "keywordCount": 250
+      },
+      {
+        "value": "Damask bezeme",
+        "phrase": "damask",
+        "keywordCount": 214
+      },
+      {
+        "value": "Orman ağaçları",
+        "phrase": "forest",
+        "keywordCount": 212
+      },
+      {
+        "value": "Ağaçlar",
+        "phrase": "trees?",
+        "keywordCount": 168
+      },
+      {
+        "value": "Manzara öğeleri",
+        "phrase": "landscape",
+        "keywordCount": 150
+      },
+      {
+        "value": "Hayvanlar",
+        "phrase": "animals?",
+        "keywordCount": 135
+      },
+      {
+        "value": "Yapraklar",
+        "phrase": "lea[fv](?:es)?",
+        "keywordCount": 87
+      },
+      {
+        "value": "Tropikal bitkiler",
+        "phrase": "tropical",
+        "keywordCount": 86
+      },
+      {
+        "value": "Dinozor",
+        "phrase": "dinosaur",
+        "keywordCount": 79
+      },
+      {
+        "value": "Dağlar",
+        "phrase": "mountains?",
+        "keywordCount": 76
+      },
+      {
+        "value": "Bahçe bitkileri",
+        "phrase": "garden",
+        "keywordCount": 64
+      },
+      {
+        "value": "Okyanus",
+        "phrase": "ocean",
+        "keywordCount": 57
+      },
+      {
+        "value": "Orman canlıları",
+        "phrase": "woodland",
+        "keywordCount": 57
+      },
+      {
+        "value": "Palmiye",
+        "phrase": "palms?",
+        "keywordCount": 55
+      },
+      {
+        "value": "Gül",
+        "phrase": "roses?",
+        "keywordCount": 54
+      },
+      {
+        "value": "Şakayık",
+        "phrase": "peon(?:y|ies)",
+        "keywordCount": 43
+      },
+      {
+        "value": "At",
+        "phrase": "horses?",
+        "keywordCount": 39
+      },
+      {
+        "value": "Zeytin dalları",
+        "phrase": "olive",
+        "keywordCount": 39
+      },
+      {
+        "value": "Yıldız",
+        "phrase": "stars?",
+        "keywordCount": 32
+      },
+      {
+        "value": "Dalga",
+        "phrase": "waves?",
+        "keywordCount": 31
+      },
+      {
+        "value": "Mercan",
+        "phrase": "coral",
+        "keywordCount": 30
+      },
+      {
+        "value": "Balık",
+        "phrase": "fish",
+        "keywordCount": 29
+      },
+      {
+        "value": "Ay",
+        "phrase": "moon",
+        "keywordCount": 27
+      },
+      {
+        "value": "Kelebek",
+        "phrase": "butterfl(?:y|ies)",
+        "keywordCount": 27
+      },
+      {
+        "value": "Turna",
+        "phrase": "cranes?",
+        "keywordCount": 27
+      },
+      {
+        "value": "Göl",
+        "phrase": "lakes?",
+        "keywordCount": 26
+      },
+      {
+        "value": "Bulut",
+        "phrase": "clouds?",
+        "keywordCount": 25
+      },
+      {
+        "value": "Tavus kuşu",
+        "phrase": "peacock",
+        "keywordCount": 23
+      },
+      {
+        "value": "Kır çiçekleri",
+        "phrase": "wildflower",
+        "keywordCount": 22
+      },
+      {
+        "value": "Çam",
+        "phrase": "pine",
+        "keywordCount": 21
+      },
+      {
+        "value": "Ördek",
+        "phrase": "ducks?",
+        "keywordCount": 21
+      },
+      {
+        "value": "Geyik",
+        "phrase": "deer",
+        "keywordCount": 20
+      },
+      {
+        "value": "Eğrelti otu",
+        "phrase": "fern",
+        "keywordCount": 15
+      },
+      {
+        "value": "Mantar",
+        "phrase": "mushroom",
+        "keywordCount": 15
+      },
+      {
+        "value": "Güneş",
+        "phrase": "sun",
+        "keywordCount": 14
+      },
+      {
+        "value": "Deniz kabuğu",
+        "phrase": "shells?",
+        "keywordCount": 12
+      },
+      {
+        "value": "Kaplan",
+        "phrase": "tigers?",
+        "keywordCount": 12
+      },
+      {
+        "value": "Noktalar",
+        "phrase": "dots?|polka",
+        "keywordCount": 12
+      },
+      {
+        "value": "Manolya",
+        "phrase": "magnolia",
+        "keywordCount": 10
+      },
+      {
+        "value": "Tavşan",
+        "phrase": "rabbits?",
+        "keywordCount": 10
+      },
+      {
+        "value": "Balıkçıl",
+        "phrase": "heron",
+        "keywordCount": 9
+      },
+      {
+        "value": "Kiraz çiçekleri",
+        "phrase": "cherry blossom",
+        "keywordCount": 9
+      },
+      {
+        "value": "Nehir",
+        "phrase": "river",
+        "keywordCount": 9
+      },
+      {
+        "value": "Tilki",
+        "phrase": "fox",
+        "keywordCount": 9
+      },
+      {
+        "value": "Fil",
+        "phrase": "elephants?",
+        "keywordCount": 8
+      },
+      {
+        "value": "Okaliptüs",
+        "phrase": "eucalyptus",
+        "keywordCount": 8
+      },
+      {
+        "value": "Kuğu",
+        "phrase": "swans?",
+        "keywordCount": 7
+      },
+      {
+        "value": "Limon",
+        "phrase": "lemon",
+        "keywordCount": 7
+      },
+      {
+        "value": "Sarmaşık",
+        "phrase": "vines?",
+        "keywordCount": 7
+      },
+      {
+        "value": "Bambu",
+        "phrase": "bamboo",
+        "keywordCount": 6
+      },
+      {
+        "value": "Tepeler",
+        "phrase": "hills?",
+        "keywordCount": 5
+      },
+      {
+        "value": "Kemerler",
+        "phrase": "arches?",
+        "keywordCount": 4
+      }
+    ],
+    "secondary": [
+      {
+        "value": "Çiçekler",
+        "phrase": "floral|flowers?",
+        "keywordCount": 642
+      },
+      {
+        "value": "Botanik dallar",
+        "phrase": "botanical",
+        "keywordCount": 509
+      },
+      {
+        "value": "Soyut biçimler",
+        "phrase": "abstract",
+        "keywordCount": 360
+      },
+      {
+        "value": "Geometrik biçimler",
+        "phrase": "geometric",
+        "keywordCount": 333
+      },
+      {
+        "value": "Çizgiler",
+        "phrase": "stripes?|striped",
+        "keywordCount": 291
+      },
+      {
+        "value": "Kuşlar",
+        "phrase": "birds?",
+        "keywordCount": 250
+      },
+      {
+        "value": "Damask bezeme",
+        "phrase": "damask",
+        "keywordCount": 214
+      },
+      {
+        "value": "Orman ağaçları",
+        "phrase": "forest",
+        "keywordCount": 212
+      },
+      {
+        "value": "Ağaçlar",
+        "phrase": "trees?",
+        "keywordCount": 168
+      },
+      {
+        "value": "Manzara öğeleri",
+        "phrase": "landscape",
+        "keywordCount": 150
+      },
+      {
+        "value": "Hayvanlar",
+        "phrase": "animals?",
+        "keywordCount": 135
+      },
+      {
+        "value": "Yapraklar",
+        "phrase": "lea[fv](?:es)?",
+        "keywordCount": 87
+      },
+      {
+        "value": "Tropikal bitkiler",
+        "phrase": "tropical",
+        "keywordCount": 86
+      },
+      {
+        "value": "Dinozor",
+        "phrase": "dinosaur",
+        "keywordCount": 79
+      },
+      {
+        "value": "Dağlar",
+        "phrase": "mountains?",
+        "keywordCount": 76
+      },
+      {
+        "value": "Bahçe bitkileri",
+        "phrase": "garden",
+        "keywordCount": 64
+      },
+      {
+        "value": "Okyanus",
+        "phrase": "ocean",
+        "keywordCount": 57
+      },
+      {
+        "value": "Orman canlıları",
+        "phrase": "woodland",
+        "keywordCount": 57
+      },
+      {
+        "value": "Palmiye",
+        "phrase": "palms?",
+        "keywordCount": 55
+      },
+      {
+        "value": "Gül",
+        "phrase": "roses?",
+        "keywordCount": 54
+      },
+      {
+        "value": "Şakayık",
+        "phrase": "peon(?:y|ies)",
+        "keywordCount": 43
+      },
+      {
+        "value": "At",
+        "phrase": "horses?",
+        "keywordCount": 39
+      },
+      {
+        "value": "Zeytin dalları",
+        "phrase": "olive",
+        "keywordCount": 39
+      },
+      {
+        "value": "Yıldız",
+        "phrase": "stars?",
+        "keywordCount": 32
+      },
+      {
+        "value": "Dalga",
+        "phrase": "waves?",
+        "keywordCount": 31
+      },
+      {
+        "value": "Mercan",
+        "phrase": "coral",
+        "keywordCount": 30
+      },
+      {
+        "value": "Balık",
+        "phrase": "fish",
+        "keywordCount": 29
+      },
+      {
+        "value": "Ay",
+        "phrase": "moon",
+        "keywordCount": 27
+      },
+      {
+        "value": "Kelebek",
+        "phrase": "butterfl(?:y|ies)",
+        "keywordCount": 27
+      },
+      {
+        "value": "Turna",
+        "phrase": "cranes?",
+        "keywordCount": 27
+      },
+      {
+        "value": "Göl",
+        "phrase": "lakes?",
+        "keywordCount": 26
+      },
+      {
+        "value": "Bulut",
+        "phrase": "clouds?",
+        "keywordCount": 25
+      },
+      {
+        "value": "Tavus kuşu",
+        "phrase": "peacock",
+        "keywordCount": 23
+      },
+      {
+        "value": "Kır çiçekleri",
+        "phrase": "wildflower",
+        "keywordCount": 22
+      },
+      {
+        "value": "Çam",
+        "phrase": "pine",
+        "keywordCount": 21
+      },
+      {
+        "value": "Ördek",
+        "phrase": "ducks?",
+        "keywordCount": 21
+      },
+      {
+        "value": "Geyik",
+        "phrase": "deer",
+        "keywordCount": 20
+      },
+      {
+        "value": "Eğrelti otu",
+        "phrase": "fern",
+        "keywordCount": 15
+      },
+      {
+        "value": "Mantar",
+        "phrase": "mushroom",
+        "keywordCount": 15
+      },
+      {
+        "value": "Güneş",
+        "phrase": "sun",
+        "keywordCount": 14
+      },
+      {
+        "value": "Deniz kabuğu",
+        "phrase": "shells?",
+        "keywordCount": 12
+      },
+      {
+        "value": "Kaplan",
+        "phrase": "tigers?",
+        "keywordCount": 12
+      },
+      {
+        "value": "Noktalar",
+        "phrase": "dots?|polka",
+        "keywordCount": 12
+      },
+      {
+        "value": "Manolya",
+        "phrase": "magnolia",
+        "keywordCount": 10
+      },
+      {
+        "value": "Tavşan",
+        "phrase": "rabbits?",
+        "keywordCount": 10
+      },
+      {
+        "value": "Balıkçıl",
+        "phrase": "heron",
+        "keywordCount": 9
+      },
+      {
+        "value": "Kiraz çiçekleri",
+        "phrase": "cherry blossom",
+        "keywordCount": 9
+      },
+      {
+        "value": "Nehir",
+        "phrase": "river",
+        "keywordCount": 9
+      },
+      {
+        "value": "Tilki",
+        "phrase": "fox",
+        "keywordCount": 9
+      },
+      {
+        "value": "Fil",
+        "phrase": "elephants?",
+        "keywordCount": 8
+      },
+      {
+        "value": "Okaliptüs",
+        "phrase": "eucalyptus",
+        "keywordCount": 8
+      },
+      {
+        "value": "Kuğu",
+        "phrase": "swans?",
+        "keywordCount": 7
+      },
+      {
+        "value": "Limon",
+        "phrase": "lemon",
+        "keywordCount": 7
+      },
+      {
+        "value": "Sarmaşık",
+        "phrase": "vines?",
+        "keywordCount": 7
+      },
+      {
+        "value": "Bambu",
+        "phrase": "bamboo",
+        "keywordCount": 6
+      },
+      {
+        "value": "Tepeler",
+        "phrase": "hills?",
+        "keywordCount": 5
+      },
+      {
+        "value": "Kemerler",
+        "phrase": "arches?",
+        "keywordCount": 4
+      }
+    ],
+    "secondaryExtra": [
+      {
+        "value": "Çiçekler",
+        "phrase": "floral|flowers?",
+        "keywordCount": 642
+      },
+      {
+        "value": "Botanik dallar",
+        "phrase": "botanical",
+        "keywordCount": 509
+      },
+      {
+        "value": "Soyut biçimler",
+        "phrase": "abstract",
+        "keywordCount": 360
+      },
+      {
+        "value": "Geometrik biçimler",
+        "phrase": "geometric",
+        "keywordCount": 333
+      },
+      {
+        "value": "Çizgiler",
+        "phrase": "stripes?|striped",
+        "keywordCount": 291
+      },
+      {
+        "value": "Kuşlar",
+        "phrase": "birds?",
+        "keywordCount": 250
+      },
+      {
+        "value": "Damask bezeme",
+        "phrase": "damask",
+        "keywordCount": 214
+      },
+      {
+        "value": "Orman ağaçları",
+        "phrase": "forest",
+        "keywordCount": 212
+      },
+      {
+        "value": "Ağaçlar",
+        "phrase": "trees?",
+        "keywordCount": 168
+      },
+      {
+        "value": "Manzara öğeleri",
+        "phrase": "landscape",
+        "keywordCount": 150
+      },
+      {
+        "value": "Hayvanlar",
+        "phrase": "animals?",
+        "keywordCount": 135
+      },
+      {
+        "value": "Yapraklar",
+        "phrase": "lea[fv](?:es)?",
+        "keywordCount": 87
+      },
+      {
+        "value": "Tropikal bitkiler",
+        "phrase": "tropical",
+        "keywordCount": 86
+      },
+      {
+        "value": "Dinozor",
+        "phrase": "dinosaur",
+        "keywordCount": 79
+      },
+      {
+        "value": "Dağlar",
+        "phrase": "mountains?",
+        "keywordCount": 76
+      },
+      {
+        "value": "Bahçe bitkileri",
+        "phrase": "garden",
+        "keywordCount": 64
+      },
+      {
+        "value": "Okyanus",
+        "phrase": "ocean",
+        "keywordCount": 57
+      },
+      {
+        "value": "Orman canlıları",
+        "phrase": "woodland",
+        "keywordCount": 57
+      },
+      {
+        "value": "Palmiye",
+        "phrase": "palms?",
+        "keywordCount": 55
+      },
+      {
+        "value": "Gül",
+        "phrase": "roses?",
+        "keywordCount": 54
+      },
+      {
+        "value": "Şakayık",
+        "phrase": "peon(?:y|ies)",
+        "keywordCount": 43
+      },
+      {
+        "value": "At",
+        "phrase": "horses?",
+        "keywordCount": 39
+      },
+      {
+        "value": "Zeytin dalları",
+        "phrase": "olive",
+        "keywordCount": 39
+      },
+      {
+        "value": "Yıldız",
+        "phrase": "stars?",
+        "keywordCount": 32
+      },
+      {
+        "value": "Dalga",
+        "phrase": "waves?",
+        "keywordCount": 31
+      },
+      {
+        "value": "Mercan",
+        "phrase": "coral",
+        "keywordCount": 30
+      },
+      {
+        "value": "Balık",
+        "phrase": "fish",
+        "keywordCount": 29
+      },
+      {
+        "value": "Ay",
+        "phrase": "moon",
+        "keywordCount": 27
+      },
+      {
+        "value": "Kelebek",
+        "phrase": "butterfl(?:y|ies)",
+        "keywordCount": 27
+      },
+      {
+        "value": "Turna",
+        "phrase": "cranes?",
+        "keywordCount": 27
+      },
+      {
+        "value": "Göl",
+        "phrase": "lakes?",
+        "keywordCount": 26
+      },
+      {
+        "value": "Bulut",
+        "phrase": "clouds?",
+        "keywordCount": 25
+      },
+      {
+        "value": "Tavus kuşu",
+        "phrase": "peacock",
+        "keywordCount": 23
+      },
+      {
+        "value": "Kır çiçekleri",
+        "phrase": "wildflower",
+        "keywordCount": 22
+      },
+      {
+        "value": "Çam",
+        "phrase": "pine",
+        "keywordCount": 21
+      },
+      {
+        "value": "Ördek",
+        "phrase": "ducks?",
+        "keywordCount": 21
+      },
+      {
+        "value": "Geyik",
+        "phrase": "deer",
+        "keywordCount": 20
+      },
+      {
+        "value": "Eğrelti otu",
+        "phrase": "fern",
+        "keywordCount": 15
+      },
+      {
+        "value": "Mantar",
+        "phrase": "mushroom",
+        "keywordCount": 15
+      },
+      {
+        "value": "Güneş",
+        "phrase": "sun",
+        "keywordCount": 14
+      },
+      {
+        "value": "Deniz kabuğu",
+        "phrase": "shells?",
+        "keywordCount": 12
+      },
+      {
+        "value": "Kaplan",
+        "phrase": "tigers?",
+        "keywordCount": 12
+      },
+      {
+        "value": "Noktalar",
+        "phrase": "dots?|polka",
+        "keywordCount": 12
+      },
+      {
+        "value": "Manolya",
+        "phrase": "magnolia",
+        "keywordCount": 10
+      },
+      {
+        "value": "Tavşan",
+        "phrase": "rabbits?",
+        "keywordCount": 10
+      },
+      {
+        "value": "Balıkçıl",
+        "phrase": "heron",
+        "keywordCount": 9
+      },
+      {
+        "value": "Kiraz çiçekleri",
+        "phrase": "cherry blossom",
+        "keywordCount": 9
+      },
+      {
+        "value": "Nehir",
+        "phrase": "river",
+        "keywordCount": 9
+      },
+      {
+        "value": "Tilki",
+        "phrase": "fox",
+        "keywordCount": 9
+      },
+      {
+        "value": "Fil",
+        "phrase": "elephants?",
+        "keywordCount": 8
+      },
+      {
+        "value": "Okaliptüs",
+        "phrase": "eucalyptus",
+        "keywordCount": 8
+      },
+      {
+        "value": "Kuğu",
+        "phrase": "swans?",
+        "keywordCount": 7
+      },
+      {
+        "value": "Limon",
+        "phrase": "lemon",
+        "keywordCount": 7
+      },
+      {
+        "value": "Sarmaşık",
+        "phrase": "vines?",
+        "keywordCount": 7
+      },
+      {
+        "value": "Bambu",
+        "phrase": "bamboo",
+        "keywordCount": 6
+      },
+      {
+        "value": "Tepeler",
+        "phrase": "hills?",
+        "keywordCount": 5
+      },
+      {
+        "value": "Kemerler",
+        "phrase": "arches?",
+        "keywordCount": 4
+      }
+    ],
+    "filler": [
+      {
+        "value": "Çiçekler",
+        "phrase": "floral|flowers?",
+        "keywordCount": 642
+      },
+      {
+        "value": "Kuşlar",
+        "phrase": "birds?",
+        "keywordCount": 250
+      },
+      {
+        "value": "Yapraklar",
+        "phrase": "lea[fv](?:es)?",
+        "keywordCount": 87
+      },
+      {
+        "value": "Zeytin dalları",
+        "phrase": "olive",
+        "keywordCount": 39
+      },
+      {
+        "value": "Yıldız",
+        "phrase": "stars?",
+        "keywordCount": 32
+      },
+      {
+        "value": "Ay",
+        "phrase": "moon",
+        "keywordCount": 27
+      },
+      {
+        "value": "Kelebek",
+        "phrase": "butterfl(?:y|ies)",
+        "keywordCount": 27
+      },
+      {
+        "value": "Bulut",
+        "phrase": "clouds?",
+        "keywordCount": 25
+      },
+      {
+        "value": "Kır çiçekleri",
+        "phrase": "wildflower",
+        "keywordCount": 22
+      },
+      {
+        "value": "Güneş",
+        "phrase": "sun",
+        "keywordCount": 14
+      },
+      {
+        "value": "Deniz kabuğu",
+        "phrase": "shells?",
+        "keywordCount": 12
+      },
+      {
+        "value": "Noktalar",
+        "phrase": "dots?|polka",
+        "keywordCount": 12
+      },
+      {
+        "value": "Sarmaşık",
+        "phrase": "vines?",
+        "keywordCount": 7
+      }
+    ],
+    "colorRole_background": [
+      {
+        "value": "Mavi",
+        "phrase": "blue",
+        "keywordCount": 734
+      },
+      {
+        "value": "Yeşil",
+        "phrase": "green",
+        "keywordCount": 722
+      },
+      {
+        "value": "Siyah",
+        "phrase": "black",
+        "keywordCount": 385
+      },
+      {
+        "value": "Pembe",
+        "phrase": "pink",
+        "keywordCount": 371
+      },
+      {
+        "value": "Beyaz",
+        "phrase": "white",
+        "keywordCount": 328
+      },
+      {
+        "value": "Altın",
+        "phrase": "gold",
+        "keywordCount": 312
+      },
+      {
+        "value": "Lacivert",
+        "phrase": "navy",
+        "keywordCount": 243
+      },
+      {
+        "value": "Gri",
+        "phrase": "gr[ae]y",
+        "keywordCount": 179
+      },
+      {
+        "value": "Adaçayı",
+        "phrase": "sage",
+        "keywordCount": 157
+      },
+      {
+        "value": "Kırmızı",
+        "phrase": "red",
+        "keywordCount": 150
+      },
+      {
+        "value": "Nötr",
+        "phrase": "neutral",
+        "keywordCount": 141
+      },
+      {
+        "value": "Bej",
+        "phrase": "beige",
+        "keywordCount": 138
+      },
+      {
+        "value": "Kahverengi",
+        "phrase": "brown",
+        "keywordCount": 109
+      },
+      {
+        "value": "Petrol yeşili",
+        "phrase": "teal",
+        "keywordCount": 105
+      },
+      {
+        "value": "Krem",
+        "phrase": "cream",
+        "keywordCount": 104
+      },
+      {
+        "value": "Mor",
+        "phrase": "purple",
+        "keywordCount": 98
+      },
+      {
+        "value": "Sarı",
+        "phrase": "yellow",
+        "keywordCount": 85
+      },
+      {
+        "value": "Turuncu",
+        "phrase": "orange",
+        "keywordCount": 85
+      },
+      {
+        "value": "Terrakota",
+        "phrase": "terracotta",
+        "keywordCount": 80
+      },
+      {
+        "value": "Pastel",
+        "phrase": "pastel",
+        "keywordCount": 48
+      },
+      {
+        "value": "Bordo",
+        "phrase": "burgundy",
+        "keywordCount": 47
+      },
+      {
+        "value": "Zeytin yeşili",
+        "phrase": "olive",
+        "keywordCount": 39
+      },
+      {
+        "value": "Zümrüt yeşili",
+        "phrase": "emerald",
+        "keywordCount": 28
+      },
+      {
+        "value": "Fildişi",
+        "phrase": "ivory",
+        "keywordCount": 13
+      },
+      {
+        "value": "Pudra pembe",
+        "phrase": "dusty pink",
+        "keywordCount": 4
+      },
+      {
+        "value": "Monokrom",
+        "phrase": "monochrome",
+        "keywordCount": 3
+      },
+      {
+        "value": "Oker",
+        "phrase": "ochre",
+        "keywordCount": 3
+      }
+    ],
+    "colorRole_primary": [
+      {
+        "value": "Mavi",
+        "phrase": "blue",
+        "keywordCount": 734
+      },
+      {
+        "value": "Yeşil",
+        "phrase": "green",
+        "keywordCount": 722
+      },
+      {
+        "value": "Siyah",
+        "phrase": "black",
+        "keywordCount": 385
+      },
+      {
+        "value": "Pembe",
+        "phrase": "pink",
+        "keywordCount": 371
+      },
+      {
+        "value": "Beyaz",
+        "phrase": "white",
+        "keywordCount": 328
+      },
+      {
+        "value": "Altın",
+        "phrase": "gold",
+        "keywordCount": 312
+      },
+      {
+        "value": "Lacivert",
+        "phrase": "navy",
+        "keywordCount": 243
+      },
+      {
+        "value": "Gri",
+        "phrase": "gr[ae]y",
+        "keywordCount": 179
+      },
+      {
+        "value": "Adaçayı",
+        "phrase": "sage",
+        "keywordCount": 157
+      },
+      {
+        "value": "Kırmızı",
+        "phrase": "red",
+        "keywordCount": 150
+      },
+      {
+        "value": "Nötr",
+        "phrase": "neutral",
+        "keywordCount": 141
+      },
+      {
+        "value": "Bej",
+        "phrase": "beige",
+        "keywordCount": 138
+      },
+      {
+        "value": "Kahverengi",
+        "phrase": "brown",
+        "keywordCount": 109
+      },
+      {
+        "value": "Petrol yeşili",
+        "phrase": "teal",
+        "keywordCount": 105
+      },
+      {
+        "value": "Krem",
+        "phrase": "cream",
+        "keywordCount": 104
+      },
+      {
+        "value": "Mor",
+        "phrase": "purple",
+        "keywordCount": 98
+      },
+      {
+        "value": "Sarı",
+        "phrase": "yellow",
+        "keywordCount": 85
+      },
+      {
+        "value": "Turuncu",
+        "phrase": "orange",
+        "keywordCount": 85
+      },
+      {
+        "value": "Terrakota",
+        "phrase": "terracotta",
+        "keywordCount": 80
+      },
+      {
+        "value": "Pastel",
+        "phrase": "pastel",
+        "keywordCount": 48
+      },
+      {
+        "value": "Bordo",
+        "phrase": "burgundy",
+        "keywordCount": 47
+      },
+      {
+        "value": "Zeytin yeşili",
+        "phrase": "olive",
+        "keywordCount": 39
+      },
+      {
+        "value": "Zümrüt yeşili",
+        "phrase": "emerald",
+        "keywordCount": 28
+      },
+      {
+        "value": "Fildişi",
+        "phrase": "ivory",
+        "keywordCount": 13
+      },
+      {
+        "value": "Pudra pembe",
+        "phrase": "dusty pink",
+        "keywordCount": 4
+      },
+      {
+        "value": "Monokrom",
+        "phrase": "monochrome",
+        "keywordCount": 3
+      },
+      {
+        "value": "Oker",
+        "phrase": "ochre",
+        "keywordCount": 3
+      }
+    ],
+    "colorRole_secondary": [
+      {
+        "value": "Mavi",
+        "phrase": "blue",
+        "keywordCount": 734
+      },
+      {
+        "value": "Yeşil",
+        "phrase": "green",
+        "keywordCount": 722
+      },
+      {
+        "value": "Siyah",
+        "phrase": "black",
+        "keywordCount": 385
+      },
+      {
+        "value": "Pembe",
+        "phrase": "pink",
+        "keywordCount": 371
+      },
+      {
+        "value": "Beyaz",
+        "phrase": "white",
+        "keywordCount": 328
+      },
+      {
+        "value": "Altın",
+        "phrase": "gold",
+        "keywordCount": 312
+      },
+      {
+        "value": "Lacivert",
+        "phrase": "navy",
+        "keywordCount": 243
+      },
+      {
+        "value": "Gri",
+        "phrase": "gr[ae]y",
+        "keywordCount": 179
+      },
+      {
+        "value": "Adaçayı",
+        "phrase": "sage",
+        "keywordCount": 157
+      },
+      {
+        "value": "Kırmızı",
+        "phrase": "red",
+        "keywordCount": 150
+      },
+      {
+        "value": "Nötr",
+        "phrase": "neutral",
+        "keywordCount": 141
+      },
+      {
+        "value": "Bej",
+        "phrase": "beige",
+        "keywordCount": 138
+      },
+      {
+        "value": "Kahverengi",
+        "phrase": "brown",
+        "keywordCount": 109
+      },
+      {
+        "value": "Petrol yeşili",
+        "phrase": "teal",
+        "keywordCount": 105
+      },
+      {
+        "value": "Krem",
+        "phrase": "cream",
+        "keywordCount": 104
+      },
+      {
+        "value": "Mor",
+        "phrase": "purple",
+        "keywordCount": 98
+      },
+      {
+        "value": "Sarı",
+        "phrase": "yellow",
+        "keywordCount": 85
+      },
+      {
+        "value": "Turuncu",
+        "phrase": "orange",
+        "keywordCount": 85
+      },
+      {
+        "value": "Terrakota",
+        "phrase": "terracotta",
+        "keywordCount": 80
+      },
+      {
+        "value": "Pastel",
+        "phrase": "pastel",
+        "keywordCount": 48
+      },
+      {
+        "value": "Bordo",
+        "phrase": "burgundy",
+        "keywordCount": 47
+      },
+      {
+        "value": "Zeytin yeşili",
+        "phrase": "olive",
+        "keywordCount": 39
+      },
+      {
+        "value": "Zümrüt yeşili",
+        "phrase": "emerald",
+        "keywordCount": 28
+      },
+      {
+        "value": "Fildişi",
+        "phrase": "ivory",
+        "keywordCount": 13
+      },
+      {
+        "value": "Pudra pembe",
+        "phrase": "dusty pink",
+        "keywordCount": 4
+      },
+      {
+        "value": "Monokrom",
+        "phrase": "monochrome",
+        "keywordCount": 3
+      },
+      {
+        "value": "Oker",
+        "phrase": "ochre",
+        "keywordCount": 3
+      }
+    ],
+    "colorRole_accent": [
+      {
+        "value": "Mavi",
+        "phrase": "blue",
+        "keywordCount": 734
+      },
+      {
+        "value": "Yeşil",
+        "phrase": "green",
+        "keywordCount": 722
+      },
+      {
+        "value": "Siyah",
+        "phrase": "black",
+        "keywordCount": 385
+      },
+      {
+        "value": "Pembe",
+        "phrase": "pink",
+        "keywordCount": 371
+      },
+      {
+        "value": "Beyaz",
+        "phrase": "white",
+        "keywordCount": 328
+      },
+      {
+        "value": "Altın",
+        "phrase": "gold",
+        "keywordCount": 312
+      },
+      {
+        "value": "Lacivert",
+        "phrase": "navy",
+        "keywordCount": 243
+      },
+      {
+        "value": "Gri",
+        "phrase": "gr[ae]y",
+        "keywordCount": 179
+      },
+      {
+        "value": "Adaçayı",
+        "phrase": "sage",
+        "keywordCount": 157
+      },
+      {
+        "value": "Kırmızı",
+        "phrase": "red",
+        "keywordCount": 150
+      },
+      {
+        "value": "Nötr",
+        "phrase": "neutral",
+        "keywordCount": 141
+      },
+      {
+        "value": "Bej",
+        "phrase": "beige",
+        "keywordCount": 138
+      },
+      {
+        "value": "Kahverengi",
+        "phrase": "brown",
+        "keywordCount": 109
+      },
+      {
+        "value": "Petrol yeşili",
+        "phrase": "teal",
+        "keywordCount": 105
+      },
+      {
+        "value": "Krem",
+        "phrase": "cream",
+        "keywordCount": 104
+      },
+      {
+        "value": "Mor",
+        "phrase": "purple",
+        "keywordCount": 98
+      },
+      {
+        "value": "Sarı",
+        "phrase": "yellow",
+        "keywordCount": 85
+      },
+      {
+        "value": "Turuncu",
+        "phrase": "orange",
+        "keywordCount": 85
+      },
+      {
+        "value": "Terrakota",
+        "phrase": "terracotta",
+        "keywordCount": 80
+      },
+      {
+        "value": "Pastel",
+        "phrase": "pastel",
+        "keywordCount": 48
+      },
+      {
+        "value": "Bordo",
+        "phrase": "burgundy",
+        "keywordCount": 47
+      },
+      {
+        "value": "Zeytin yeşili",
+        "phrase": "olive",
+        "keywordCount": 39
+      },
+      {
+        "value": "Zümrüt yeşili",
+        "phrase": "emerald",
+        "keywordCount": 28
+      },
+      {
+        "value": "Fildişi",
+        "phrase": "ivory",
+        "keywordCount": 13
+      },
+      {
+        "value": "Pudra pembe",
+        "phrase": "dusty pink",
+        "keywordCount": 4
+      },
+      {
+        "value": "Monokrom",
+        "phrase": "monochrome",
+        "keywordCount": 3
+      },
+      {
+        "value": "Oker",
+        "phrase": "ochre",
+        "keywordCount": 3
+      }
+    ],
+    "colorRole_shadow": [
+      {
+        "value": "Mavi",
+        "phrase": "blue",
+        "keywordCount": 734
+      },
+      {
+        "value": "Yeşil",
+        "phrase": "green",
+        "keywordCount": 722
+      },
+      {
+        "value": "Siyah",
+        "phrase": "black",
+        "keywordCount": 385
+      },
+      {
+        "value": "Pembe",
+        "phrase": "pink",
+        "keywordCount": 371
+      },
+      {
+        "value": "Beyaz",
+        "phrase": "white",
+        "keywordCount": 328
+      },
+      {
+        "value": "Altın",
+        "phrase": "gold",
+        "keywordCount": 312
+      },
+      {
+        "value": "Lacivert",
+        "phrase": "navy",
+        "keywordCount": 243
+      },
+      {
+        "value": "Gri",
+        "phrase": "gr[ae]y",
+        "keywordCount": 179
+      },
+      {
+        "value": "Adaçayı",
+        "phrase": "sage",
+        "keywordCount": 157
+      },
+      {
+        "value": "Kırmızı",
+        "phrase": "red",
+        "keywordCount": 150
+      },
+      {
+        "value": "Nötr",
+        "phrase": "neutral",
+        "keywordCount": 141
+      },
+      {
+        "value": "Bej",
+        "phrase": "beige",
+        "keywordCount": 138
+      },
+      {
+        "value": "Kahverengi",
+        "phrase": "brown",
+        "keywordCount": 109
+      },
+      {
+        "value": "Petrol yeşili",
+        "phrase": "teal",
+        "keywordCount": 105
+      },
+      {
+        "value": "Krem",
+        "phrase": "cream",
+        "keywordCount": 104
+      },
+      {
+        "value": "Mor",
+        "phrase": "purple",
+        "keywordCount": 98
+      },
+      {
+        "value": "Sarı",
+        "phrase": "yellow",
+        "keywordCount": 85
+      },
+      {
+        "value": "Turuncu",
+        "phrase": "orange",
+        "keywordCount": 85
+      },
+      {
+        "value": "Terrakota",
+        "phrase": "terracotta",
+        "keywordCount": 80
+      },
+      {
+        "value": "Pastel",
+        "phrase": "pastel",
+        "keywordCount": 48
+      },
+      {
+        "value": "Bordo",
+        "phrase": "burgundy",
+        "keywordCount": 47
+      },
+      {
+        "value": "Zeytin yeşili",
+        "phrase": "olive",
+        "keywordCount": 39
+      },
+      {
+        "value": "Zümrüt yeşili",
+        "phrase": "emerald",
+        "keywordCount": 28
+      },
+      {
+        "value": "Fildişi",
+        "phrase": "ivory",
+        "keywordCount": 13
+      },
+      {
+        "value": "Pudra pembe",
+        "phrase": "dusty pink",
+        "keywordCount": 4
+      },
+      {
+        "value": "Monokrom",
+        "phrase": "monochrome",
+        "keywordCount": 3
+      },
+      {
+        "value": "Oker",
+        "phrase": "ochre",
+        "keywordCount": 3
+      }
+    ],
+    "styleFamily": [
+      {
+        "value": "Vintage",
+        "phrase": "vintage",
+        "keywordCount": 669
+      },
+      {
+        "value": "Atmosferik / moody",
+        "phrase": "moody",
+        "keywordCount": 333
+      },
+      {
+        "value": "Toile de Jouy",
+        "phrase": "toile",
+        "keywordCount": 307
+      },
+      {
+        "value": "Art Deco",
+        "phrase": "art deco|deco",
+        "keywordCount": 281
+      },
+      {
+        "value": "Kıyı estetiği",
+        "phrase": "coastal",
+        "keywordCount": 251
+      },
+      {
+        "value": "Chinoiserie",
+        "phrase": "chinoiserie",
+        "keywordCount": 241
+      },
+      {
+        "value": "Modern",
+        "phrase": "modern",
+        "keywordCount": 236
+      },
+      {
+        "value": "Viktoryen",
+        "phrase": "victorian",
+        "keywordCount": 196
+      },
+      {
+        "value": "Gotik",
+        "phrase": "gothic",
+        "keywordCount": 163
+      },
+      {
+        "value": "Bohem",
+        "phrase": "bohemian|boho",
+        "keywordCount": 135
+      },
+      {
+        "value": "Geleneksel",
+        "phrase": "traditional",
+        "keywordCount": 106
+      },
+      {
+        "value": "Mid-century",
+        "phrase": "mid century",
+        "keywordCount": 105
+      },
+      {
+        "value": "Masalsı",
+        "phrase": "whimsical",
+        "keywordCount": 102
+      },
+      {
+        "value": "Retro",
+        "phrase": "retro",
+        "keywordCount": 96
+      },
+      {
+        "value": "Fransız esintili",
+        "phrase": "french",
+        "keywordCount": 90
+      },
+      {
+        "value": "Cottagecore",
+        "phrase": "cottagecore",
+        "keywordCount": 78
+      },
+      {
+        "value": "Rustik",
+        "phrase": "rustic",
+        "keywordCount": 62
+      },
+      {
+        "value": "Japon esintili",
+        "phrase": "japanese",
+        "keywordCount": 59
+      },
+      {
+        "value": "Kır evi",
+        "phrase": "farmhouse",
+        "keywordCount": 54
+      },
+      {
+        "value": "Minimalist",
+        "phrase": "minimalist",
+        "keywordCount": 42
+      },
+      {
+        "value": "Art Nouveau",
+        "phrase": "art nouveau",
+        "keywordCount": 29
+      },
+      {
+        "value": "Maksimalist",
+        "phrase": "maximalist",
+        "keywordCount": 27
+      },
+      {
+        "value": "İskandinav",
+        "phrase": "scandinavian",
+        "keywordCount": 14
+      },
+      {
+        "value": "Doğu esintili",
+        "phrase": "oriental",
+        "keywordCount": 12
+      }
+    ],
+    "medium": [
+      {
+        "value": "Suluboya",
+        "phrase": "watercolor",
+        "keywordCount": 102
+      },
+      {
+        "value": "Elle çizilmiş",
+        "phrase": "hand drawn",
+        "keywordCount": 16
+      },
+      {
+        "value": "Yağlı boya görünümü",
+        "phrase": "oil painting",
+        "keywordCount": 12
+      },
+      {
+        "value": "Çizgi sanatı",
+        "phrase": "line art",
+        "keywordCount": 12
+      },
+      {
+        "value": "Elle boyanmış",
+        "phrase": "hand painted",
+        "keywordCount": 8
+      },
+      {
+        "value": "Gravür",
+        "phrase": "engraving|etching",
+        "keywordCount": 8
+      },
+      {
+        "value": "İllüstrasyon",
+        "phrase": "illustration",
+        "keywordCount": 5
+      }
+    ],
+    "scene": [
+      {
+        "value": "Orman ağaçları",
+        "phrase": "forest",
+        "keywordCount": 212
+      },
+      {
+        "value": "Manzara öğeleri",
+        "phrase": "landscape",
+        "keywordCount": 150
+      },
+      {
+        "value": "Tropikal bitkiler",
+        "phrase": "tropical",
+        "keywordCount": 86
+      },
+      {
+        "value": "Dağlar",
+        "phrase": "mountains?",
+        "keywordCount": 76
+      },
+      {
+        "value": "Bahçe bitkileri",
+        "phrase": "garden",
+        "keywordCount": 64
+      },
+      {
+        "value": "Okyanus",
+        "phrase": "ocean",
+        "keywordCount": 57
+      },
+      {
+        "value": "Orman canlıları",
+        "phrase": "woodland",
+        "keywordCount": 57
+      },
+      {
+        "value": "Göl",
+        "phrase": "lakes?",
+        "keywordCount": 26
+      },
+      {
+        "value": "Nehir",
+        "phrase": "river",
+        "keywordCount": 9
+      },
+      {
+        "value": "Tepeler",
+        "phrase": "hills?",
+        "keywordCount": 5
+      }
+    ],
+    "linework": [
+      {
+        "value": "Eskiz çizgisi",
+        "phrase": "sketch",
+        "keywordCount": 14
+      },
+      {
+        "value": "Çizgi sanatı",
+        "phrase": "line art",
+        "keywordCount": 12
+      },
+      {
+        "value": "Siluet",
+        "phrase": "silhouette",
+        "keywordCount": 5
+      },
+      {
+        "value": "Kontur çizgisi",
+        "phrase": "outline",
+        "keywordCount": 3
+      }
+    ],
+    "composition": [
+      {
+        "value": "Şerit düzeni",
+        "phrase": "striped|stripes",
+        "keywordCount": 248
+      },
+      {
+        "value": "Sahnesel kompozisyon",
+        "phrase": "scenic",
+        "keywordCount": 22
+      },
+      {
+        "value": "Panoramik sahne",
+        "phrase": "panoramic",
+        "keywordCount": 8
+      }
+    ],
+    "surface": [
+      {
+        "value": "Mat görünüm",
+        "phrase": "matte",
+        "keywordCount": 4
+      }
+    ],
+    "saturation": [
+      {
+        "value": "Pastel",
+        "phrase": "pastel",
+        "keywordCount": 48
+      },
+      {
+        "value": "Kırılmış / muted",
+        "phrase": "muted",
+        "keywordCount": 38
+      },
+      {
+        "value": "Parlak / vibrant",
+        "phrase": "vibrant",
+        "keywordCount": 9
+      }
+    ],
+    "detail": [
+      {
+        "value": "İri ve belirgin biçimler",
+        "phrase": "bold",
+        "keywordCount": 43
+      },
+      {
+        "value": "Sadeleştirilmiş detay",
+        "phrase": "minimalist",
+        "keywordCount": 42
+      }
+    ],
+    "palette": [
+      {
+        "value": "Siyah / Beyaz",
+        "phrase": "black + white",
+        "keywordCount": 125
+      },
+      {
+        "value": "Yeşil / Adaçayı",
+        "phrase": "green + sage",
+        "keywordCount": 111
+      },
+      {
+        "value": "Mavi / Yeşil",
+        "phrase": "blue + green",
+        "keywordCount": 82
+      },
+      {
+        "value": "Mavi / Beyaz",
+        "phrase": "blue + white",
+        "keywordCount": 58
+      },
+      {
+        "value": "Mavi / Lacivert",
+        "phrase": "blue + navy",
+        "keywordCount": 55
+      },
+      {
+        "value": "Yeşil / Pembe",
+        "phrase": "green + pink",
+        "keywordCount": 54
+      },
+      {
+        "value": "Siyah / Altın",
+        "phrase": "black + gold",
+        "keywordCount": 51
+      },
+      {
+        "value": "Yeşil / Altın",
+        "phrase": "green + gold",
+        "keywordCount": 32
+      },
+      {
+        "value": "Mavi / Altın",
+        "phrase": "blue + gold",
+        "keywordCount": 29
+      },
+      {
+        "value": "Mavi / Pembe",
+        "phrase": "blue + pink",
+        "keywordCount": 27
+      },
+      {
+        "value": "Yeşil / Beyaz",
+        "phrase": "green + white",
+        "keywordCount": 24
+      },
+      {
+        "value": "Yeşil / Zeytin yeşili",
+        "phrase": "green + olive",
+        "keywordCount": 22
+      },
+      {
+        "value": "Beyaz / Altın",
+        "phrase": "white + gold",
+        "keywordCount": 21
+      },
+      {
+        "value": "Beyaz / Gri",
+        "phrase": "white + gr[ae]y",
+        "keywordCount": 21
+      },
+      {
+        "value": "Mavi / Gri",
+        "phrase": "blue + gr[ae]y",
+        "keywordCount": 19
+      },
+      {
+        "value": "Altın / Lacivert",
+        "phrase": "gold + navy",
+        "keywordCount": 19
+      },
+      {
+        "value": "Yeşil / Zümrüt yeşili",
+        "phrase": "green + emerald",
+        "keywordCount": 18
+      },
+      {
+        "value": "Yeşil / Siyah",
+        "phrase": "green + black",
+        "keywordCount": 17
+      },
+      {
+        "value": "Siyah / Gri",
+        "phrase": "black + gr[ae]y",
+        "keywordCount": 15
+      },
+      {
+        "value": "Siyah / Bej",
+        "phrase": "black + beige",
+        "keywordCount": 14
+      },
+      {
+        "value": "Siyah / Krem",
+        "phrase": "black + cream",
+        "keywordCount": 14
+      },
+      {
+        "value": "Pembe / Altın",
+        "phrase": "pink + gold",
+        "keywordCount": 14
+      },
+      {
+        "value": "Mavi / Bej",
+        "phrase": "blue + beige",
+        "keywordCount": 13
+      },
+      {
+        "value": "Altın / Krem",
+        "phrase": "gold + cream",
+        "keywordCount": 13
+      },
+      {
+        "value": "Gri / Bej",
+        "phrase": "gr[ae]y + beige",
+        "keywordCount": 13
+      },
+      {
+        "value": "Mavi / Kırmızı",
+        "phrase": "blue + red",
+        "keywordCount": 12
+      },
+      {
+        "value": "Siyah / Pembe",
+        "phrase": "black + pink",
+        "keywordCount": 12
+      },
+      {
+        "value": "Siyah / Kırmızı",
+        "phrase": "black + red",
+        "keywordCount": 12
+      },
+      {
+        "value": "Pembe / Lacivert",
+        "phrase": "pink + navy",
+        "keywordCount": 12
+      },
+      {
+        "value": "Beyaz / Lacivert",
+        "phrase": "white + navy",
+        "keywordCount": 12
+      },
+      {
+        "value": "Mavi / Turuncu",
+        "phrase": "blue + orange",
+        "keywordCount": 11
+      },
+      {
+        "value": "Yeşil / Krem",
+        "phrase": "green + cream",
+        "keywordCount": 11
+      },
+      {
+        "value": "Altın / Petrol yeşili",
+        "phrase": "gold + teal",
+        "keywordCount": 10
+      },
+      {
+        "value": "Gri / Krem",
+        "phrase": "gr[ae]y + cream",
+        "keywordCount": 10
+      },
+      {
+        "value": "Mavi / Siyah",
+        "phrase": "blue + black",
+        "keywordCount": 9
+      }
+    ]
+  }
+}

@@ -1,0 +1,5 @@
+"use client";
+export type WorkspaceItem={id:string;label:string;description?:string};
+export function WorkspaceNav({items,value,onChange,prefix}:{items:WorkspaceItem[];value:string;onChange:(id:string)=>void;prefix:string}){
+ return <div className="workspace-nav" role="tablist" aria-label="Çalışma adımları">{items.map((item,i)=><button type="button" role="tab" aria-selected={value===item.id} aria-controls={`${prefix}-panel-${item.id}`} id={`${prefix}-tab-${item.id}`} tabIndex={value===item.id?0:-1} key={item.id} className={value===item.id?'active':''} onClick={()=>onChange(item.id)} onKeyDown={e=>{let index=i;if(e.key==='ArrowRight')index=(i+1)%items.length;else if(e.key==='ArrowLeft')index=(i-1+items.length)%items.length;else if(e.key==='Home')index=0;else if(e.key==='End')index=items.length-1;else return;e.preventDefault();onChange(items[index].id);document.getElementById(`${prefix}-tab-${items[index].id}`)?.focus();}}><span className="workspace-index" aria-hidden="true">{String(i+1).padStart(2,'0')}</span><span><strong>{item.label}</strong>{item.description&&<small>{item.description}</small>}</span></button>)}</div>;
+}

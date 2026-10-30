@@ -1,0 +1,2 @@
+import {db} from '../src/lib/db';import {ensureVariantName} from '../src/lib/variant-record';import {genericVariantLabels} from '../src/lib/variant-name';
+try{const designs=await db.design.findMany({where:{assets:{some:{}},sources:{some:{}},OR:[{skus:{none:{}}},{skus:{some:{label:{in:genericVariantLabels}}}}]},select:{id:true,code:true,title:true}});for(const d of designs)await ensureVariantName(d);console.log(JSON.stringify({reviewed:designs.length,manualNamesPreserved:true}));}finally{await db.$disconnect();}

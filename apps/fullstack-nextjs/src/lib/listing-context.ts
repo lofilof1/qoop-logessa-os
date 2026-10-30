@@ -1,0 +1,3 @@
+type Source={raw:unknown};
+const object=(v:unknown):Record<string,unknown>=>v&&typeof v==='object'&&!Array.isArray(v)?v as Record<string,unknown>:{};
+export function listingContext(source?:Source|null){const raw=object(source?.raw),brief=object(raw.brief),values=object(brief.values),custom=object(brief.custom);const field=(key:string)=>String(values[key]==='__other__'?custom[key]||'':values[key]||'').trim().slice(0,100);return {subject:field('primary'),color:field('palette'),style:field('medium'),product:(brief.mode||raw.sourceMode)==='pattern'?'wallpaper':['mural','continuous'].includes(String(brief.mode||raw.sourceMode))?'wall mural':''};}

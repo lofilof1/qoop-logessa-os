@@ -1,0 +1,34 @@
+# Logs & runtime
+*.log
+.runtime/
+server.log
+etsy_tokens.json
+etsy_auth_state.json
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Next.js build
+.next/
+out/
+build/
+dist/
+
+# Python
+__pycache__/
+*.pyc
+
+# Archives
+*.zip
+*.tar.gz
+
+# System files
+.DS_Store
+Thumbs.db

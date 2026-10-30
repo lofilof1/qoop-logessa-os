@@ -1,0 +1,49 @@
+{
+  "targetMarket": "US",
+  "listingLanguage": "en",
+  "saleForm": "unknown",
+  "brandVoice": "Clear, calm, specific; no exaggerated claims.",
+  "excludedPhrases": "",
+  "name": "Qoop — 28 Ekim 2026 açıklama standardı",
+  "unit": "in",
+  "muralWidth": null,
+  "muralHeight": null,
+  "muralPanels": null,
+  "customSizing": "Send your wall width and height; we can adjust this design to fit your measurements at no extra cost.",
+  "printingInks": "Water-based HP Latex inks (UL GREENGUARD Gold certified inks).",
+  "careInstructions": "Wipe clean with a soft, damp cloth; suitable for humid rooms such as bathrooms and kitchens.",
+  "panelWidth": 24,
+  "overlap": 1,
+  "heights": [],
+  "targetPpi": null,
+  "sampleUnit": "in",
+  "sampleWidth": 15,
+  "sampleHeight": 20,
+  "samplePrice": "",
+  "materials": [
+    {
+      "name": "Textured Traditional",
+      "details": "Textured matte, wallpaper paste applied (paste not included). Best choice for rough or textured walls; also suitable for smooth walls."
+    },
+    {
+      "name": "Textured Peel and Stick",
+      "details": "Self-adhesive textured matte finish. Repositionable during installation and removable; ideal for renters. Best on smooth painted walls. Cannot be reused once removed."
+    },
+    {
+      "name": "3M Vinyl Smooth",
+      "details": "Smooth self-adhesive 3M vinyl with sharp print detail. Also works on glass, wood and plastic. Needs a perfectly smooth surface. Cannot be reused once removed."
+    }
+  ],
+  "orderUnit": "unknown",
+  "shopName": "",
+  "productionLocation": "USA",
+  "productionPartner": "",
+  "processing": "5-7 business days. Every order is printed after you place it and checked before it ships.",
+  "shipping": "",
+  "surface": "Wait at least 15 days on freshly painted walls. Surface must be clean, dry and dust-free.",
+  "toolkit": "Numbered panels, felt-edged smoother, utility knife, masking tape and step-by-step installation guide.",
+  "returns": "Damaged or print fault: send clear photos; once confirmed, free replacement. Printed to order; returns cannot be accepted once applied. Check your order before installing.",
+  "technicalNotes": "",
+  "confirmed": true,
+  "descriptionStandard": "qoop-2026-10-28"
+}

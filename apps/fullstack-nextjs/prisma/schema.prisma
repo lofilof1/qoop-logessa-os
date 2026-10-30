@@ -1,0 +1,358 @@
+generator client {
+ provider = "prisma-client-js"
+}
+datasource db {
+ provider = "postgresql"
+ url = env("DATABASE_URL")
+}
+model Design {
+ deletedAt DateTime?
+ preparations QoopPreparation[]
+ id String @id @default(cuid())
+ code String @unique
+ title String
+ description String @default("")
+ createdAt DateTime @default(now())
+ assets Asset[]
+ skus Sku[]
+ approvals AnalysisPromptApproval[]
+ researchLinks DesignResearchLink[]
+ sources Source[]
+}
+model Sku {
+ id String @id @default(cuid())
+ code String @unique
+ label String
+ designId String
+ design Design @relation(fields: [designId], references: [id], onDelete: Cascade)
+ createdAt DateTime @default(now())
+}
+model Asset {
+ preparations QoopPreparation[]
+ id String @id @default(cuid())
+ designId String
+ design Design @relation(fields: [designId], references: [id], onDelete: Cascade)
+ name String
+ key String @unique
+ mime String
+ bytes Int
+ sha256 String
+ width Int?
+ height Int?
+ dpi Float?
+ format String
+ status String
+ createdAt DateTime @default(now())
+ @@index([designId,sha256])
+}
+model Source {
+ deletedAt DateTime?
+ revisions SourceRevision[]
+ id String @id @default(cuid())
+ designId String
+ design Design @relation(fields: [designId], references: [id], onDelete: Cascade)
+ provider String @default("MIDJOURNEY")
+ prompt String
+ sourceUrl String?
+ jobId String?
+ model String?
+ seed String?
+ raw Json
+ createdAt DateTime @default(now())
+}
+
+model ResearchFamily {
+ id String @id
+ name String
+ deferred Boolean @default(false)
+ references ResearchReference[]
+ prompts ResearchPrompt[]
+}
+model ResearchReference {
+ id String @id
+ familyId String
+ family ResearchFamily @relation(fields: [familyId], references: [id])
+ title String
+ purpose String
+ shop String
+ listingId String?
+ url String?
+ imagePath String?
+ observedAt String
+ data Json
+ links DesignResearchLink[]
+ @@index([familyId,purpose])
+}
+model ResearchKeyword {
+ term String @id
+ category String
+ focused Boolean
+ data Json
+ @@index([focused,category])
+}
+model ResearchPrompt {
+ code String @id
+ title String
+ familyId String
+ family ResearchFamily @relation(fields:[familyId],references:[id])
+ prompt String
+ used Boolean @default(false)
+ sourceId String
+ data Json
+ legacyFlags Json
+}
+model KnowledgeDocument {
+ id String @id
+ title String
+ body String
+ sourceDate String
+ kind String
+ sha256 String
+}
+model KnowledgeImport {
+ hash String @id
+ snapshotDate String
+ manifest Json
+ importedAt DateTime @default(now())
+}
+model DesignResearchLink {
+ id String @id @default(cuid())
+ designId String
+ design Design @relation(fields:[designId], references:[id],onDelete:Cascade)
+ referenceId String
+ reference ResearchReference @relation(fields:[referenceId],references:[id])
+ influence String
+ createdAt DateTime @default(now())
+ @@unique([designId,referenceId])
+}
+
+model StudioBrief {
+ id String @id @default(cuid())
+ title String
+ mode String
+ contentHash String @unique
+ sourceHash String
+ catalogVersion String
+ payload Json
+ createdAt DateTime @default(now())
+}
+
+model StudioGeneration {
+ id String @id @default(cuid())
+ requestHash String @unique
+ status String @default("RUNNING")
+ prompt String
+ model String
+ size String
+ payload Json
+ designId String?
+ assetId String?
+ error String?
+ usage Json?
+ createdAt DateTime @default(now())
+ updatedAt DateTime @updatedAt
+}
+
+model StudioOption {
+ id String @id @default(cuid())
+ fieldId String
+ value String
+ normalized String
+ createdAt DateTime @default(now())
+ @@unique([fieldId, normalized])
+}
+
+model ImageAnalysis {
+ approvals AnalysisPromptApproval[]
+ reviewJobId String?
+ id String @id @default(cuid())
+ title String
+ mode String
+ focus String
+ notes String
+ report String @default("")
+ key String @unique
+ previewKey String @unique
+ name String
+ mime String
+ bytes Int
+ width Int
+ height Int
+ sha256 String
+ wallWidth Float?
+ wallHeight Float?
+ createdAt DateTime @default(now())
+ @@index([sha256])
+}
+
+model AnalysisReviewJob {
+ approvals AnalysisPromptApproval[]
+ id String @id @default(cuid())
+ requestHash String @unique
+ state String @default("PENDING")
+ input Json
+ result Json?
+ error String?
+ usage Json?
+ createdAt DateTime @default(now())
+ startedAt DateTime?
+ finishedAt DateTime?
+ @@index([state,createdAt])
+}
+model AnalysisWorkerState {
+ id String @id
+ ready Boolean @default(false)
+ heartbeat DateTime
+ message String
+}
+
+model ListingDraft {
+ deletedAt DateTime?
+ id String @id @default(cuid())
+ sku String
+ notes String @default("")
+ material String @default("")
+ imageKey String
+ imageHash String
+ jobId String @unique
+ createdAt DateTime @default(now())
+ @@index([sku])
+}
+
+model RevisionSkuSequence {
+ category String @id
+ lastNumber Int @default(0)
+}
+model AnalysisPromptApproval {
+ id String @id @default(cuid())
+ analysisId String
+ analysis ImageAnalysis @relation(fields:[analysisId],references:[id],onDelete:Restrict)
+ jobId String
+ job AnalysisReviewJob @relation(fields:[jobId],references:[id],onDelete:Restrict)
+ category String
+ code String @unique
+ designId String @unique
+ design Design @relation(fields:[designId],references:[id],onDelete:Restrict)
+ provider String
+ snapshot Json
+ approvedAt DateTime @default(now())
+ @@unique([analysisId,jobId,provider])
+}
+
+model KeywordWatch {
+ term String @id
+ category String
+ priority Int @default(2)
+ status String @default("active")
+ reason String
+ createdAt DateTime @default(now())
+ observations KeywordObservation[]
+ @@index([priority,term])
+}
+model KeywordObservation {
+ id String @id @default(cuid())
+ term String
+ keyword KeywordWatch @relation(fields:[term],references:[term],onDelete:Restrict)
+ observedAt String
+ market String
+ searches String
+ clicks String
+ competition String
+ ctr String
+ notes String
+ createdAt DateTime @default(now())
+ @@index([term,observedAt,market])
+}
+
+model KeywordCsvFile {
+ sha String @id
+ name String
+ bytes Bytes
+ createdAt DateTime @default(now())
+ batches KeywordCsvBatch[]
+}
+model KeywordCsvBatch {
+ id String @id @default(cuid())
+ fingerprint String @unique
+ fileSha String
+ file KeywordCsvFile @relation(fields:[fileSha],references:[sha],onDelete:Restrict)
+ settings Json
+ stats Json
+ createdAt DateTime @default(now())
+ observations KeywordCsvObservation[]
+}
+model KeywordCsvObservation {
+ id String @id @default(cuid())
+ fingerprint String @unique
+ batchId String
+ batch KeywordCsvBatch @relation(fields:[batchId],references:[id],onDelete:Restrict)
+ row Int
+ term String
+ market String
+ platform String
+ source String
+ definition String
+ period String
+ observedAt String
+ metrics Json
+ createdAt DateTime @default(now())
+ @@index([market,platform,term,definition,period])
+}
+model KeywordCsvProfile {
+ signature String @id
+ settings Json
+ updatedAt DateTime @updatedAt
+}
+model KeywordCsvReport {
+ fingerprint String @id
+ result Json
+ createdAt DateTime @default(now())
+}
+
+model QoopProductProfile {
+ id String @id @default(cuid())
+ fingerprint String @unique
+ data Json
+ createdAt DateTime @default(now())
+ preparations QoopPreparation[]
+}
+model QoopPreparation {
+ id String @id @default(cuid())
+ fingerprint String @unique
+ designId String
+ design Design @relation(fields:[designId],references:[id],onDelete:Restrict)
+ assetId String
+ asset Asset @relation(fields:[assetId],references:[id],onDelete:Restrict)
+ profileId String?
+ profile QoopProductProfile? @relation(fields:[profileId],references:[id],onDelete:Restrict)
+ input Json
+ result Json
+ createdAt DateTime @default(now())
+ @@index([designId,createdAt])
+}
+
+model TopListingCsvImport {
+ id String @id @default(cuid())
+ fingerprint String @unique
+ sha String
+ name String
+ query String
+ raw Bytes
+ headers Json
+ rows Json
+ market String @default("unknown")
+ observedAt String @default("")
+ currency String @default("unknown")
+ createdAt DateTime @default(now())
+ @@index([query,observedAt])
+}
+
+model SourceRevision {
+ id String @id @default(cuid())
+ sourceId String
+ source Source @relation(fields:[sourceId],references:[id],onDelete:Restrict)
+ fingerprint String @unique
+ prompt String
+ createdAt DateTime @default(now())
+ @@index([sourceId,createdAt])
+}
