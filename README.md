@@ -43,13 +43,16 @@ qoop-logessa-os/
    - Zoom, Shade (Gölge), Işık ve Dikişli Tekrar (Seamless Tile) ayarları.
    - Tek tıkla 10'lu Etsy mockup paketi indirme.
 
-4. **Etsy SEO & Dil Koruma Kalkanı:**
+4. **Etsy SEO, Dil Kalkanı & Canlı Arama Motoru:**
+   - **Canlı Etsy Alıcı Arama Önerileri (Live Autosuggest):** Halka açık Etsy arama API'si üzerinden alıcıların arama çubuğundaki gerçek zamanlı trendlerini anlık çeker; tek tıkla 13 etikete veya başlığa aktarır.
+   - **Fikri Mülkiyet & Telif Kalkanı (Trademark IP Shield):** Disney, Marvel, Harry Potter, Lego, Pokemon, Barbie vb. 35+ tescilli markayı gerçek zamanlı tarar ve mağazanın kapatılmasını önler.
    - 140 karakter sayaçlı İngilizce satış başlığı.
    - 13 adet, 20 karakteri aşmayan, yüksek hacimli etiketler.
    - Asılsız iddia filtresi (`non-toxic`, `hand-made`, `AI-free` taraması).
 
 5. **Etsy API v3 Entegrasyonu (OAuth 2.0 PKCE):**
    - Resmî Etsy Open API v3 bağlantısı (`client_id: znhmaxofm17pggem67prm1888`).
+   - Token süresi dolmadan önce arka planda otomatik yenileme (OAuth Token Refresh) mimarisi.
    - Tek tıkla taslak (`DRAFT`) veya canlı (`ACTIVE`) ilan oluşturma.
    - 10 adet mockup görselini otomatik yükleme simülasyonu ve JSON yükü denetleyicisi.
 
@@ -64,10 +67,11 @@ qoop-logessa-os/
      - *Dönüşüm Optimizatörü:* En çok satan Yatak Odası mockup'ını otomatik kapak görseli atama.
      - *Akıllı Fiyatlandırma:* Numune ($10 altı) elenmiş pazar fiyatı ($345.00) ve %57.5 net kâr marjı projeksiyonu.
 
-8. **İlan Yönetimi & Envanter Masası:**
-   - Tüm Etsy kataloğunu tek ekranda görme.
+8. **İlan Yönetimi, Envanter & Katalog Budama (Catalog Pruning):**
+   - Tüm Etsy kataloğunu tek ekranda görme ve canlı KPI paneli (Toplam, Yayında, Taslak, Pasif, Budama Önerisi).
+   - **Ölü İlan Tespiti (Catalog Prune):** 30 günden eski olup <20 görüntülenme alan düşük performanslı ilanları otomatik tespit eder; tek tıkla pasife alarak mağaza kalite puanını korur.
    - Tek tıkla *"Yayından Kaldır / Pasife Al"*, *"Yeniden Yayına Al"* ve *"Sil"*.
-   - Yeni ilan ekleme ve arama/filtreleme.
+   - Yeni ilan ekleme ve filtreleme (Tümü, Yayında, Taslak, Pasif, Budama Önerilen).
 
 9. **Konfigürasyon & .env Yönetim Paneli:**
    - Arayüz üzerinden API anahtarlarını girip doğrudan sunucudaki `.env` dosyasına kaydetme.
