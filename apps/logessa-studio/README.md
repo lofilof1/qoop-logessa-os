@@ -1,5 +1,7 @@
 # LOGESSA Studio
 
+Editörde işlem çubuğu altta sabittir: Geri solda, Kaydet ve Kaydet ve ilerle sağdadır. İlerleme, değişiklik varsa yalnız başarılı kayıttan sonra gerçekleşir; son adımda Kaydet ve kapat kullanılır. Kaydetme durumu ve çalışma aşaması eylemlerden ayrı gösterilir. JSON ve arşiv işlemleri üç nokta menüsündedir. Rehberde alt gezinme düğmeleri aynı konumu korur; üretim geçmişinde durum etiketi ve Sonucu aç / Devam et eylemi ayrıdır.
+
 ## Dinamik sezon radarı
 
 İlk oturum açılışında altı adımlı stüdyo rehberi gösterilir. Sağ üstteki ⓘ Rehber düğmesi her zaman yeniden açar. Kapatma/geçme bilgisi tarayıcıda `logessa-studio-guide-v1` anahtarıyla saklanır. Rehber yalnız kullanım akışını anlatır; sayfa değiştirmez, kayıt üretmez, sağlayıcı sorgusu çalıştırmaz. Escape, önceki/sonraki okları, adım noktaları ve mobil yerleşim desteklenir.
