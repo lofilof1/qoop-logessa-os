@@ -113,3 +113,17 @@ GitHub etsy-engine yalnız akış fikri için incelendi; kaynak kodu alınmadı.
 `public/example-botanical.png` de built-in Imagegen ile oluşturulmuş düz bir test desenidir. Prompt: “Original flat botanical wallpaper tile, warm ivory, muted sage olive branches, terracotta buds, antique botanical ink detail, no room, furniture, shadows, perspective or text.” Seamless veya baskı uygunluğu onaylanmamıştır.
 
 JSON dışa aktarımı kayıtları ve ölçüm anlık görüntülerini kapsar; R2 görsel baytlarını içermez. Masterları ayrıca indir. Otomatik yedek/geri yükleme, sipariş senkronizasyonu ve Etsy OAuth/yayınlama bu sürümün kapsamı değildir. AI üretimi ayrıca yapılandırılmış model erişimine bağlıdır; Alura-only taslağı AI sonucu gibi değerlendirme.
+
+## Adım adım ürün ve bağımsız mockup
+
+Ana ekran tek bir ürün için Fikir → Pazar → Tasarım → Mockup → İlan sırasıyla çalışır. Alt çubukta Geri solda, sonraki işlem sağdadır. Adım veya menü değiştirirken düzenlemeler kaydedilir; kayıt hatasında mevcut ekranda kalınır. Tamamlanmamış üretim işi kayıttan bilinçli olarak sürdürülür; sayfa açılması ücretli işi yeniden başlatmaz.
+
+Mockup atölyesi ürün üretiminden bağımsızdır. Mevcut master seçilebilir veya yeni PNG/JPG/WebP yüklenebilir. Gerçek dosya ölçüleri kullanılır; duvar düzlemi için otomatik başlangıç sınırı önerilir, indirme için kullanıcı kalibrasyonu doğrular.
+
+## Vercel interaktif demo
+
+`npm run build:demo` ardından `npm run preview:demo` ile http://127.0.0.1:5174 adresinden denenir. Vercel'de bu uygulama dizinini (`apps/logessa-studio`) kök seç; `vercel.json` demo build ve `dist-demo` çıktısını tanımlar. API anahtarı veya ortam değişkeni gerekmez.
+
+Demo aynı React arayüzünü kullanır. Service Worker `/api/*` isteklerini tarayıcıda karşılar; IndexedDB kayıtları ve orijinal yüklenen dosyaları saklar. Pazar verileri açıkça etiketlenmiş örnek senaryolardır; Alura veya AI çağrısı, ücret veya canlı çalışma alanına erişim yoktur. Skor/dağılım hesapları ve ölçülü canvas mockup gerçek uygulama fonksiyonlarıdır. Tek kelimeden kurallı örnek brief/ilan hazırlanır; özgün AI görseli üretilmiş gibi gösterilmez.
+
+Kayıtlar tarayıcı ve origin'e bağlıdır; cihazlar arasında paylaşılmaz, site verilerini temizleyince silinir. Service Worker için HTTPS (veya localhost) gerekir. Canlı Sites sürümü D1/R2, gerçek oturum ve sunucuda saklanan sağlayıcı anahtarlarını kullanmaya devam eder.
