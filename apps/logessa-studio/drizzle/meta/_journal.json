@@ -1,0 +1,34 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1793634624397,
+      "tag": "0000_woozy_miss_america",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1793635253838,
+      "tag": "0001_reflective_ben_grimm",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1793638444957,
+      "tag": "0002_messy_colossus",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1793639233563,
+      "tag": "0003_crazy_morlun",
+      "breakpoints": true
+    }
+  ]
+}

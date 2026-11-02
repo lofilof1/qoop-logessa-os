@@ -1,0 +1,2132 @@
+{
+  "source": "logessa-kaynak-2026-10-30.zip / index.html / STYLES",
+  "sourceDate": "2026-10-30",
+  "classification": "Editorial planning assumptions; not measured demand",
+  "styles": [
+    {
+      "id": "jap",
+      "n": "Japandi / Minimal",
+      "m": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "k": "tahmin",
+      "why": "Yeni yıl sadeleşme ve baharın kiraz çiçeği dönemi (çıkarım). Japandi için kaynaklar mevsim vermiyor.",
+      "src": [
+        "jp",
+        "ez",
+        "pp"
+      ],
+      "sub": [
+        {
+          "n": "Sakura / kiraz çiçeği",
+          "m": [
+            3,
+            4
+          ],
+          "mo": [
+            "kiraz dalı",
+            "pembe çiçek yaprakları",
+            "sis"
+          ],
+          "pal": [
+            "#f1d4d8",
+            "#d9a7ad",
+            "#8c8a78",
+            "#efe9df"
+          ],
+          "odalar": [
+            "Yatak"
+          ],
+          "kw": "cherry blossom wallpaper",
+          "src": [
+            "jp"
+          ],
+          "k": "kısmi"
+        },
+        {
+          "n": "Turna ve kuşlar",
+          "m": [],
+          "mo": [
+            "turna kuşu",
+            "ince dallar",
+            "altın yaprak vurgusu"
+          ],
+          "pal": [
+            "#1f2a33",
+            "#c9b99a",
+            "#e8e2d4",
+            "#a64b3c"
+          ],
+          "odalar": [
+            "Oturma",
+            "Yatak"
+          ],
+          "kw": "japanese crane wallpaper",
+          "src": [
+            "jp"
+          ],
+          "k": "kaynak"
+        },
+        {
+          "n": "Bambu ve yaprak",
+          "m": [],
+          "mo": [
+            "bambu gövdeleri",
+            "ince yapraklar",
+            "sade ritim"
+          ],
+          "pal": [
+            "#9aaa86",
+            "#d8d3bf",
+            "#6e7a5f",
+            "#f0ece0"
+          ],
+          "odalar": [
+            "Banyo",
+            "Çalışma"
+          ],
+          "kw": "bamboo wallpaper japandi",
+          "src": [
+            "jp"
+          ],
+          "k": "kaynak"
+        },
+        {
+          "n": "Japon bahçesi manzarası",
+          "m": [],
+          "mo": [
+            "çiçekli ağaç",
+            "su",
+            "uzak dağlar"
+          ],
+          "pal": [
+            "#c9d2c3",
+            "#8e9f94",
+            "#e7dccf",
+            "#a3735b"
+          ],
+          "odalar": [
+            "Oturma"
+          ],
+          "kw": "japanese garden mural",
+          "src": [
+            "jp"
+          ],
+          "k": "kaynak"
+        },
+        {
+          "n": "Dalga ve klasik Japon baskısı",
+          "m": [],
+          "mo": [
+            "seigaiha dalgaları",
+            "grafik çizgiler",
+            "tek renk mürekkep"
+          ],
+          "pal": [
+            "#1e3a5f",
+            "#e8e2d0",
+            "#a5b4c0"
+          ],
+          "odalar": [
+            "Koridor",
+            "Çalışma"
+          ],
+          "kw": "japanese wave wallpaper",
+          "src": [
+            "jp"
+          ],
+          "k": "kaynak"
+        },
+        {
+          "n": "Mürekkep / sumi-e monokrom",
+          "m": [],
+          "mo": [
+            "fırça darbesi",
+            "siyah beyaz",
+            "boşluk"
+          ],
+          "pal": [
+            "#111111",
+            "#f4f1ea",
+            "#8a8a86"
+          ],
+          "odalar": [
+            "Yatak",
+            "Çalışma"
+          ],
+          "kw": "ink wash wallpaper",
+          "src": [
+            "jp"
+          ],
+          "k": "kaynak"
+        },
+        {
+          "n": "Wabi-sabi doku (limewash / sıva etkisi)",
+          "m": [
+            1,
+            2,
+            3
+          ],
+          "mo": [
+            "limewash",
+            "Venedik sıvası etkisi",
+            "keten dokusu"
+          ],
+          "pal": [
+            "#e3dccf",
+            "#c9bfae",
+            "#a89d8b"
+          ],
+          "odalar": [
+            "Oturma",
+            "Yatak"
+          ],
+          "kw": "limewash texture wallpaper",
+          "src": [
+            "ez"
+          ],
+          "k": "kısmi"
+        },
+        {
+          "n": "Shibori / indigo desen",
+          "m": [],
+          "mo": [
+            "shibori halkaları",
+            "indigo"
+          ],
+          "pal": [
+            "#24406b",
+            "#e8ecf0",
+            "#6f8fb3"
+          ],
+          "odalar": [
+            "Banyo",
+            "Yatak"
+          ],
+          "kw": "shibori wallpaper",
+          "src": [
+            "mf"
+          ],
+          "k": "kısmi"
+        }
+      ]
+    },
+    {
+      "id": "dark",
+      "n": "Dark Academia / Moody",
+      "m": [
+        9,
+        10,
+        11
+      ],
+      "k": "kısmi",
+      "why": "Sonbahar/Halloween dekor alışverişi Eylül-Ekim başlar; kumaşlar kış akşamlarıyla bağlanıyor.",
+      "src": [
+        "at",
+        "gc",
+        "wb",
+        "pp",
+        "mf"
+      ],
+      "sub": [
+        {
+          "n": "Kütüphane ve kitap rafları",
+          "m": [
+            9,
+            10
+          ],
+          "mo": [
+            "uzun kitaplıklar",
+            "deri ciltli kitaplar",
+            "mum ışığı"
+          ],
+          "pal": [
+            "#2b1d14",
+            "#6b4a2f",
+            "#b08d57",
+            "#1c2a24"
+          ],
+          "odalar": [
+            "Çalışma",
+            "Oturma"
+          ],
+          "kw": "library wallpaper dark academia",
+          "src": [
+            "at"
+          ],
+          "k": "kaynak"
+        },
+        {
+          "n": "Gotik damask",
+          "m": [
+            10
+          ],
+          "mo": [
+            "gotik damask",
+            "Viktorya motifleri",
+            "siyah zemin"
+          ],
+          "pal": [
+            "#14110f",
+            "#3a2b3a",
+            "#8a6d3b"
+          ],
+          "odalar": [
+            "Banyo",
+            "Koridor"
+          ],
+          "kw": "gothic damask wallpaper",
+          "src": [
+            "mf",
+            "at"
+          ],
+          "k": "kısmi"
+        },
+        {
+          "n": "Koyu botanik / zehirli bitkiler",
+          "m": [
+            9,
+            10,
+            11
+          ],
+          "mo": [
+            "belladonna",
+            "sarmaşık",
+            "koyu çiçekler"
+          ],
+          "pal": [
+            "#17231d",
+            "#4a2c3d",
+            "#a06a58",
+            "#c9b777"
+          ],
+          "odalar": [
+            "Yemek",
+            "Banyo"
+          ],
+          "kw": "dark botanical wallpaper",
+          "src": [
+            "wb",
+            "mf"
+          ],
+          "k": "kaynak",
+          "not": "Etsy'de rekabet yüksek (Western Bid'in tablosu)."
+        },
+        {
+          "n": "Entomoloji / böcek koleksiyonu",
+          "m": [],
+          "mo": [
+            "kelebek ve böcek tahtası",
+            "etiketli örnekler",
+            "vintage kâğıt"
+          ],
+          "pal": [
+            "#2a2118",
+            "#d6c7a1",
+            "#7a4b2a"
+          ],
+          "odalar": [
+            "Çalışma"
+          ],
+          "kw": "entomology wallpaper",
+          "src": [
+            "at"
+          ],
+          "k": "kısmi"
+        },
+        {
+          "n": "Plum Noir: bordo ve kadife",
+          "m": [
+            10,
+            11,
+            12
+          ],
+          "mo": [
+            "kadife doku",
+            "bordo-mor gradyan",
+            "altın çizgi"
+          ],
+          "pal": [
+            "#4a2540",
+            "#2a1428",
+            "#7a3b4f",
+            "#b8935a"
+          ],
+          "odalar": [
+            "Yemek",
+            "Kütüphane"
+          ],
+          "kw": "plum wallpaper moody",
+          "src": [
+            "pp"
+          ],
+          "k": "kaynak"
+        },
+        {
+          "n": "Gökyüzü haritası ve takımyıldızları (fikir)",
+          "m": [
+            10,
+            11
+          ],
+          "mo": [
+            "eski yıldız haritası",
+            "takımyıldızı çizgileri",
+            "mürekkep mavisi"
+          ],
+          "pal": [
+            "#10192b",
+            "#c9b777",
+            "#3a4a66"
+          ],
+          "odalar": [
+            "Çalışma",
+            "Yatak"
+          ],
+          "kw": "celestial map wallpaper",
+          "src": [],
+          "k": "tahmin"
+        }
+      ]
+    },
+    {
+      "id": "fr",
+      "n": "Fransız Country / Chinoiserie / Modern Miras",
+      "m": [
+        3,
+        4,
+        5
+      ],
+      "k": "kaynak",
+      "why": "Google bahar aramalarında duvar kağıdı için çiçek, William Morris ve chinoiserie öne çıkıyor.",
+      "src": [
+        "sp",
+        "lv",
+        "mf"
+      ],
+      "sub": [
+        {
+          "n": "Mavi-beyaz chinoiserie",
+          "m": [
+            3,
+            4,
+            5
+          ],
+          "mo": [
+            "pagoda",
+            "kuşlar",
+            "çiçekli dallar"
+          ],
+          "pal": [
+            "#1f4e8c",
+            "#f4f1e8",
+            "#9bb8d9"
+          ],
+          "odalar": [
+            "Yemek",
+            "Yatak"
+          ],
+          "kw": "chinoiserie wallpaper",
+          "src": [
+            "sp",
+            "mf"
+          ],
+          "k": "kaynak"
+        },
+        {
+          "n": "Modern toile",
+          "m": [],
+          "mo": [
+            "tek renk sahne",
+            "kır yaşamı",
+            "ince çizgi"
+          ],
+          "pal": [
+            "#2f4a6d",
+            "#f2ede2",
+            "#9d5b4a"
+          ],
+          "odalar": [
+            "Yatak",
+            "Banyo"
+          ],
+          "kw": "toile wallpaper modern",
+          "src": [
+            "mf"
+          ],
+          "k": "kısmi"
+        },
+        {
+          "n": "William Morris / Arts & Crafts",
+          "m": [
+            3,
+            4,
+            5
+          ],
+          "mo": [
+            "sarmaşık",
+            "akant yaprağı",
+            "yoğun dolgu"
+          ],
+          "pal": [
+            "#4f6b45",
+            "#b86a4a",
+            "#e5d9b8",
+            "#274a5e"
+          ],
+          "odalar": [
+            "Oturma",
+            "Koridor"
+          ],
+          "kw": "william morris style wallpaper",
+          "src": [
+            "sp",
+            "mf"
+          ],
+          "k": "kaynak"
+        },
+        {
+          "n": "Damask + botanik karışımı",
+          "m": [],
+          "mo": [
+            "damask",
+            "çiçek",
+            "gevşek fırça darbesi"
+          ],
+          "pal": [
+            "#d9c7a8",
+            "#8aa07c",
+            "#b97a62"
+          ],
+          "odalar": [
+            "Oturma",
+            "Yemek"
+          ],
+          "kw": "floral damask wallpaper",
+          "src": [
+            "mf",
+            "lv"
+          ],
+          "k": "kaynak"
+        },
+        {
+          "n": "Fransız kır çiçekleri",
+          "m": [
+            4,
+            5,
+            6
+          ],
+          "mo": [
+            "yabani çiçek buketi",
+            "lavanta",
+            "papatya"
+          ],
+          "pal": [
+            "#c8b6d9",
+            "#f4efe0",
+            "#8aa07c",
+            "#e6c36a"
+          ],
+          "odalar": [
+            "Mutfak",
+            "Yatak"
+          ],
+          "kw": "french country floral wallpaper",
+          "src": [
+            "mf"
+          ],
+          "k": "kısmi"
+        },
+        {
+          "n": "El çizimi ikat / çizgi",
+          "m": [],
+          "mo": [
+            "titrek çizgiler",
+            "ikat",
+            "kehribar tonları"
+          ],
+          "pal": [
+            "#c8872e",
+            "#2f5d50",
+            "#efe6d2"
+          ],
+          "odalar": [
+            "Koridor",
+            "Çalışma"
+          ],
+          "kw": "hand drawn stripe wallpaper",
+          "src": [
+            "lv"
+          ],
+          "k": "kaynak"
+        }
+      ]
+    },
+    {
+      "id": "deco",
+      "n": "Art Deco / Neo Deco",
+      "m": [
+        10,
+        11,
+        12
+      ],
+      "k": "tahmin",
+      "why": "Plum Noir ve altın tonları yemek odası/yılsonu dönemiyle örtüşüyor (çıkarım).",
+      "src": [
+        "pp",
+        "lv",
+        "mf"
+      ],
+      "sub": [
+        {
+          "n": "Yelpaze ve istiridye",
+          "m": [],
+          "mo": [
+            "yelpaze (fan)",
+            "istiridye kabuğu",
+            "altın çizgi"
+          ],
+          "pal": [
+            "#0f2a3a",
+            "#c9a45c",
+            "#f1e9d6"
+          ],
+          "odalar": [
+            "Yemek",
+            "Koridor"
+          ],
+          "kw": "art deco fan wallpaper",
+          "src": [
+            "pp"
+          ],
+          "k": "kaynak"
+        },
+        {
+          "n": "Kemer (arch) geometrisi",
+          "m": [],
+          "mo": [
+            "kemerler",
+            "geometrik tekrar",
+            "krom vurgu"
+          ],
+          "pal": [
+            "#1b1b1f",
+            "#bfc2c7",
+            "#c9a45c"
+          ],
+          "odalar": [
+            "Oturma"
+          ],
+          "kw": "arch wallpaper art deco",
+          "src": [
+            "pp"
+          ],
+          "k": "kaynak"
+        },
+        {
+          "n": "Altın zemin / lüster",
+          "m": [
+            11,
+            12
+          ],
+          "mo": [
+            "parlak altın zemin",
+            "iridesan botanik"
+          ],
+          "pal": [
+            "#c9a45c",
+            "#e8d9a8",
+            "#3b2f1a"
+          ],
+          "odalar": [
+            "Yemek",
+            "Yatak"
+          ],
+          "kw": "gold wallpaper luxury",
+          "src": [
+            "lv",
+            "mf"
+          ],
+          "k": "kaynak"
+        },
+        {
+          "n": "Moiré",
+          "m": [],
+          "mo": [
+            "akışkan moiré",
+            "kahverengi tonlar",
+            "yumuşak kontrast"
+          ],
+          "pal": [
+            "#4a3426",
+            "#a98e74",
+            "#e6dccb"
+          ],
+          "odalar": [
+            "Yatak",
+            "Çalışma"
+          ],
+          "kw": "moire wallpaper",
+          "src": [
+            "lv"
+          ],
+          "k": "kaynak"
+        },
+        {
+          "n": "Siyah-beyaz geometrik",
+          "m": [],
+          "mo": [
+            "rombus",
+            "çizgi ritmi"
+          ],
+          "pal": [
+            "#111111",
+            "#f2f2ee"
+          ],
+          "odalar": [
+            "Koridor"
+          ],
+          "kw": "geometric deco wallpaper",
+          "src": [],
+          "k": "tahmin"
+        }
+      ]
+    },
+    {
+      "id": "bot",
+      "n": "Botanik / Biophilic Maksimalizm",
+      "m": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "k": "kaynak",
+      "why": "Google bahar aramalarında çiçek desenleri tüm ev tekstili/duvar desenlerinin başında; biophilic maksimalizm 2026 ana trendi.",
+      "src": [
+        "sp",
+        "mf",
+        "lv",
+        "ez",
+        "id"
+      ],
+      "sub": [
+        {
+          "n": "Dev çiçek mural (hollyhock)",
+          "m": [
+            4,
+            5,
+            6
+          ],
+          "mo": [
+            "tırmanan yabani çiçek",
+            "gökyüzü mavisi zemin",
+            "sarmaşık"
+          ],
+          "pal": [
+            "#9cc3e8",
+            "#d9a3b8",
+            "#e8d9c0",
+            "#5e8a5a"
+          ],
+          "odalar": [
+            "Oturma",
+            "Yatak"
+          ],
+          "kw": "floral mural wallpaper",
+          "src": [
+            "mf"
+          ],
+          "k": "kaynak"
+        },
+        {
+          "n": "Gelincik / haşhaş (boyalı, moody)",
+          "m": [
+            5,
+            6
+          ],
+          "mo": [
+            "iri gelincikler",
+            "fırça izleri",
+            "koyu zemin"
+          ],
+          "pal": [
+            "#b8321f",
+            "#1f2a22",
+            "#e0c28a"
+          ],
+          "odalar": [
+            "Yemek"
+          ],
+          "kw": "poppy wallpaper painterly",
+          "src": [
+            "mf"
+          ],
+          "k": "kaynak"
+        },
+        {
+          "n": "Orman, bahçe ve şelale",
+          "m": [],
+          "mo": [
+            "sisli orman",
+            "botanik bahçe",
+            "şelale"
+          ],
+          "pal": [
+            "#3f5a45",
+            "#8aa28a",
+            "#d9d4bf"
+          ],
+          "odalar": [
+            "Yatak",
+            "Banyo"
+          ],
+          "kw": "forest mural wallpaper",
+          "src": [
+            "ez"
+          ],
+          "k": "kaynak"
+        },
+        {
+          "n": "Tropik yaprak (yumuşak, country-casual)",
+          "m": [
+            5,
+            6,
+            7
+          ],
+          "mo": [
+            "muz yaprağı",
+            "büyük yapraklar"
+          ],
+          "pal": [
+            "#2f6b4a",
+            "#9fc59a",
+            "#f0ecd8"
+          ],
+          "odalar": [
+            "Banyo",
+            "Oturma"
+          ],
+          "kw": "tropical leaf wallpaper",
+          "src": [
+            "lv",
+            "ez"
+          ],
+          "k": "kaynak",
+          "not": "Livingetc: sivri tropikal yerine yumuşak, country-casual desenler öne çıkıyor."
+        },
+        {
+          "n": "Su altı / deniz yosunu",
+          "m": [
+            6,
+            7,
+            8
+          ],
+          "mo": [
+            "dev kelp",
+            "aquamarine su",
+            "balık gölgeleri"
+          ],
+          "pal": [
+            "#3aa6a0",
+            "#175a64",
+            "#cfe9e4"
+          ],
+          "odalar": [
+            "Banyo",
+            "Çocuk"
+          ],
+          "kw": "underwater wallpaper mural",
+          "src": [
+            "mf"
+          ],
+          "k": "kaynak"
+        },
+        {
+          "n": "Gizli ayrıntılı botanik (hikâye)",
+          "m": [],
+          "mo": [
+            "yaprakta tırtıl",
+            "arka planda oyuncu karakter"
+          ],
+          "pal": [
+            "#d7849a",
+            "#6e8f5a",
+            "#f4ead6"
+          ],
+          "odalar": [
+            "Yatak"
+          ],
+          "kw": "whimsical botanical wallpaper",
+          "src": [
+            "lv"
+          ],
+          "k": "kaynak"
+        }
+      ]
+    },
+    {
+      "id": "boho",
+      "n": "Boho / Sahil / Pastel",
+      "m": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "k": "kısmi",
+      "why": "eRank yaz trendlerinde beachy boho, coastal cowgirl, mermaidcore ve pastel paletler öne çıkıyor.",
+      "src": [
+        "er",
+        "pp"
+      ],
+      "sub": [
+        {
+          "n": "Coastal cowgirl",
+          "m": [
+            5,
+            6,
+            7
+          ],
+          "mo": [
+            "deniz kabuğu",
+            "solmuş denim mavisi",
+            "western dokunuş"
+          ],
+          "pal": [
+            "#a9c3d6",
+            "#efe3cf",
+            "#b8805a"
+          ],
+          "odalar": [
+            "Yatak"
+          ],
+          "kw": "coastal cowgirl wallpaper",
+          "src": [
+            "er"
+          ],
+          "k": "kaynak"
+        },
+        {
+          "n": "Plajlı boho",
+          "m": [
+            5,
+            6,
+            7
+          ],
+          "mo": [
+            "kum tepeleri",
+            "dokuma geometri",
+            "makrome"
+          ],
+          "pal": [
+            "#e6d3b3",
+            "#c58a5d",
+            "#f6efe2"
+          ],
+          "odalar": [
+            "Oturma",
+            "Yatak"
+          ],
+          "kw": "boho beach wallpaper",
+          "src": [
+            "er"
+          ],
+          "k": "kaynak"
+        },
+        {
+          "n": "Mermaidcore / deniz kabuğu",
+          "m": [
+            6,
+            7,
+            8
+          ],
+          "mo": [
+            "deniz köpüğü yeşili",
+            "sedef parıltı",
+            "dalga"
+          ],
+          "pal": [
+            "#8fd3c2",
+            "#d8c6ee",
+            "#f6efe8"
+          ],
+          "odalar": [
+            "Banyo",
+            "Çocuk"
+          ],
+          "kw": "mermaid wallpaper seafoam",
+          "src": [
+            "er"
+          ],
+          "k": "kaynak"
+        },
+        {
+          "n": "Pastel macaron paleti",
+          "m": [
+            3,
+            4,
+            5
+          ],
+          "mo": [
+            "tereyağı sarısı",
+            "nane",
+            "pudra mavisi",
+            "pembe"
+          ],
+          "pal": [
+            "#f3e3a0",
+            "#bfe3cd",
+            "#bcd6ee",
+            "#f1c8d0"
+          ],
+          "odalar": [
+            "Çocuk",
+            "Yatak"
+          ],
+          "kw": "pastel wallpaper",
+          "src": [
+            "er"
+          ],
+          "k": "kaynak"
+        },
+        {
+          "n": "Afrohemian (kültürel özenle)",
+          "m": [],
+          "mo": [
+            "dokuma sepet motifleri",
+            "oyma ahşap",
+            "toprak tonları"
+          ],
+          "pal": [
+            "#8a4b2a",
+            "#c9a36a",
+            "#2f2a22"
+          ],
+          "odalar": [
+            "Oturma"
+          ],
+          "kw": "afrohemian wallpaper",
+          "src": [
+            "pp"
+          ],
+          "k": "kısmi",
+          "not": "Kültürel motifleri taklit etmeden, genel dokuma/doğal malzeme diliyle çalış."
+        }
+      ]
+    },
+    {
+      "id": "west",
+      "n": "Western / Ranch",
+      "m": [
+        8,
+        9,
+        10
+      ],
+      "k": "tahmin",
+      "why": "Western dekor yıl boyu gündemde; sonbahar (ranch/rodeo havası) için çıkarım. Yaz için coastal cowgirl ayrı satırda.",
+      "src": [
+        "fy",
+        "cg",
+        "wb"
+      ],
+      "sub": [
+        {
+          "n": "Refined Southwest",
+          "m": [],
+          "mo": [
+            "çöl çiçekleri",
+            "dokuma geometri",
+            "kaktüs çiçeği"
+          ],
+          "pal": [
+            "#b5664a",
+            "#d9bf98",
+            "#6d7a5a",
+            "#efe6d4"
+          ],
+          "odalar": [
+            "Oturma",
+            "Yemek"
+          ],
+          "kw": "southwestern wallpaper",
+          "src": [
+            "fy"
+          ],
+          "k": "kaynak"
+        },
+        {
+          "n": "Full rodeo",
+          "m": [],
+          "mo": [
+            "kovboy çizmesi",
+            "boğa/bronco",
+            "nal",
+            "yıldız"
+          ],
+          "pal": [
+            "#b8321f",
+            "#2a2a2a",
+            "#e8dcc0"
+          ],
+          "odalar": [
+            "Çocuk",
+            "Banyo"
+          ],
+          "kw": "rodeo wallpaper",
+          "src": [
+            "fy"
+          ],
+          "k": "kaynak"
+        },
+        {
+          "n": "Modern cowgirl",
+          "m": [],
+          "mo": [
+            "pembe ve lime canlı tonlar",
+            "parlak western motifleri"
+          ],
+          "pal": [
+            "#f06aa0",
+            "#b6e04a",
+            "#f4a261"
+          ],
+          "odalar": [
+            "Yatak"
+          ],
+          "kw": "cowgirl wallpaper pink",
+          "src": [
+            "fy",
+            "cg"
+          ],
+          "k": "kaynak"
+        },
+        {
+          "n": "Koyu moody ranch",
+          "m": [],
+          "mo": [
+            "antrasit-espresso",
+            "eskitilmiş ahşap",
+            "demir"
+          ],
+          "pal": [
+            "#2b2a29",
+            "#4a3426",
+            "#8b5a3c"
+          ],
+          "odalar": [
+            "Çalışma",
+            "Yemek"
+          ],
+          "kw": "moody western wallpaper",
+          "src": [
+            "cg"
+          ],
+          "k": "kaynak"
+        },
+        {
+          "n": "Saçak (fringe) desen",
+          "m": [],
+          "mo": [
+            "şal saçağı",
+            "serape çizgileri",
+            "conchos"
+          ],
+          "pal": [
+            "#c8873e",
+            "#7a3b2a",
+            "#efe3c8"
+          ],
+          "odalar": [
+            "Koridor",
+            "Banyo"
+          ],
+          "kw": "fringe wallpaper western",
+          "src": [
+            "cg"
+          ],
+          "k": "kaynak"
+        },
+        {
+          "n": "Hacienda / terracotta",
+          "m": [],
+          "mo": [
+            "kaktüs karo",
+            "Güneybatı terracotta",
+            "el yapımı seramik"
+          ],
+          "pal": [
+            "#c4663f",
+            "#e6c9a0",
+            "#4a6b5a"
+          ],
+          "odalar": [
+            "Mutfak"
+          ],
+          "kw": "hacienda wallpaper",
+          "src": [
+            "cg"
+          ],
+          "k": "kaynak"
+        },
+        {
+          "n": "Sığır derisi (cowhide) doku",
+          "m": [],
+          "mo": [
+            "inek derisi lekeleri",
+            "nötr zemin"
+          ],
+          "pal": [
+            "#f0e8da",
+            "#2a2420",
+            "#9a6e4a"
+          ],
+          "odalar": [
+            "Oturma"
+          ],
+          "kw": "cowhide print wallpaper",
+          "src": [
+            "cg"
+          ],
+          "k": "kaynak"
+        }
+      ]
+    },
+    {
+      "id": "cot",
+      "n": "Cottagecore / Whimsigoth",
+      "m": [
+        4,
+        5,
+        6,
+        10
+      ],
+      "k": "tahmin",
+      "why": "Cottagecore ve mantar dekoru aramaları büyüdü; mevsim bilgisi kaynaklarda yok. Bahar (cottage) ve sonbahar (whimsigoth) çıkarımı.",
+      "src": [
+        "er",
+        "sb",
+        "pp"
+      ],
+      "sub": [
+        {
+          "n": "Ay ışığında bahçe",
+          "m": [
+            10,
+            11
+          ],
+          "mo": [
+            "mehtap",
+            "antik çiçekler",
+            "gece bahçesi"
+          ],
+          "pal": [
+            "#1f2b3a",
+            "#c8c0e0",
+            "#e2d6a0"
+          ],
+          "odalar": [
+            "Yatak"
+          ],
+          "kw": "moonlit garden wallpaper",
+          "src": [
+            "er"
+          ],
+          "k": "kaynak"
+        },
+        {
+          "n": "Mantar ve orman zemini",
+          "m": [
+            9,
+            10
+          ],
+          "mo": [
+            "mantarlar",
+            "eğrelti",
+            "yosun"
+          ],
+          "pal": [
+            "#6e4a2a",
+            "#b04a3a",
+            "#d8d2b0",
+            "#3f5a3a"
+          ],
+          "odalar": [
+            "Mutfak",
+            "Çocuk"
+          ],
+          "kw": "mushroom wallpaper",
+          "src": [
+            "er",
+            "sb"
+          ],
+          "k": "kaynak"
+        },
+        {
+          "n": "Dantel ve antik kumaş (reclamation)",
+          "m": [],
+          "mo": [
+            "dantel",
+            "örgü dantel (doily)",
+            "miras motifleri"
+          ],
+          "pal": [
+            "#efe6d6",
+            "#c9b79a",
+            "#8a7a64"
+          ],
+          "odalar": [
+            "Yatak",
+            "Yemek"
+          ],
+          "kw": "lace wallpaper vintage",
+          "src": [
+            "pp"
+          ],
+          "k": "kaynak"
+        },
+        {
+          "n": "Ay evreleri",
+          "m": [],
+          "mo": [
+            "ay evreleri",
+            "yıldız tozu",
+            "mistik çizgi"
+          ],
+          "pal": [
+            "#2a2f4a",
+            "#d9cfa8",
+            "#8a8fc0"
+          ],
+          "odalar": [
+            "Yatak"
+          ],
+          "kw": "moon phase wallpaper",
+          "src": [
+            "er"
+          ],
+          "k": "kaynak"
+        },
+        {
+          "n": "Kurutulmuş çiçek",
+          "m": [
+            4,
+            5
+          ],
+          "mo": [
+            "preslenmiş çiçekler",
+            "kâğıt dokusu"
+          ],
+          "pal": [
+            "#e5d3c0",
+            "#b98a8a",
+            "#8a9a6e"
+          ],
+          "odalar": [
+            "Yatak",
+            "Mutfak"
+          ],
+          "kw": "pressed flower wallpaper",
+          "src": [
+            "er",
+            "sb"
+          ],
+          "k": "kaynak"
+        }
+      ]
+    },
+    {
+      "id": "max",
+      "n": "Maksimalist / Hikâye Anlatan",
+      "m": [
+        1,
+        2,
+        3
+      ],
+      "k": "kısmi",
+      "why": "Ocak ayı Google Trends'te eklektik ve maksimalist stiller en çok aranan stillerdi; 1stDibs'e göre 2026'nın en çok istenen stili.",
+      "src": [
+        "id",
+        "lv",
+        "mf"
+      ],
+      "sub": [
+        {
+          "n": "Hikâye anlatan gizli ayrıntılar",
+          "m": [],
+          "mo": [
+            "gizli karakter",
+            "mizahi küçük detaylar"
+          ],
+          "pal": [
+            "#e0709a",
+            "#4f7a52",
+            "#f2e3c0"
+          ],
+          "odalar": [
+            "Oturma"
+          ],
+          "kw": "whimsical wallpaper",
+          "src": [
+            "lv"
+          ],
+          "k": "kaynak"
+        },
+        {
+          "n": "Mücevher tonları ve altın",
+          "m": [],
+          "mo": [
+            "zümrüt, safir, yakut",
+            "altın zemin"
+          ],
+          "pal": [
+            "#0f6b4a",
+            "#1f3a8c",
+            "#8c1f3a",
+            "#c9a45c"
+          ],
+          "odalar": [
+            "Yemek",
+            "Kütüphane"
+          ],
+          "kw": "jewel tone wallpaper",
+          "src": [
+            "lv"
+          ],
+          "k": "kaynak"
+        },
+        {
+          "n": "Hayvan baskısı (leopar, çita)",
+          "m": [
+            3,
+            4,
+            5
+          ],
+          "mo": [
+            "leopar",
+            "çita",
+            "zebra"
+          ],
+          "pal": [
+            "#c8873e",
+            "#2a2018",
+            "#efe0b8"
+          ],
+          "odalar": [
+            "Koridor",
+            "Banyo"
+          ],
+          "kw": "leopard wallpaper",
+          "src": [
+            "sp",
+            "id"
+          ],
+          "k": "kaynak"
+        },
+        {
+          "n": "Tavan duvar kağıdı (5. duvar)",
+          "m": [],
+          "mo": [
+            "tavan paneli",
+            "bulut",
+            "tavana taşan çiçek"
+          ],
+          "pal": [
+            "#bcd6ee",
+            "#f4efe8",
+            "#e8c9a8"
+          ],
+          "odalar": [
+            "Yatak",
+            "Çocuk"
+          ],
+          "kw": "ceiling wallpaper",
+          "src": [
+            "lv",
+            "mf",
+            "ez"
+          ],
+          "k": "kaynak"
+        },
+        {
+          "n": "Retro 70'ler çiçek",
+          "m": [
+            5,
+            6,
+            7
+          ],
+          "mo": [
+            "70'ler papatya",
+            "turuncu-kahve"
+          ],
+          "pal": [
+            "#e07b2c",
+            "#7a4a2a",
+            "#f1d98a"
+          ],
+          "odalar": [
+            "Mutfak"
+          ],
+          "kw": "70s floral wallpaper",
+          "src": [
+            "er"
+          ],
+          "k": "kaynak"
+        }
+      ]
+    },
+    {
+      "id": "cel",
+      "n": "Celestial / Mystic",
+      "m": [
+        10,
+        11,
+        12
+      ],
+      "k": "tahmin",
+      "why": "Pinterest \"Extra Celestial\" ve \"Mystic Outlands\" 2026 için öne çıkarıldı; mevsim çıkarımdır.",
+      "src": [
+        "pp",
+        "mf"
+      ],
+      "sub": [
+        {
+          "n": "Opal / holografik gökyüzü",
+          "m": [],
+          "mo": [
+            "opalesan yüzey",
+            "organik eğriler",
+            "ışık parıltısı"
+          ],
+          "pal": [
+            "#cfc2ee",
+            "#b9e0e8",
+            "#f4d7e8"
+          ],
+          "odalar": [
+            "Yatak"
+          ],
+          "kw": "holographic wallpaper",
+          "src": [
+            "pp"
+          ],
+          "k": "kaynak"
+        },
+        {
+          "n": "Dev bulut mural",
+          "m": [],
+          "mo": [
+            "yumuşak bulutlar",
+            "tavan uyumlu"
+          ],
+          "pal": [
+            "#c9def0",
+            "#f6f1ea"
+          ],
+          "odalar": [
+            "Çocuk",
+            "Yatak"
+          ],
+          "kw": "cloud wallpaper mural",
+          "src": [
+            "mf"
+          ],
+          "k": "kaynak"
+        },
+        {
+          "n": "Gün doğumu gradyanı",
+          "m": [],
+          "mo": [
+            "ombre gökyüzü",
+            "güneş diski"
+          ],
+          "pal": [
+            "#f2a65a",
+            "#e07b7b",
+            "#6b5b95"
+          ],
+          "odalar": [
+            "Oturma"
+          ],
+          "kw": "sunrise ombre wallpaper",
+          "src": [],
+          "k": "tahmin"
+        },
+        {
+          "n": "Takımyıldızı ve yıldız tozu",
+          "m": [
+            11,
+            12
+          ],
+          "mo": [
+            "takımyıldızı",
+            "altın noktalar"
+          ],
+          "pal": [
+            "#101c3a",
+            "#c9b777"
+          ],
+          "odalar": [
+            "Çalışma",
+            "Yatak"
+          ],
+          "kw": "constellation wallpaper",
+          "src": [],
+          "k": "tahmin"
+        }
+      ]
+    },
+    {
+      "id": "nur",
+      "n": "Çocuk Odası / Bebek",
+      "ev": true,
+      "m": [],
+      "k": "kısmi",
+      "why": "Yıl boyu talep; kaynaklar mevsim vermiyor. Nursery tasarımları 2026'da daha sofistike ve nötr paletli.",
+      "src": [
+        "ez",
+        "mf",
+        "er"
+      ],
+      "sub": [
+        {
+          "n": "Safari hayvanları",
+          "m": [],
+          "mo": [
+            "zürafa",
+            "fil",
+            "savan"
+          ],
+          "pal": [
+            "#d9bf98",
+            "#8a9a6e",
+            "#efe6d4"
+          ],
+          "odalar": [
+            "Çocuk"
+          ],
+          "kw": "safari nursery wallpaper",
+          "src": [
+            "ez"
+          ],
+          "k": "kaynak"
+        },
+        {
+          "n": "Orman hayvanları",
+          "m": [],
+          "mo": [
+            "tilki",
+            "ayı",
+            "çam ağaçları"
+          ],
+          "pal": [
+            "#7a8a6a",
+            "#d8c7a0",
+            "#a86a4a"
+          ],
+          "odalar": [
+            "Çocuk"
+          ],
+          "kw": "woodland nursery wallpaper",
+          "src": [
+            "ez"
+          ],
+          "k": "kaynak"
+        },
+        {
+          "n": "Suluboya çizimler",
+          "m": [],
+          "mo": [
+            "yumuşak suluboya",
+            "nötr palet"
+          ],
+          "pal": [
+            "#e8dccb",
+            "#c9d4c0",
+            "#d9bfbf"
+          ],
+          "odalar": [
+            "Çocuk"
+          ],
+          "kw": "watercolor nursery wallpaper",
+          "src": [
+            "ez"
+          ],
+          "k": "kaynak"
+        },
+        {
+          "n": "Vintage hikâye kitabı",
+          "m": [],
+          "mo": [
+            "hikâye kitabı çizimleri",
+            "nazik manzara"
+          ],
+          "pal": [
+            "#d9c7a0",
+            "#8aa08a",
+            "#c98a7a"
+          ],
+          "odalar": [
+            "Çocuk"
+          ],
+          "kw": "storybook nursery wallpaper",
+          "src": [
+            "ez"
+          ],
+          "k": "kaynak"
+        },
+        {
+          "n": "Pastel oyuncu desenler",
+          "m": [
+            3,
+            4,
+            5
+          ],
+          "mo": [
+            "tereyağı sarısı",
+            "nane",
+            "pudra mavi"
+          ],
+          "pal": [
+            "#f3e3a0",
+            "#bfe3cd",
+            "#bcd6ee"
+          ],
+          "odalar": [
+            "Çocuk"
+          ],
+          "kw": "pastel nursery wallpaper",
+          "src": [
+            "er"
+          ],
+          "k": "kaynak"
+        },
+        {
+          "n": "Tavan bulut / gökyüzü",
+          "m": [],
+          "mo": [
+            "dört panelli gökyüzü",
+            "bulut"
+          ],
+          "pal": [
+            "#bcd6ee",
+            "#f6f1ea"
+          ],
+          "odalar": [
+            "Çocuk"
+          ],
+          "kw": "nursery ceiling mural",
+          "src": [
+            "mf"
+          ],
+          "k": "kaynak"
+        }
+      ]
+    },
+    {
+      "id": "land",
+      "n": "Manzara / Mural",
+      "m": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "k": "tahmin",
+      "why": "Dış mekân, seyahat ve bahar-yaz dönemi (çıkarım). Kiracı dostu (renter-friendly) aramalar +%29 büyüdü.",
+      "src": [
+        "ez",
+        "lv",
+        "gl"
+      ],
+      "sub": [
+        {
+          "n": "Dağ silsilesi",
+          "m": [],
+          "mo": [
+            "dağ sırası",
+            "sis katmanları"
+          ],
+          "pal": [
+            "#6f7f8f",
+            "#c9d2d8",
+            "#2f3b45"
+          ],
+          "odalar": [
+            "Oturma",
+            "Yatak"
+          ],
+          "kw": "mountain mural wallpaper",
+          "src": [
+            "ez"
+          ],
+          "k": "kaynak"
+        },
+        {
+          "n": "Kıyı falezleri / tropikal plaj",
+          "m": [
+            5,
+            6,
+            7,
+            8
+          ],
+          "mo": [
+            "falez",
+            "dalga",
+            "palmiye"
+          ],
+          "pal": [
+            "#3aa6c0",
+            "#e8d9b8",
+            "#2f6b5a"
+          ],
+          "odalar": [
+            "Oturma"
+          ],
+          "kw": "coastal mural wallpaper",
+          "src": [
+            "ez"
+          ],
+          "k": "kaynak"
+        },
+        {
+          "n": "Sisli orman",
+          "m": [
+            9,
+            10
+          ],
+          "mo": [
+            "sisli ağaçlar",
+            "katmanlı ormanlık"
+          ],
+          "pal": [
+            "#7a8a7a",
+            "#cfd6cc",
+            "#3a4a42"
+          ],
+          "odalar": [
+            "Yatak",
+            "Çalışma"
+          ],
+          "kw": "misty forest mural",
+          "src": [
+            "ez"
+          ],
+          "k": "kaynak"
+        },
+        {
+          "n": "Çöl kumulları",
+          "m": [],
+          "mo": [
+            "kumul çizgileri",
+            "sıcak ışık"
+          ],
+          "pal": [
+            "#d9a66a",
+            "#f0d9b0",
+            "#a8683a"
+          ],
+          "odalar": [
+            "Oturma"
+          ],
+          "kw": "desert dunes mural",
+          "src": [
+            "ez"
+          ],
+          "k": "kaynak"
+        },
+        {
+          "n": "İtalyan kırları",
+          "m": [
+            5,
+            6
+          ],
+          "mo": [
+            "selvi sırası",
+            "tepeler",
+            "bağ"
+          ],
+          "pal": [
+            "#8a9a5a",
+            "#d9c27a",
+            "#a85a3a"
+          ],
+          "odalar": [
+            "Yemek"
+          ],
+          "kw": "tuscany landscape mural",
+          "src": [
+            "ez",
+            "lv"
+          ],
+          "k": "kaynak"
+        },
+        {
+          "n": "İskandinav gölü",
+          "m": [],
+          "mo": [
+            "göl",
+            "çam ormanı",
+            "sakin ufuk"
+          ],
+          "pal": [
+            "#7a9cb0",
+            "#d6dde0",
+            "#3a4f4a"
+          ],
+          "odalar": [
+            "Yatak"
+          ],
+          "kw": "nordic lake mural",
+          "src": [
+            "ez"
+          ],
+          "k": "kaynak"
+        }
+      ]
+    },
+    {
+      "id": "tex",
+      "n": "Doku / Soyut / Sanatsal",
+      "ev": true,
+      "m": [],
+      "k": "kısmi",
+      "why": "Yıl boyu; büyük ölçekli soyut ve dokulu baskılar 2026 mural trendleri arasında.",
+      "src": [
+        "ez",
+        "lv"
+      ],
+      "sub": [
+        {
+          "n": "Limewash ve Venedik sıvası",
+          "m": [],
+          "mo": [
+            "sıva dokusu",
+            "bulutlu ton geçişi"
+          ],
+          "pal": [
+            "#e3dccf",
+            "#c4b9a6"
+          ],
+          "odalar": [
+            "Oturma",
+            "Yatak"
+          ],
+          "kw": "plaster texture wallpaper",
+          "src": [
+            "ez"
+          ],
+          "k": "kaynak"
+        },
+        {
+          "n": "Mermer ve taş",
+          "m": [],
+          "mo": [
+            "mermer damarı",
+            "taş yüzey"
+          ],
+          "pal": [
+            "#efede8",
+            "#9a9a98",
+            "#c9b98a"
+          ],
+          "odalar": [
+            "Banyo",
+            "Mutfak"
+          ],
+          "kw": "marble wallpaper",
+          "src": [
+            "ez"
+          ],
+          "k": "kaynak"
+        },
+        {
+          "n": "Fırça darbesi soyut",
+          "m": [],
+          "mo": [
+            "akıcı fırça",
+            "geometrik kompozisyon"
+          ],
+          "pal": [
+            "#d9bfa0",
+            "#8a6a58",
+            "#2f3a3a"
+          ],
+          "odalar": [
+            "Oturma",
+            "Çalışma"
+          ],
+          "kw": "abstract brushstroke wallpaper",
+          "src": [
+            "ez",
+            "lv"
+          ],
+          "k": "kaynak"
+        },
+        {
+          "n": "Suluboya etkisi",
+          "m": [],
+          "mo": [
+            "akan suluboya",
+            "yumuşak kenarlar"
+          ],
+          "pal": [
+            "#bcd6e0",
+            "#e6c9d4",
+            "#efe9dc"
+          ],
+          "odalar": [
+            "Yatak"
+          ],
+          "kw": "watercolor wallpaper",
+          "src": [
+            "ez"
+          ],
+          "k": "kaynak"
+        },
+        {
+          "n": "Painterly çizgili",
+          "m": [],
+          "mo": [
+            "el çizimi şeritler"
+          ],
+          "pal": [
+            "#c8872e",
+            "#2f5d50",
+            "#efe6d2"
+          ],
+          "odalar": [
+            "Koridor"
+          ],
+          "kw": "painterly stripe wallpaper",
+          "src": [
+            "lv"
+          ],
+          "k": "kaynak"
+        }
+      ]
+    },
+    {
+      "id": "ret",
+      "n": "Retro / FunHaus",
+      "m": [
+        5,
+        6,
+        7
+      ],
+      "k": "kısmi",
+      "why": "eRank yaz trendlerinde piknik ve retro (gingham, meyve, 70'ler çiçek); Pinterest FunHaus (sirk çizgileri).",
+      "src": [
+        "er",
+        "pp"
+      ],
+      "sub": [
+        {
+          "n": "Sirk çizgileri (FunHaus)",
+          "m": [],
+          "mo": [
+            "kalın çizgiler",
+            "oyuncu abartı",
+            "tek renk zemin"
+          ],
+          "pal": [
+            "#c8352a",
+            "#f2e8d0",
+            "#1f2a44"
+          ],
+          "odalar": [
+            "Çocuk",
+            "Mutfak"
+          ],
+          "kw": "circus stripe wallpaper",
+          "src": [
+            "pp"
+          ],
+          "k": "kaynak"
+        },
+        {
+          "n": "Gingham ve piknik",
+          "m": [
+            5,
+            6,
+            7
+          ],
+          "mo": [
+            "gingham",
+            "emaye",
+            "meyve"
+          ],
+          "pal": [
+            "#c8352a",
+            "#f6f1e4",
+            "#e7b84a"
+          ],
+          "odalar": [
+            "Mutfak"
+          ],
+          "kw": "gingham wallpaper",
+          "src": [
+            "er"
+          ],
+          "k": "kaynak"
+        },
+        {
+          "n": "70'ler çiçek ve turuncu-kahve",
+          "m": [
+            5,
+            6,
+            7
+          ],
+          "mo": [
+            "papatya",
+            "turuncu",
+            "kahve"
+          ],
+          "pal": [
+            "#e07b2c",
+            "#7a4a2a",
+            "#f1d98a"
+          ],
+          "odalar": [
+            "Mutfak",
+            "Oturma"
+          ],
+          "kw": "retro floral wallpaper",
+          "src": [
+            "er"
+          ],
+          "k": "kaynak"
+        },
+        {
+          "n": "Meyve / mutfak",
+          "m": [
+            6,
+            7,
+            8
+          ],
+          "mo": [
+            "limon",
+            "kiraz",
+            "çilek"
+          ],
+          "pal": [
+            "#e8c43a",
+            "#b8321f",
+            "#f6efd8"
+          ],
+          "odalar": [
+            "Mutfak"
+          ],
+          "kw": "fruit kitchen wallpaper",
+          "src": [
+            "er"
+          ],
+          "k": "kaynak"
+        }
+      ]
+    }
+  ]
+}

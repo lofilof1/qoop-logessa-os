@@ -1,0 +1,8 @@
+import {readFile} from 'node:fs/promises';
+const base='http://127.0.0.1:5173';
+const login=await fetch(base+'/signin-with-chatgpt?return_to=/',{redirect:'manual'}),cookie=login.headers.get('set-cookie')?.split(';')[0];if(!cookie)throw new Error('Local development sign-in required');
+const headers={Cookie:cookie,Origin:base,'Content-Type':'application/json'};
+const created=await fetch(base+'/api/designs',{method:'POST',headers,body:JSON.stringify({name:'Zeytin Dalı · Örnek Tasarım',kind:'pattern',stage:'design',body:{collection:'AI örnekleri · baskı için onaylanmadı',motif:'olive branches and terracotta buds',style:'vintage botanical',palette:'warm ivory, sage green, terracotta',notes:'Bu, mockup akışını incelemek için AI ile üretilmiş bir örnek desendir. Baskı/seamless doğrulaması yapılmadı. Kontrol kutuları bilinçli olarak boş bırakıldı.'}})});if(!created.ok)throw new Error(await created.text());let d=await created.json();
+const bytes=await readFile(new URL('../public/example-botanical.png',import.meta.url));const uploaded=await fetch(base+`/api/assets?designId=${d.id}`,{method:'POST',headers:{Cookie:cookie,Origin:base,'Content-Type':'image/png','X-File-Name':'example-botanical.png'},body:bytes});if(!uploaded.ok)throw new Error(await uploaded.text());const a=await uploaded.json();
+const saved=await fetch(base+`/api/designs/${d.id}`,{method:'PATCH',headers,body:JSON.stringify({...d,body:{...d.body,imageId:a.id,widthPx:a.width,heightPx:a.height,mockup:{...d.body.mockup,repeatWidthCm:58.42,wallWidthCm:400,wallHeightCm:300,calibrated:false}}})});if(!saved.ok)throw new Error(await saved.text());
+console.log('Local illustrative demo created; print checks are intentionally unapproved. Refresh the library.');

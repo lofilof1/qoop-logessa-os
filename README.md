@@ -1,5 +1,19 @@
 # Qoop & Logessa · Unified Wallpaper OS
 
+## LOGESSA Studio · 2 Kasım 2026
+
+Odaklı ve çalışan yeni stüdyo uygulaması **[`apps/logessa-studio`](apps/logessa-studio)** altında yer alır. Mevcut unified-platform, fullstack-nextjs ve sources klasörleri korunmuştur.
+
+- Tek fikirden Alura pazar araştırması, brief, palet, üretim promptu ve İngilizce ilan taslağı.
+- Ay seçimiyle değişen sezon radarı, 14 stil / 78 tema, yıllık takvim, seçili temaları doğrudan Alura ile ölçme.
+- Tarihli gerçek ölçümlerden etkileşimli talep–rekabet haritası, 3 aylık değişim, skor sıralaması ve CSV. Editoryal sezon planı ile pazar verisi ayrı gösterilir.
+- Santimetreyle ölçeklenen, orijinal masterı yeniden çizmeden perspektife yerleştiren mockup; kaynak renk/gölge seçenekleri.
+- React / TypeScript / Vinext / Cloudflare Worker, D1 ve özel R2. API anahtarları sunucu sırrıdır. Kaynakta canlı anahtar veya kullanıcı veritabanı bulunmaz.
+
+Canlı özel çalışma alanı: [LOGESSA Studio](https://logessa-studio.emre-lof-a-a-3425.chatgpt.site/#seasonal). Kurulum, sınırlamalar ve test komutları için [uygulama README'sini](apps/logessa-studio/README.md) inceleyin. Gerçek AI görsel üretimi ayrıca model API erişimi gerektirir; Alura tek başına görsel üretmez. Sohbette üretilip tarayıcıdan yüklenen görsel testleri otomatik API bağlantısı olarak sayılmaz.
+
+Doğrulama: TypeScript kontrolü, 18 birim testi ve derlenmiş Worker üzerinde izole D1/R2 sağlayıcı testleri. Sezon ölçümleri de sahiplik, en fazla üç kelime ve önbellek kontrollerine dahildir.
+
 Uçtan uca duvar kağıdı / mural e-ticaret işletim sistemi. Tasarım üretiminden yapay zekâ kalite kontrolüne (QDS), 8-temalı canlı HTML5 Canvas mockup motorundan Etsy API v3 entegrasyonu, envanter yönetimi ve eylemli pazar radarına kadar tüm süreci tek çatı altında toplar.
 
 ---

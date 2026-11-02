@@ -1,0 +1,2 @@
+# Copy to .dev.vars for local development only; never commit the actual key.
+ALURA_API_KEY=
