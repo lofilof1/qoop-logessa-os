@@ -6,6 +6,7 @@ Odaklı ve çalışan yeni stüdyo uygulaması **[`apps/logessa-studio`](apps/lo
 
 - Tek fikirden Alura pazar araştırması, brief, palet, üretim promptu ve İngilizce ilan taslağı.
 - Ay seçimiyle değişen sezon radarı, 14 stil / 78 tema, yıllık takvim, seçili temaları doğrudan Alura ile ölçme.
+- İlk girişte altı adımlı mobil uyumlu rehber; sağ üstteki ⓘ düğmesinden yeniden açma, radar/takvim simgeleri.
 - Tarihli gerçek ölçümlerden etkileşimli talep–rekabet haritası, 3 aylık değişim, skor sıralaması ve CSV. Editoryal sezon planı ile pazar verisi ayrı gösterilir.
 - Santimetreyle ölçeklenen, orijinal masterı yeniden çizmeden perspektife yerleştiren mockup; kaynak renk/gölge seçenekleri.
 - React / TypeScript / Vinext / Cloudflare Worker, D1 ve özel R2. API anahtarları sunucu sırrıdır. Kaynakta canlı anahtar veya kullanıcı veritabanı bulunmaz.

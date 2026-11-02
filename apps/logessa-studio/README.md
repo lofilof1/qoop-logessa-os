@@ -2,6 +2,8 @@
 
 ## Dinamik sezon radarı
 
+İlk oturum açılışında altı adımlı stüdyo rehberi gösterilir. Sağ üstteki ⓘ Rehber düğmesi her zaman yeniden açar. Kapatma/geçme bilgisi tarayıcıda `logessa-studio-guide-v1` anahtarıyla saklanır. Rehber yalnız kullanım akışını anlatır; sayfa değiştirmez, kayıt üretmez, sağlayıcı sorgusu çalıştırmaz. Escape, önceki/sonraki okları, adım noktaları ve mobil yerleşim desteklenir.
+
 Trend & sezon ekranında ayı değiştiren radar, hazırlık payı, stil/motif araması, seçim listesi ve yıllık takvim bulunur. Bir stilin üç temasını tek tuşla Alura'da ölçmek en fazla 3 yeni kredi kullanır; tek tema ölçümü en fazla 1 kredidir. `POST /api/seasonal` kullanıcı/origin kontrolü, eşzamanlı istek birleştirme, üç kelime üst sınırı ve 24 saat sağlayıcı önbelleği kullanır. Sayfa açılışı ücretli sorgu yapmaz.
 
 Analitik bölümü gerçek arama hacmi ve rekabetten log ölçekli etkileşimli harita, kaynak tarihindeki 3 aylık değişim, sıralanabilir karşılaştırma ve CSV üretir. Aynı kelimede en yeni sağlayıcı tarihi seçilir; aramalar toplanıp hayalî bir toplam talep oluşturulmaz. 90 günden eski/tarihsiz kaynaklar varsayılan filtre dışında, istenirse işaretli olarak gösterilir. Takvim ayrı bir editoryal plandır; ay değişikliği Alura metriklerini veya yeni bir tahmini üretmez.
